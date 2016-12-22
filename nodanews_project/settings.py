@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: change this before deploying to production!
-SECRET_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+SECRET_KEY = os.getenv('APP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'nodanews_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd99osaitmqloiu',
-        'USER': 'lbwdikvfsklihm',
-        'PASSWORD': 'f4cae5bb28c287d4707120b9644853550e2e01862848e535926dd5f3d7289d74',
-        'HOST': 'ec2-184-72-255-211.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
     },
     'testing': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -137,9 +137,9 @@ STATICFILES_DIRS = (
 )
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-AWS_STORAGE_BUCKET_NAME = 'nodastorage'
-AWS_ACCESS_KEY_ID = 'AKIAJRFQDGCEC4HEPG3A'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
     # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
     # it simple - just use this domain plus the path. (If this isn't set, things get complicated).
