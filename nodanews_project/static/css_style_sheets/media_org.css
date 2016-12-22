@@ -1,0 +1,57 @@
+@charset "utf-8";
+#name {
+	font-family: Century;
+	font-size: xx-large;
+	position: absolute;
+	top: 152px;
+	left: 30%;
+	min-width: 200px;
+}
+
+#media_org_logo {
+	position: absolute;
+	top: 187px;
+	left: 5%;
+	max-width: 300px;
+}
+#description {
+	width: 600px;
+	position: absolute;
+	top: 249px;
+	left: 30%;
+	font-family: Century;
+	font-size: large;
+}
+#date_founded{
+	position: absolute;
+	top: 178px;
+	left: 60%;
+	font-family: Century;
+	font-size: large;
+	font-weight: bold;
+}
+#fake {
+	width: 750px;
+	position: absolute;
+	top: 119px;
+	left: 67px;
+}
+
+
+@media only screen and (max-width : 1000px) {
+
+	#media_org_logo{
+	max-width: 200px;
+	position: absolute;
+	left: 0%;
+			
+	}
+	#date_founded {
+	position: absolute;
+	left: 609px;
+	}
+#description {
+	font-size: x-large;
+}
+
+}

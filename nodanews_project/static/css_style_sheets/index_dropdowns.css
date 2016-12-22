@@ -1,0 +1,258 @@
+@charset "utf-8";
+/* Dropdown Button */
+.sdropbtn {
+	background-color: #19920C;
+	color: white;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 260px;
+	left: 5%;
+	z-index: 2;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+	border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	max-width: 187px;
+	width: 183px;
+	height: 55px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.sdropdown {
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.sdropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	top: 218px;
+	z-index: 1;
+	left: 225px;
+}
+
+/* Links inside the dropdown */
+.sdropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* Change color of dropdown links on hover */
+.sdropdown-content a:hover {
+	background-color: #F5F3AF
+}
+
+/* Show the dropdown menu on hover */
+.sdropdown:hover .sdropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.sdropdown:hover .sdropbtn {
+	background-color: #0D5006;
+}
+
+/* Dropdown Button */
+.s2dropbtn {
+	background-color: #19920C;
+	color: white;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	z-index: 2;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+	border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	max-width: 187px;
+	width: 183px;
+	height: 55px;
+	position: absolute;
+	top: 443px;
+	left: 5%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.s2dropdown {
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.s2dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	top: 420px;
+	z-index: 1;
+	left: 225px;
+}
+
+/* Links inside the dropdown */
+.s2dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* Change color of dropdown links on hover */
+.s2dropdown-content a:hover {
+	background-color: #F5F3AF
+}
+
+/* Show the dropdown menu on hover */
+.s2dropdown:hover .s2dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.s2dropdown:hover .s2dropbtn {
+	background-color: #0D5006;
+}
+/* Dropdown Button */
+.s3dropbtn {
+	background-color: #19920C;
+	color: white;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 620px;
+	left: 5%;
+	z-index: 2;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+	border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	max-width: 187px;
+	width: 183px;
+	height: 55px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.s3dropdown {
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.s3dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	top: 600px;
+	z-index: 1;
+	left: 225px;
+}
+
+/* Links inside the dropdown */
+.s3dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* Change color of dropdown links on hover */
+.s3dropdown-content a:hover {
+	background-color: #F5F3AF
+}
+
+/* Show the dropdown menu on hover */
+.s3dropdown:hover .s3dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.s3dropdown:hover .s2dropbtn {
+	background-color: #0D5006;
+}
+/* Dropdown Button */
+.s4dropbtn {
+	background-color: #19920C;
+	color: white;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 799px;
+	left: 5%;
+	z-index: 2;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+	border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	box-shadow: 2px 2px 5px rgba(0,0,0,1.00);
+	max-width: 187px;
+	width: 183px;
+	height: 55px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.s4dropdown {
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.s4dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	top: 780px;
+	z-index: 1;
+	left: 225px;
+}
+
+/* Links inside the dropdown */
+.s4dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-family: courier-prime;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* Change color of dropdown links on hover */
+.s4dropdown-content a:hover {
+	background-color: #F5F3AF
+}
+
+/* Show the dropdown menu on hover */
+.s4dropdown:hover .s4dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.s4dropdown:hover .s4dropbtn {
+	background-color: #0D5006;
+}

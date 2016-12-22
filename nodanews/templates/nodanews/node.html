@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>
+	
+<meta charset="utf-8">
+<title>{{node.headline}}</title>
+{% load static from staticfiles %}
+<link href="{% static 'css_style_sheets/nav4.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/node7.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}"rel='shortcut icon'>
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<header>
+			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+			<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="menu_icon"> 
+			<p id="bg_white"></p>
+		<ul id="nav_list">
+			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
+    		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
+        	<a href="http://www.nodanews.com/analysis"><li class="nav_li_1">Analysis</li></a>
+    		<a href="http://www.nodanews.com/editorials"><li class="nav_li_1">Editorials </li></a>
+    		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
+	    </ul>
+<div id="index">
+	<ul id="region_list">
+		<li>NEWS BY REGION</li>
+		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">AFRICA</li></a>
+		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">ASIA-PACIFIC</li></a>
+		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">EUROPE</li></a>
+		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">MIDDLE EAST</li></a>
+		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">NORTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH ASIA</li></a>																																	
+												
+	</ul>
+	</div>
+
+	<ul id="topic_index">
+		<li>Topics of the Day:</li>
+	{% for node_dir in node_dirs %}
+		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="topic_1">{{node_dir.name}}</li></a>
+	{% endfor %}
+	</ul>
+
+	<ul id="mobile_menu">
+		<a href="http://www.nodanews.com/node-dir"><li class="mobile_menu_item">Node Directory</li></a>
+    	<a href="http://www.nodanews.com/media_dir"><li class="mobile_menu_item">Media Org. Directory</li></a>
+    	<a href="http://www.nodanews.com/about"><li class="mobile_menu_item">About Noda News</li></a>
+		<li class="mobile_category">NEWS BY REGION</li>
+		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">AFRICA</li></a>
+		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">ASIA-PACIFIC</li></a>
+		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">EUROPE</li></a>
+		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">MIDDLE EAST</li></a>
+		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">NORTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH ASIA</li></a>
+		<li class="mobile_category">Topics of the Day:</li>
+	{% for node_dir in node_dirs %}
+		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="mobile_menu_item">{{node_dir.name}}</li></a>
+	{% endfor %}
+	</ul>
+	
+		<div id="social_media">
+		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
+		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
+	</div>
+
+	</header>	
+
+<div id="central-column">
+<h1 id="headline">{{node.headline}}</h1>
+	<h3 id="posted">Posted: {{node.date_posted}}</h3>
+	<div id="related">
+		<h2 id="related_to">Related to</h2>
+		<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black"><p id="related_node_direc">{{node.node_direc}}</a></p>
+		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.node_direc.banner}}" id="node_dir_image" alt=""/>		
+	</div>
+
+<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" id="image_1" alt=""/>
+<div id="socialmediabuttons">
+<div class="twitterbutton"><a href="https://twitter.com/NodanewsContact?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @NodanewsContact</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<div class="fb-like" data-href="https://www.facebook.com/nodanews/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+</div>
+<p id="my_take">{{node.my_take|linebreaksbr}}</p>
+
+	{% for perspective, links in perspectives.items %}
+	<div class="perspective">
+		<h2 class="heading">{{perspective.name}}</h2>
+			<ul class="link_list">	
+				{% for link in links %}
+					<li class="link"><a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank"><h3 class="link">{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{link.media.name}}</h3></a></li>
+				{% endfor %}
+			</ul>
+	<hr>
+	</div>
+	
+	{% endfor %}	
+
+<div id="videos">
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed3}}" frameborder="0" allowfullscreen></iframe>
+	<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
+</div>
+
+<script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
+
+<div id="disqus_thread"></div>
+<script>
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://nodanews.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>    
+</body>
+</html>
+
+

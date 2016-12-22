@@ -1,0 +1,167 @@
+@charset "utf-8";
+#headline {
+	position: absolute;
+	top: 149px;
+	font-family: Century;
+	font-size: xx-large;
+	left: 78px;
+}
+#related {
+	position: absolute;
+	top: 153px;
+	right: 15px;
+	background-color: #FFFD00;
+	border-collapse: collapse;
+	border-radius: 2px;
+	-webkit-box-shadow: 1px 1px 5px;
+	box-shadow: 1px 1px 5px;
+}
+
+a:hover {
+	background-color: yellow;
+	color: #FF0004;
+}
+.hotness {
+	position: absolute;
+	top: 161px;
+	display: block;
+}
+#red {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 50px solid transparent;
+	display: block;
+}
+#yellow {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid yellow;
+	border-bottom: 50px solid transparent;
+	display: block;
+}
+#blue {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid blue;
+	border-bottom: 50px solid transparent;
+}
+	#green {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid green;
+	border-bottom: 50px solid transparent;
+}
+	
+#image_1 {
+	width: 500px;
+	position: absolute;
+	right: 20px;
+	top: 223px;
+}
+#image_2 {
+	width: 500px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	clear: both;
+	float: right;
+	margin-right: 20px;
+
+}
+.perspective {
+	width: 600px;
+	overflow-y: scroll;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+}
+#videos {
+	position: absolute;
+	top: 506px;
+	right: 20px;
+}
+.video_embed{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	clear: both;
+	float: right;
+	margin-right: 20px;
+}
+
+.heading {
+	text-align: center;
+}
+.link_list {
+	list-style-type: none;
+}
+
+
+
+#my_take {
+	width: 700px;
+	height: 300px;
+	font-size: large;
+	text-align: left;
+	font-family: Century;
+	overflow-y: scroll;
+	position: relative;
+	margin-left: 100px;
+	margin-top: 100px;
+}
+#side_banner {
+	display: none;
+}
+
+
+
+@media (max-width: 1290px){
+#my_take {
+	font-weight: normal;
+	font-size: x-large;
+	position: relative;
+	margin-top: 430px;
+}
+#image_1 {
+	position: absolute;
+	left: 138px;
+}
+
+#related {
+	position: absolute;
+	top: 235px;
+}
+
+#side_banner {
+	position: absolute;
+	top: 273px;
+	right: 10px;
+	z-index: -1;
+	display: block;
+}
+#videos {
+	position: relative;
+	float: left;
+	top: 0px;
+	margin-left: 100px;
+}
+
+
+
+}
+
+@media (max-width: 1000px){
+#my_take {
+	width: 485px;
+	font-size: larger;
+}
+.perspective {
+	margin-left: 20px;
+}
+
+
+}

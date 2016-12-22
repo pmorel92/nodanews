@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>
+
+<meta charset="utf-8">
+<title>{{media_org.name}}</title>
+{% load static from staticfiles %}
+<link href="{% static 'css_style_sheets/nav4.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/media_org4.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+</head>
+
+<body>
+	<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+	<header>
+			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+			<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="menu_icon"> 
+
+			<p id="bg_white"></p>
+		<ul id="nav_list">
+			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
+    		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
+       		<a href="http://www.nodanews.com/analysis"><li class="nav_li_1">Analysis</li></a>
+    		<a href="http://www.nodanews.com/editorials"><li class="nav_li_1">Editorials </li></a>
+    		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
+	    </ul>
+<div id="index">
+	<ul id="region_list">
+		<li>NEWS BY REGION</li>
+		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">AFRICA</li></a>
+		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">ASIA-PACIFIC</li></a>
+		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">EUROPE</li></a>
+		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">MIDDLE EAST</li></a>
+		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">NORTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH ASIA</li></a>																																	
+												
+	</ul>
+	</div>
+
+	<ul id="topic_index">
+		<li>Topics of the Day:</li>
+	{% for node_dir in node_dirs %}
+		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="topic_1">{{node_dir.name}}</li></a>
+	{% endfor %}
+	</ul>
+	<ul id='news_ticker'>
+		<li id="breaking_news_title">BREAKING</li>
+		{% for breaking_link in breaking_links %}
+		<li><a href="{{breaking_link.url}}" class="breaking_link{{breaking_link.region.color}}" target="_blank"><p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a></li>
+		{% endfor %}
+	</ul>	
+	<ul id="mobile_menu">
+		<a href="http://www.nodanews.com/node-dir"><li class="mobile_menu_item">Node Directory</li></a>
+    	<a href="http://www.nodanews.com/media_dir"><li class="mobile_menu_item">Media Org. Directory</li></a>
+    	<a href="http://www.nodanews.com/about"><li class="mobile_menu_item">About Noda News</li></a>
+		<li class="mobile_category">NEWS BY REGION</li>
+		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">AFRICA</li></a>
+		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">ASIA-PACIFIC</li></a>
+		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">EUROPE</li></a>
+		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">MIDDLE EAST</li></a>
+		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">NORTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH ASIA</li></a>
+		<li class="mobile_category">Topics of the Day:</li>
+	{% for node_dir in node_dirs %}
+		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="mobile_menu_item">{{node_dir.name}}</li></a>
+	{% endfor %}
+	</ul>
+	
+		<div id="social_media">
+		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
+		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
+	</div>
+		<div id="twitterbutton"><a href="https://twitter.com/NodanewsContact?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @NodanewsContact</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</div>
+	<div class="fb-like" data-href="https://www.facebook.com/nodanews/" data-width="250" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+	</header>	
+<div id="center-flow">
+	<div>
+	  <p id="name">{{media_org.name}}</p>
+	</div>
+	<div>
+	  <p id="date_founded">Date Founded: {{media_org.date_founded}}</p>
+	</div>
+	<div>
+		<p id="media_region">Region: {{media_org.region.name}}</p>
+	</div>
+	<div>
+		<p id="country">Country: {{media_org.country}}</p>
+	</div>
+	<div>
+		<p id="lean">Bias: {{media_org.political_lean.name}}</p>
+	</div>
+
+	<div>
+		<p id="character">Character: {{media_org.media_character.name}}</p>
+	</div>
+
+	<div>
+		<a href="{{media_org.home_page}}"><img src="https://nodastorage.s3.amazonaws.com/media/{{media_org.logo}}" id="media_org_logo" alt=""/></a>
+	</div>	
+	<div>
+		<p id="description">{{media_org.description|linebreaksbr}}</p>
+	</div>	
+	<div>
+		{% if media_org.fake_or_not %}
+
+		
+		{% endif %} 
+	</div>
+		<div id="journalist">
+		<h2>PROMINENT JOURNALISTS</h2>
+		{% for journalist in journalists %}
+		<p class="journalist_name">{{journalist.name}}</p>
+		<img src="https://nodastorage.s3.amazonaws.com/media/{{journalist.picture}}" class="journalist_pic" alt=""/>		
+		<p class="journalist_bio">{{journalist.bio|linebreaksbr}}</p>
+		<a href="{{journalist.contact}}"><p style="text-decoration: none;color: black" target="_blank" class="journalist_contact">CONTACT : {{journalist.contact}}</p></a>
+		<hr class="journalist_hr">
+		{% endfor %}
+	</div>
+	</div>
+</body>
+</html>

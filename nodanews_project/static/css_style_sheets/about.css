@@ -1,0 +1,12 @@
+@charset "utf-8";
+#title {
+	position: absolute;
+	top: 155px;
+	left: 25%;
+	font-family: Century;
+}
+#description {
+	position: absolute;
+	top: 214px;
+	left: 20%;
+}

@@ -1,0 +1,153 @@
+@charset "utf-8";
+#logo {
+	width: 171px;
+	height: 80px;
+	position: absolute;
+	top: 6px;
+	left: 0px;
+}
+
+#banner {
+	width: 100%;
+	position: relative;
+	top: 86px;
+	left: 0px;
+	margin-bottom: 44px;
+}
+#node_dir {
+	color: #000000;
+	font-family: Century;
+	text-decoration: none;
+	position: absolute;
+	top: 32px;
+	left: 23%;
+	font-size: x-large;
+	text-shadow: 2px 2px 10px #BBB5B5;
+
+}
+#media_dir {
+	color: #000000;
+	font-family: Century;
+	text-decoration: none;
+	position: absolute;
+	top: 32px;
+	left: 53%;
+	font-size: x-large;
+	text-shadow: 2px 2px 10px #BBB5B5;
+
+}
+#about {
+	color: #000000;
+	font-family: Century;
+	text-decoration: none;
+	position: absolute;
+	top: 32px;
+	font-size: x-large;
+	min-width: 223px;
+	text-shadow: 2px 2px 10px #BBB5B5;
+	right: 0px;
+
+}
+
+.nav_menu {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 61px;
+	left: 160px;
+	z-index: 2;
+	display: none
+	}
+.nav-content{
+	display: none
+}
+.nav_menu_dropdown {
+    position: relative;
+    display: block;
+}
+.nav_menu_dropdown:hover .nav-content {
+    display: block;
+}
+#facebook {
+	width: 75px;
+	position: absolute;
+	top: 5px;
+	left: 41%;
+	height: 75px;
+	display: block;
+}
+#twitter {
+	width: 0px;
+	width: 75px;
+	height: 75px;
+	position: absolute;
+	left: 15%;
+    top: 5px;
+	display: block;
+}
+#footer{
+    position: fixed;
+	bottom: 0px;
+    right: 0px;
+    margin: 10px;
+    
+}    
+@media only screen and (max-width : 1000px) {
+	#node_dir{
+		display: none
+	}
+	#media_dir{
+		display: none
+	}
+	#about{
+		display: none
+	}
+	.nav_menu{
+		display: block
+	}
+	.nav_menu:hover + .nav-content{
+		display: inline-block
+	}
+.nav-content{
+	position: absolute;
+	background-color: #f9f9f9;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	top: 115px;
+	left: 170px;
+	right: 62px;
+	z-index: 2;
+	max-width: 200px;
+	list-style-image: none;
+	border-radius: 20px;
+	}
+	.nav-content a{
+	color: black;
+	text-decoration: none;
+	display: block;
+	font-family: Century;
+	font-style: normal;
+	font-weight: 400;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	}
+	.nav-content a:hover {
+	background-color: #F5F3AF
+	}	
+#facebook {
+	position: absolute;
+	left: 50%;
+}
+#twitter {
+	position: absolute;
+	left: 75%;
+}
+	
+	
+}
+
+
+
+
+	

@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+.node {
+	width: 700px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: block;
+	margin-left: 20px;
+	position: relative;
+	float: left;
+	color: #000000;
+	text-decoration: none;
+}
+
+.my_take {
+	color: #000000;
+	font-family: Century;
+	height: 200px;
+	overflow-y: hidden;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,1.00) 70.98%,rgba(0,0,0,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,1.00) 70.98%,rgba(0,0,0,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,1.00) 70.98%,rgba(0,0,0,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,1.00) 70.98%,rgba(0,0,0,1.00) 100%);
+	font-size: large;
+}
+
+.headline {
+	max-width: 750px;
+	position: relative;
+	color: #000000;
+}
+.image_1 {
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+	display: block;
+	margin-left: -346px;
+	opacity: 1;
+	width: 400px;
+	float: right;
+	clear: right;
+}
+
+@media (max-width: 1152px){
+.node {
+}
+.image_1 {
+	width: 300px;
+
+
+
+}
+.my_take {
+	font-size: x-large;
+}
+
+
+
+}
+
+@media (max-width: 1000px){
+.image_1 {
+	width: 150px;
+}
+
+}
+
+@media (max-width: 876px){
+.image_1 {
+	display: none;
+}
+
+}

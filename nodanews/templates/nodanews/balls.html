@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>	
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/nav4balls.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/indexballs.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/bulma.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+
+</head>
+
+  <body>
+  	<nav>
+  		<header>
+			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+			<p id="bg_white"></p>
+		<ul id="nav_list">
+			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
+    		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
+       		<a href="http://www.nodanews.com/analysis"><li class="nav_li_1">Analysis</li></a>
+    		<a href="http://www.nodanews.com/editorials"><li class="nav_li_1">Editorials </li></a>
+    		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
+	    </ul>
+	    </header>
+  </nav>
+  <section class="section">
+    <div class="container">
+      	{% for node_dir in node_dirs %}
+		<ul class="column">
+			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><h1 class="node_dir_name">{{node_dir.name}}</a></h1>
+			{% for node in nodes_by_dir|get_item:node_dir %}
+			<li class="node">	
+			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
+				{% if node.hotness %}
+				<h1 class="title">{{node.headline}}</h1>
+				</a>
+				{% if node.editorial %}
+					{% if node.hotness %}
+					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial1">EDITORIAL</h2></a>
+					{% else %}
+					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial2">EDITORIAL</h2></a>
+					{% endif %}
+				{% endif %}
+				{% if node.analysis %}
+					{% if node.hotness %}
+					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis1">ANALYSIS</h2></a>
+					{% else %}
+					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis2">ANALYSIS</h2></a>
+					{% endif %}
+				{% endif %}
+				{% if node.hotness %}
+				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
+				{% else %}
+				<h3 class="date_posted_2">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
+				{% endif %}
+				{% if node.hotness %}
+				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
+				{% else %}
+				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_2"/></a>
+				{% endif %}
+			</li>
+			<hr>
+			{% endfor %}
+		</ul>		
+	{% endfor %}
+    </div>
+  </section>
+  </div>
+  </body>
+</html>
