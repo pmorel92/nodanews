@@ -23,12 +23,19 @@ def index(request):
 	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 def balls(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	breaking_links = Breaking_Link.objects.all()
+	breaking_politics = Breaking_Link.objects.filter( category__id=1 ).order_by('-posted')
+	breaking_economys = Breaking_Link.objects.filter( category__id=2 ).order_by('-posted')
+	breaking_civilunrests = Breaking_Link.objects.filter( category__id=3 ).order_by('-posted')
+	breaking_terrorisms = Breaking_Link.objects.filter( category__id=4 ).order_by('-posted')
+	breaking_diplomacys = Breaking_Link.objects.filter( category__id=5 ).order_by('-posted')
+	breaking_cultures = Breaking_Link.objects.filter( category__id=6 ).order_by('-posted')
+	breaking_waranconflicts = Breaking_Link.objects.filter( category__id=7 ).order_by('-posted')
+	breaking_opinions = Breaking_Link.objects.filter( category__id=8 ).order_by('-posted')	
 	livevideos = LiveVideo.objects.filter( region__id=8 )
 	nodes_by_dir = {
 		n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:1] for n in node_dirs
 	}
-	return render(request, 'nodanews/balls.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
+	return render(request, 'nodanews/balls.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_politics': breaking_politics, 'breaking_economys': breaking_economys, 'breaking_civilunrests': breaking_civilunrests, 'breaking_terrorisms': breaking_terrorisms, 'breaking_diplomacys': breaking_diplomacys, 'breaking_cultures': breaking_cultures, 'breaking_waranconflicts': breaking_waranconflicts, 'breaking_opinions': breaking_opinions, 'livevideos': livevideos})		
 
 
 def index_asia(request):

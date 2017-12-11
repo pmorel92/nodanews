@@ -27,9 +27,9 @@
   <body>
   	<nav>
   		<header>
-			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-			<p id="bg_white"></p>
+
 		<ul id="nav_list">
+			<a href="http://www.nodanews.com"><li><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></li></a>
 			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
     		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
        		<a href="http://www.nodanews.com/analysis"><li class="nav_li_1">Analysis</li></a>
@@ -38,48 +38,30 @@
 	    </ul>
 	    </header>
   </nav>
-  <section class="section">
-    <div class="container">
-      	{% for node_dir in node_dirs %}
-		<ul class="column">
-			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><h1 class="node_dir_name">{{node_dir.name}}</a></h1>
-			{% for node in nodes_by_dir|get_item:node_dir %}
-			<li class="node">	
-			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
-				{% if node.hotness %}
-				<h1 class="title">{{node.headline}}</h1>
-				</a>
-				{% if node.editorial %}
-					{% if node.hotness %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial1">EDITORIAL</h2></a>
-					{% else %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial2">EDITORIAL</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.analysis %}
-					{% if node.hotness %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis1">ANALYSIS</h2></a>
-					{% else %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis2">ANALYSIS</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.hotness %}
-				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% else %}
-				<h3 class="date_posted_2">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% endif %}
-				{% if node.hotness %}
-				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
-				{% else %}
-				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_2"/></a>
-				{% endif %}
-			</li>
-			<hr>
+     <div class="block">
+      <div class="columns">
+        <div class="column is-2">
+          <p class="notification">Politics</p>
+      		{% for breaking_politic in breaking_politics %}
+		<p><a href="{{breaking_politic.url}}" class="breaking_link{{breaking_politic.region.color}}" target="_blank"><p>{{breaking_politic.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_politic.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_politic.media.name}}</p></a></p>
 			{% endfor %}
-		</ul>		
-	{% endfor %}
+        </div>
+        <div class="column is-8">
+        		{% for node_dir in node_dirs %}
+					<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><h1 class="node_dir_name">{{node_dir.name}}</a></h1>
+						{% for node in nodes_by_dir|get_item:node_dir %}
+							<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
+								<h2 class="headline1">{{node.headline}}</h2>
+								<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
+							</a>
+        </div>
+        <div class="column is-2">
+          <p class="notification">Opinion</p>
+                {% for breaking_opinion in breaking_opinions %}
+					<p><a href="{{breaking_opinion.url}}" class="breaking_link{{breaking_opinion.region.color}}" target="_blank"><p>{{breaking_opinion.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_opinion.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_opinion.media.name}}</p></a></p>
+				{% endfor %}
+        </div>
+      </div>
     </div>
-  </section>
-  </div>
   </body>
 </html>
