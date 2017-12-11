@@ -17,9 +17,6 @@
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/nav4balls.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/indexballs.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css_style_sheets/bulma.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 
 </head>
@@ -40,13 +37,7 @@
   </nav>
      <div class="block">
       <div class="columns">
-        <div class="column is-2">
-          <p class="notification">Politics</p>
-      		{% for breaking_politic in breaking_politics %}
-		<p><a href="{{breaking_politic.url}}" class="breaking_link{{breaking_politic.region.color}}" target="_blank"><p>{{breaking_politic.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_politic.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_politic.media.name}}</p></a></p>
-			{% endfor %}
-        </div>
-        <div class="column is-8">
+        <div class="column main">
         		{% for node_dir in node_dirs %}
 					<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><h1 class="node_dir_name">{{node_dir.name}}</a></h1>
 						{% for node in nodes_by_dir|get_item:node_dir %}
@@ -58,10 +49,84 @@
 							{% endfor %}
         </div>
         <div class="column is-2">
-          <p class="notification">Opinion</p>
+          <p class="category">Politics</p>
+            <ul class="breaking list">
+      		{% for breaking_politic in breaking_politics %}
+		<li><a href="{{breaking_politic.url}}" class="breaking_link{{breaking_politic.region.color}}" target="_blank"><p>{{breaking_politic.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_politic.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_politic.media.name}}</p></a></li>
+			{% endfor %}
+			     </ul>
+        </div>
+        <div class="column is-2">
+          <p class="category">Opinion</p>
+            <ul class="breaking list">
                 {% for breaking_opinion in breaking_opinions %}
-					<p><a href="{{breaking_opinion.url}}" class="breaking_link{{breaking_opinion.region.color}}" target="_blank"><p>{{breaking_opinion.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_opinion.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_opinion.media.name}}</p></a></p>
+					<li><a href="{{breaking_opinion.url}}" class="breaking_link{{breaking_opinion.region.color}}" target="_blank"><p>{{breaking_opinion.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_opinion.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_opinion.media.name}}</p></a></li>
 				{% endfor %}
+				  </ul>
+        </div>
+          <div class="column is-2">
+          <p class="category">Economy</p>
+            <ul class="breaking list">
+                {% for breaking_economy in breaking_economys %}
+					<li><a href="{{breaking_economy.url}}" class="breaking_link{{breaking_economy.region.color}}" target="_blank"><p>{{breaking_economy.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_economy.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_economy.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+            <div class="column is-2">
+          <p class="category">Civil Unrest</p>
+            <ul class="breaking list">
+                {% for breaking_civilunrest in breaking_civilunrests %}
+					<li><a href="{{breaking_civilunrest.url}}" class="breaking_link{{breaking_civilunrest.region.color}}" target="_blank"><p>{{breaking_civilunrest.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_civilunrest.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_civilunrest.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+            <div class="column is-2">
+          <p class="category">Terrorism</p>
+            <ul class="breaking list">
+                {% for breaking_terrorism in breaking_terrorisms %}
+					<li><a href="{{breaking_terrorism.url}}" class="breaking_link{{breaking_terrorism.region.color}}" target="_blank"><p>{{breaking_terrorism.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_terrorism.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_terrorism.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+            <div class="column is-2">
+          <p class="category">Diplomacy</p>
+            <ul class="breaking list">
+                {% for breaking_diplomacy in breaking_diplomacys %}
+					<li><a href="{{breaking_diplomacy.url}}" class="breaking_link{{breaking_diplomacy.region.color}}" target="_blank"><p>{{breaking_diplomacy.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_diplomacy.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_diplomacy.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+              <div class="column is-2">
+          <p class="category">Culture</p>
+            <ul class="breaking list">
+                {% for breaking_culture in breaking_cultures %}
+					<li><a href="{{breaking_culture.url}}" class="breaking_link{{breaking_culture.region.color}}" target="_blank"><p>{{breaking_culture.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_culture.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_culture.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+        <div class="column is-2">
+          <p class="category">War and Conflict</p>
+            <ul class="breaking list">
+                {% for breaking_waranconflict in breaking_waranconflicts %}
+					<li><a href="{{breaking_waranconflict.url}}" class="breaking_link{{breaking_waranconflict.region.color}}" target="_blank"><p>{{breaking_waranconflict.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_waranconflict.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_waranconflict.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+        <div class="column is-2">
+          <p class="category">Technology</p>
+            <ul class="breaking list">
+                {% for breaking_technology in breaking_technologys %}
+					<li><a href="{{breaking_technology.url}}" class="breaking_link{{breaking_technology.region.color}}" target="_blank"><p>{{breaking_technology.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_technology.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_technology.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+        <div class="column is-2">
+          <p class="category">Political Corruption</p>
+            <ul class="breaking list">
+                {% for breaking_politicalcorruption in breaking_politicalcorruptions %}
+					<li><a href="{{breaking_politicalcorruption.url}}" class="breaking_link{{breaking_politicalcorruption.region.color}}" target="_blank"><p>{{breaking_politicalcorruption.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_politicalcorruption.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_politicalcorruption.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
         </div>
       </div>
     </div>

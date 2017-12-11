@@ -30,12 +30,14 @@ def balls(request):
 	breaking_diplomacys = Breaking_Link.objects.filter( category__id=5 ).order_by('-posted')
 	breaking_cultures = Breaking_Link.objects.filter( category__id=6 ).order_by('-posted')
 	breaking_waranconflicts = Breaking_Link.objects.filter( category__id=7 ).order_by('-posted')
-	breaking_opinions = Breaking_Link.objects.filter( category__id=8 ).order_by('-posted')	
+	breaking_opinions = Breaking_Link.objects.filter( category__id=8 ).order_by('-posted')
+	breaking_politicalcorruptions = Breaking_Link.objects.filter( category__id=9 ).order_by('-posted')
+	breaking_technologys = Breaking_Link.objects.filter( category__id=10 ).order_by('-posted')
 	livevideos = LiveVideo.objects.filter( region__id=8 )
 	nodes_by_dir = {
 		n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:1] for n in node_dirs
 	}
-	return render(request, 'nodanews/balls.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_politics': breaking_politics, 'breaking_economys': breaking_economys, 'breaking_civilunrests': breaking_civilunrests, 'breaking_terrorisms': breaking_terrorisms, 'breaking_diplomacys': breaking_diplomacys, 'breaking_cultures': breaking_cultures, 'breaking_waranconflicts': breaking_waranconflicts, 'breaking_opinions': breaking_opinions, 'livevideos': livevideos})		
+	return render(request, 'nodanews/balls.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_politics': breaking_politics, 'breaking_economys': breaking_economys, 'breaking_politicalcorruptions': breaking_politicalcorruptions, 'breaking_technologys': breaking_technologys, 'breaking_civilunrests': breaking_civilunrests, 'breaking_terrorisms': breaking_terrorisms, 'breaking_diplomacys': breaking_diplomacys, 'breaking_cultures': breaking_cultures, 'breaking_waranconflicts': breaking_waranconflicts, 'breaking_opinions': breaking_opinions, 'livevideos': livevideos})		
 
 
 def index_asia(request):
