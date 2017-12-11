@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: change this before deploying to production!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv('APP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -87,10 +87,7 @@ DATABASES = {
         'HOST': os.environ['DB_HOST'],
         'PORT': os.environ['DB_PORT'],
     },
-    'testing': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+
 }
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
