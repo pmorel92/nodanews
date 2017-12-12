@@ -60,7 +60,11 @@
 		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="topic_1">{{node_dir.name}}</li></a>
 	{% endfor %}
 	</ul>
-
+	<ul id='news_ticker'>
+		{% for breaking_link in breaking_links %}
+		<li><a href="{{breaking_link.url}}" class="breaking_link{{breaking_link.region.color}}" target="_blank"><p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a></li>
+		{% endfor %}
+	</ul>
 	<ul id="mobile_menu">
 		<a href="http://www.nodanews.com/node-dir"><li class="mobile_menu_item">Node Directory</li></a>
     	<a href="http://www.nodanews.com/media_dir"><li class="mobile_menu_item">Media Org. Directory</li></a>
