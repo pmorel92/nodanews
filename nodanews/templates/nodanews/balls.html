@@ -48,7 +48,7 @@
 							{% endfor %} 
 							{% endfor %}
         </div>
-        <div class="column is-2">
+        <div class="column is-1">
           <p class="category">Politics</p>
             <ul class="breaking list">
       		{% for breaking_politic in breaking_politics %}
@@ -64,7 +64,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-          <div class="column is-2">
+          <div class="column is-3">
           <p class="category">Economy</p>
             <ul class="breaking list">
                 {% for breaking_economy in breaking_economys %}
@@ -72,7 +72,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-            <div class="column is-2">
+            <div class="column is-4">
           <p class="category">Civil Unrest</p>
             <ul class="breaking list">
                 {% for breaking_civilunrest in breaking_civilunrests %}
@@ -80,7 +80,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-            <div class="column is-2">
+            <div class="column is-5">
           <p class="category">Terrorism</p>
             <ul class="breaking list">
                 {% for breaking_terrorism in breaking_terrorisms %}
@@ -88,7 +88,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-            <div class="column is-2">
+            <div class="column is-6">
           <p class="category">Diplomacy</p>
             <ul class="breaking list">
                 {% for breaking_diplomacy in breaking_diplomacys %}
@@ -96,7 +96,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-              <div class="column is-2">
+              <div class="column is-7">
           <p class="category">Culture</p>
             <ul class="breaking list">
                 {% for breaking_culture in breaking_cultures %}
@@ -104,7 +104,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-        <div class="column is-2">
+        <div class="column is-8">
           <p class="category">War and Conflict</p>
             <ul class="breaking list">
                 {% for breaking_waranconflict in breaking_waranconflicts %}
@@ -112,7 +112,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-        <div class="column is-2">
+        <div class="column is-9">
           <p class="category">Technology</p>
             <ul class="breaking list">
                 {% for breaking_technology in breaking_technologys %}
@@ -120,7 +120,7 @@
 				{% endfor %}
 				  </ul>
         </div>
-        <div class="column is-2">
+        <div class="column is-10">
           <p class="category">Political Corruption</p>
             <ul class="breaking list">
                 {% for breaking_politicalcorruption in breaking_politicalcorruptions %}
@@ -128,6 +128,24 @@
 				{% endfor %}
 				  </ul>
         </div>
+        <div class="column is-11">
+          <p class="category">Climate Change</p>
+            <ul class="breaking list">
+                {% for breaking_climatechange in breaking_climatechanges %}
+					<li><a href="{{breaking_climatechange.url}}" class="breaking_link{{breaking_climatechange.region.color}}" target="_blank"><p>{{breaking_climatechange.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_climatechange.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_climatechange.media.name}}</p></a></li>
+				{% endfor %}
+				  </ul>
+        </div>
+        	<div id="video_feed">
+		{% for livevideo in livevideos %}
+			<p class="video_names">{{livevideo.name1}}</p>
+			<iframe class="livevideo1" width="420" height="236" src="{{livevideo.video1}}" frameborder="0" allowfullscreen></iframe>
+			<p class="video_names">{{livevideo.name2}}</p>
+			<iframe class="livevideo2" width="420" height="236" src="{{livevideo.video2}}" frameborder="0" allowfullscreen></iframe>
+			<p class="video_names">{{livevideo.name3}}</p>
+			<iframe class="livevideo3" width="420" height="236" src="{{livevideo.video3}}" frameborder="0" allowfullscreen></iframe>
+		{% endfor %}
+	</div>
       </div>
     </div>
   </body>
