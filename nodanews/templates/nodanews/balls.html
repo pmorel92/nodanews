@@ -33,6 +33,26 @@
     		<a href="http://www.nodanews.com/editorials"><li class="nav_li_1">Editorials </li></a>
     		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
 	    </ul>
+<div id="index">
+	<ul id="region_list">
+		<li>NEWS BY REGION</li>
+		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">AFRICA</li></a>
+		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">ASIA-PACIFIC</li></a>
+		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">EUROPE</li></a>
+		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">MIDDLE EAST</li></a>
+		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">NORTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH AMERICA</li></a>
+		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH ASIA</li></a>																																	
+												
+	</ul>
+	</div>
+
+	<ul id="topic_index">
+		<li>Topics of the Day:</li>
+	{% for node_dir in node_dirs %}
+		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="topic_1">{{node_dir.name}}</li></a>
+	{% endfor %}
+	</ul>	    
 	    </header>
   </nav>
      <div class="block">
