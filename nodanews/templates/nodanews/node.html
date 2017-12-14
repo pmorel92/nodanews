@@ -137,7 +137,7 @@ Tweet</a>
 <div id="assnodes">
 	<ul id="assnode_list">
 		{% for assnode in assnodes|slice:":1" %}
-			<p id="assnode_title">More Nodes on {{assnode.headline}}</p>
+			<p id="assnode_title">More Nodes on {{assnode.node_direc.name}}</p>
 		{% endfor %}
 		{% for assnode in assnodes %}
 			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
