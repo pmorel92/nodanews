@@ -30,6 +30,9 @@ class Breaking_Category(models.Model):
     
     def __str__(self):
         return "{}".format(self.name)
+    class Meta:
+	    ordering = ('name',)    
+        
     		
 class Node(models.Model):
     headline = models.CharField(max_length=200, default='')
