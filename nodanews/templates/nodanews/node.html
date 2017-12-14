@@ -131,6 +131,20 @@ Tweet</a>
 	<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
 </div>
 
+<div id="assnodes" style="display: none">
+	<ul id="assnode_list">
+		{% for assnode in assnodes %}
+		<li>{{assnode.headline}}</li>
+		{% endfor %}
+	</ul>
+</div>
+<div id="asswebs" style="display: none">
+	<ul id="assweb_list">
+		{% for assweb in assweb %}
+		<li>{{assweb.title}}</li>
+		{% endfor %}
+	</ul>
+</div>
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
 <div id="disqus_thread"></div>
