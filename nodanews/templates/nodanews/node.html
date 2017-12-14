@@ -134,9 +134,12 @@ Tweet</a>
 	<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
 </div>
 
-<div id="assnodes" style="display: none">
+<div id="assnodes">
 	<ul id="assnode_list">
 		{% for assnode in assnodes %}
+			<p id="assnode_title">More Nodes on {{assnode.headline|slice:":1"}}</p>
+		{% endfor %}
+		{% for assnode in assnodes[1:] %}
 			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
 			<br>Posted: {{assnode.date_posted}}
 			</li></a>
