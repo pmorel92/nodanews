@@ -27,7 +27,7 @@ class RegionAdmin(admin.ModelAdmin):
     list_display = ['name', 'color']
 
 class Node_DirAdmin(admin.ModelAdmin):
-    list_display = ['name', 'date_updated', 'active']
+    list_display = ['name', 'date_updated', 'active', 'category']
 
 class Breaking_LinkAdmin(admin.ModelAdmin):
     list_display = ['title', 'media', 'region', 'posted', 'category']

@@ -24,7 +24,13 @@ class Region(models.Model):
 	    return self.name
     class Meta:
 	    ordering = ('name',)    
-		
+
+class Breaking_Category(models.Model):
+    name = models.CharField(max_length=350, default='')
+    
+    def __str__(self):
+        return "{}".format(self.name)
+    		
 class Node(models.Model):
     headline = models.CharField(max_length=200, default='')
     country = models.CharField(max_length=100, default='')
@@ -40,6 +46,7 @@ class Node(models.Model):
     region = models.ForeignKey(Region, default=1, null=True)
     editorial = models.BooleanField(default=False)
     analysis = models.BooleanField(default=False)
+    category = models.ForeignKey(Breaking_Category, default=1)
 	
     def __str__(self):
         return "{}/{}".format(self.headline, self.country)
@@ -108,12 +115,7 @@ class Link(models.Model):
 	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.perspective)
-class Breaking_Category(models.Model):
-    name = models.CharField(max_length=350, default='')
-    
-    def __str__(self):
-        return "{}".format(self.name)
-    
+
 class Breaking_Link(models.Model):
 	url = models.CharField(max_length=300, default='')
 	title = models.CharField(max_length=150, default='')
