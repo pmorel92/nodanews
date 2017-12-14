@@ -61,8 +61,9 @@
 	{% endfor %}
 	</ul>
 	<ul id='news_ticker'>
-		{% for breaking_link in breaking_links %}
-		<li><a href="{{breaking_link.url}}" class="breaking_link{{breaking_link.region.color}}" target="_blank"><p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a></li>
+		<p id="news_ticker_title">More News on {{assweb.category.name}}</p>
+		{% for assweb in asswebs %}
+		<li><a href="{{assweb.url}}" class="assweb{{assweb.region.color}}" target="_blank"><p>{{assweb.title}}</a><a href="http://www.nodanews.com/media_dir/{{assweb.media.id}}" class="breaking_media" target="_blank"> -- {{assweb.media.name}}</p></a></li>
 		{% endfor %}
 	</ul>
 	<ul id="mobile_menu">
@@ -134,15 +135,16 @@ Tweet</a>
 <div id="assnodes" style="display: none">
 	<ul id="assnode_list">
 		{% for assnode in assnodes %}
-		<li>{{assnode.headline}}</li>
+			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
+			<br>Posted: {{assnode.date_posted}}
+			</li></a>
 		{% endfor %}
 	</ul>
 </div>
 <div id="asswebs" style="display: none">
 	<ul id="assweb_list">
 		{% for assweb in asswebs %}
-		<li>{{assweb.title}}</li>
-		{% endfor %}
+		<li><a href="{{assweb.url}}" class="assweb{{assweb.region.color}}" target="_blank"><p>{{assweb.title}}</a><a href="http://www.nodanews.com/media_dir/{{assweb.media.id}}" class="breaking_media" target="_blank"> -- {{assweb.media.name}}</p></a></li>		{% endfor %}
 	</ul>
 </div>
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
