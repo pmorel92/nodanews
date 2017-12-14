@@ -136,15 +136,13 @@ Tweet</a>
 
 <div id="assnodes">
 	<ul id="assnode_list">
-		{% for assnode in assnodes %}
-			<p id="assnode_title">More Nodes on {{assnode.headline|slice:":1"}}</p>
+		{% for assnode in assnodes|slice:":1" %}
+			<p id="assnode_title">More Nodes on {{assnode.headline}}</p>
 		{% endfor %}
 		{% for assnode in assnodes %}
-			{% if not assnode.first %}
 			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
 			<br>Posted: {{assnode.date_posted}}
 			</li></a>
-			{% endif %}
 		{% endfor %}
 	</ul>
 </div>
