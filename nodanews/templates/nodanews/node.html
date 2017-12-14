@@ -139,7 +139,7 @@ Tweet</a>
 		{% for assnode in assnodes %}
 			<p id="assnode_title">More Nodes on {{assnode.headline|slice:":1"}}</p>
 		{% endfor %}
-		{% for assnode in assnodes[1:] %}
+		{% for assnode in assnodes %}
 			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
 			<br>Posted: {{assnode.date_posted}}
 			</li></a>
