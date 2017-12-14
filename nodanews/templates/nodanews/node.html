@@ -63,7 +63,7 @@
 	<ul id='news_ticker'>
 		<p id="news_ticker_title">More News on {{assweb.category.name}}</p>
 		{% for assweb in asswebs %}
-		<li><a href="{{assweb.url}}" class="assweb{{assweb.region.color}}" target="_blank"><p>{{assweb.title}}</a><a href="http://www.nodanews.com/media_dir/{{assweb.media.id}}" class="breaking_media" target="_blank"> -- {{assweb.media.name}}</p></a></li>
+		<li><a href="{{assweb.url}}" class="breaking_link{{assweb.region.color}}" target="_blank"><p>{{assweb.title}}</a><a href="http://www.nodanews.com/media_dir/{{assweb.media.id}}" class="breaking_media" target="_blank"> -- {{assweb.media.name}}</p></a></li>
 		{% endfor %}
 	</ul>
 	<ul id="mobile_menu">
