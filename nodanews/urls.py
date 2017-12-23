@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
-	url(r'^balls/$', views.balls, name="test"),
 	url(r'^Blue/$', views.index_asia, name="asia"),
 	url(r'^Red/$', views.index_europe, name="europe"),
 	url(r'^Yellow/$', views.index_samerica, name="samerica"),
