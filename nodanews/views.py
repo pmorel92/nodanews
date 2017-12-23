@@ -213,7 +213,6 @@ def media_dir_nationalist(request):
 
 def node(request, node_id):
     node = get_object_or_404(Node, pk=node_id)
-    breaking_links = Breaking_Link.objects.all()
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
     asswebs = Breaking_Link.objects.filter( category__id = node.category_id)
     assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
@@ -221,7 +220,7 @@ def node(request, node_id):
     perspective_links = {
 		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
 	}
-    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'asswebs': asswebs, 'assnodes': assnodes})
+    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'asswebs': asswebs, 'assnodes': assnodes})
 
 
 def media_org(request, media_org_id):
