@@ -103,7 +103,7 @@ def node_dir(request):
 def node_dir_part(request, node_dir_id):
     node_dirs = get_object_or_404(Node_Dir, pk=node_dir_id)
     breaking_links = Breaking_Link.objects.all()
-    asswebs = Breaking_Link.objects.filter( category__id = node_dir.category_id)    
+    asswebs = Breaking_Link.objects.all()    
     node_dir_topics = Node_Dir.objects.filter(active=True).order_by('-date_updated')
     nodes = Node.objects.filter(node_direc__id = node_dir_id)
     return render(request, 'nodanews/node-dir_part.html', {'nodes': nodes, 'asswebs': asswebs, 'node_dirs': node_dirs, 'node_dir_topics': node_dir_topics, 'breaking_links': breaking_links})	
