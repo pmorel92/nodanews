@@ -22,6 +22,9 @@ def index(request):
 	}
 	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 
+def grid(request):
+    return render(request, 'nondanews/grid.html')
+    
 def index_asia(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
 	breaking_links = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
