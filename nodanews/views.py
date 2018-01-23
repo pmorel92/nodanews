@@ -23,7 +23,7 @@ def index(request):
 	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 
 def cassandra(request):
-    opeds = Node.objects.all.order_by('-date_posted')[0:5]
+    opeds = Node.objects.all()[0:5]
     videos = LiveVideo.objects.filter( region__id=8 )
     asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
     africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
