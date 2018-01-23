@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>	
+<meta charset="utf-8">
+<title>Noda News, Where you Know the News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/cassnav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/cassandra.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+</head>
+
+<body> 
+  <header>
+    <nav>
+			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <a href="http://www.nodanews.com/node-dir">Oped Directory</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+    </nav>
+  </header>
+  {% for oped in opeds|slice:":1" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/></a>
+  {% endfor %}
+  {% for video in videos %}
+    <p class="video_names">{{video.name1}}</p>
+		<iframe class="livevideo" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		<p class="video_names">{{video.name2}}</p>
+		<iframe class="livevideo" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+  {% endfor %}
+
+    <div class="asia">
+        <ul class="list">
+            <li class="title">News From Asia-Pacific</li>          
+          {% for asia in asias %}
+            <li><a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank"><p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div class="namerica">
+        <ul class="list">
+            <li class="title">News From North America</li>          
+          {% for namerica in namericas %}
+            <li><a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank"><p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>    
+    <div class="europe">
+        <ul class="list">
+            <li class="title">News From Europe</li>          
+          {% for europe in europes %}
+            <li><a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank"><p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div class="samerica">
+        <ul class="list">
+            <li class="title">News From South America</li>          
+          {% for samerica in samericas %}
+            <li><a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank"><p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>    
+    <div class="me">
+        <ul class="list">
+            <li class="title">News From the Middle East</li>          
+          {% for me in mes %}
+            <li><a href="{{me.url}}" class="link{{me.region.color}}" target="_blank"><p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>    
+    <div class="africa">
+        <ul class="list">
+            <li class="title">News From Africa</li>          
+          {% for africa in africas %}
+            <li><a href="{{africa.url}}" class="link{{africa.region.color}}" target="_blank"><p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>      
+    <div class="oped">
+      <ul class="list">
+            <li class="title">Recemt Op-Eds</li>
+        {% for oped in opeds %}
+           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}"><p class="oped_name">{{oped.name}}</a></p></li>   
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="sasia">
+        <ul class="list">
+            <li class="title">News From South Asia</li>
+          {% for sasia in sasias %}
+            <li><a href="{{sasia.url}}" class="link{{sasia.region.color}}" target="_blank"><p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>      
+    
+</body>

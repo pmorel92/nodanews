@@ -22,8 +22,17 @@ def index(request):
 	}
 	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 
-def grid(request):
-    return render(request, 'nodanews/grid.html')
+def cassandra(request):
+    opeds = Node.objects.all.order_by('-date_posted')[0:5]
+    videos = LiveVideo.objects.filter( region__id=8 )
+    asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
+    africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
+    sasias = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
+    mes = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
+    namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
+    samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
+    europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
+    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
     
 def index_asia(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
