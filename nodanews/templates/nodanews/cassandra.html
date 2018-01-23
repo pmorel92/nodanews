@@ -23,13 +23,13 @@
   <header>
     <nav>
 			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <a href="http://www.nodanews.com/node-dir">Oped Directory</a>
+      <a href="http://www.nodanews.com/node-dir">Op-Ed Directory</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/about">About Noda News</a>
     </nav>
   </header>
   {% for oped in opeds|slice:":1" %}
-    <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/></a>
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
   {% endfor %}
   {% for video in videos %}
     <p class="video_names">{{video.name1}}</p>
@@ -88,9 +88,9 @@
     </div>      
     <div class="oped">
       <ul class="list">
-            <li class="title">Recemt Op-Eds</li>
+            <li class="title">Recent Op-Eds</li>
         {% for oped in opeds %}
-           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}"><p class="oped_name">{{oped.name}}</a></p></li>   
+           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}"><p class="oped_name">{{oped.headline}}</a></p></li>   
         {% endfor %}
       </ul>
     </div>
