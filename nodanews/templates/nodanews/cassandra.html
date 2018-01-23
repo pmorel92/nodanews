@@ -32,9 +32,11 @@
     <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
   {% endfor %}
   {% for video in videos %}
-    <div class="videos">  
+    <div class="video1">  
       <p class="video_names">{{video.name1}}</p>
 		    <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		</div>    
+		<div class="video2">  
 		  <p class="video_names">{{video.name2}}</p>
 		    <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
 		</div>
