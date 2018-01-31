@@ -76,6 +76,14 @@
   {% for oped in opeds|slice:":1" %}
     <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
   {% endfor %}
+    <div class="oped">
+      <ul class="list">
+            <li class="title">Recent Opinion</li>
+        {% for oped in opeds %}
+           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p></li>   
+        {% endfor %}
+      </ul>  
+    </div>
     <div class="namerica">
         <ul class="list">
             <li class="title">News From North America</li>          
@@ -84,14 +92,8 @@
           {% endfor %}
         </ul>
     </div>
-    <div class="oped">
-      <ul class="list">
-            <li class="title">Recent Op-Eds</li>
-        {% for oped in opeds %}
-           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p></li>   
-        {% endfor %}
-      </ul>
-    </div>
+
+
   </div>
   
 
