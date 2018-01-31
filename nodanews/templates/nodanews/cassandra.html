@@ -68,7 +68,7 @@
           {% endfor %}
         </ul>
     </div>
-      {% for oped in opeds|slice:":3" %}
+      {% for oped in opeds|slice:"3:3" %}
     <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
   {% endfor %}
   </div>
@@ -110,7 +110,7 @@
           {% endfor %}
         </ul>
     </div>
-  {% for oped in opeds|slice:":2" %}
+  {% for oped in opeds|slice:"2:2" %}
     <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
   {% endfor %}
     <div class="me">
