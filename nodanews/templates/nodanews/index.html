@@ -86,36 +86,10 @@
 			{% for node in nodes_by_dir|get_item:node_dir %}
 			<li class="node">	
 			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
-				{% if node.hotness %}
 				<h2 class="headline1">{{node.headline}}</h2>
-				{% else %}
-				<h2 class="headline2">{{node.headline}}</h2>
-				{% endif %}
 				</a>
-				{% if node.editorial %}
-					{% if node.hotness %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial1">EDITORIAL</h2></a>
-					{% else %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial2">EDITORIAL</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.analysis %}
-					{% if node.hotness %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis1">ANALYSIS</h2></a>
-					{% else %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis2">ANALYSIS</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.hotness %}
 				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% else %}
-				<h3 class="date_posted_2">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% endif %}
-				{% if node.hotness %}
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
-				{% else %}
-				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_2"/></a>
-				{% endif %}
 			</li>
 			<hr>
 			{% endfor %}
