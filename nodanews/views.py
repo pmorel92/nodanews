@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Breaking_Category
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo
 
 
 @register.filter
@@ -227,7 +227,7 @@ def media_dir_nationalist(request):
 def node(request, node_id):
     node = get_object_or_404(Node, pk=node_id)
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-    asswebs = Breaking_Link.objects.filter( category__id = node.category_id)
+    asswebs = Breaking_Link.objects.all()
     assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
     perspectives = Perspective.objects.filter( node__id = node_id )
     perspective_links = {

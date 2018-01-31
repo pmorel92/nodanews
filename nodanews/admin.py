@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, LiveVideo, Breaking_Category
+from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, LiveVideo
 
 
 class Media_OrgAdmin(admin.ModelAdmin):
@@ -45,4 +45,3 @@ admin.site.register(Media_Character)
 admin.site.register(Journalist, JournalistAdmin)
 admin.site.register(Media_Org, Media_OrgAdmin)
 admin.site.register(Breaking_Link, Breaking_LinkAdmin)
-admin.site.register(Breaking_Category)

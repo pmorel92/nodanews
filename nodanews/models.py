@@ -1,14 +1,6 @@
 from django.db import models
 from datetime import datetime
 
-class Breaking_Category(models.Model):
-    name = models.CharField(max_length=350, default='')
-    
-    def __str__(self):
-        return "{}".format(self.name)
-    class Meta:
-	    ordering = ('name',)    
-  
 class Node_Dir(models.Model):
     name = models.CharField(max_length=100, default='')
     active = models.BooleanField(default=False)
@@ -16,8 +8,7 @@ class Node_Dir(models.Model):
     description = models.TextField(default=' ')
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
     related = models.ManyToManyField("self", blank=True)
-    category = models.ForeignKey(Breaking_Category, default=1)
-   
+
     def __str__(self):
 	    return self.name
 
@@ -50,8 +41,7 @@ class Node(models.Model):
     region = models.ForeignKey(Region, default=1, null=True)
     editorial = models.BooleanField(default=False)
     analysis = models.BooleanField(default=False)
-    category = models.ForeignKey(Breaking_Category, default=1)
-	
+
     def __str__(self):
         return "{}/{}".format(self.headline, self.country)
     class Meta:
@@ -126,7 +116,6 @@ class Breaking_Link(models.Model):
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=8, null=True)
-	category = models.ForeignKey(Breaking_Category, default=1, null=True)
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.media)
 
