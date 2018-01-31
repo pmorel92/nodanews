@@ -36,11 +36,8 @@ class Node(models.Model):
     video_embed1 = models.CharField(max_length=500, default='', blank=True)
     video_embed2 = models.CharField(max_length=500, default='', blank=True)
     video_embed3 = models.CharField(max_length=500, default='', blank=True)    
-    hotness = models.BooleanField(default=False)
     node_direc = models.ForeignKey(Node_Dir)
     region = models.ForeignKey(Region, default=1, null=True)
-    editorial = models.BooleanField(default=False)
-    analysis = models.BooleanField(default=False)
 
     def __str__(self):
         return "{}/{}".format(self.headline, self.country)
@@ -77,7 +74,6 @@ class Media_Org(models.Model):
     date_founded = models.DateField(default='1956-02-27')
     logo = models.ImageField(upload_to='media/logos')
     description = models.TextField()
-    fake_or_not = models.BooleanField(default=False)
     ready = models.BooleanField(default=False)
     political_lean = models.ForeignKey(Political_Lean, default=1, null=True)
     media_character = models.ForeignKey(Media_Character, default=1, null=True)
@@ -131,13 +127,12 @@ class About(models.Model):
 class LiveVideo(models.Model):
     name1 = models.CharField(max_length=200, default='name goes here')
     video1 = models.CharField(max_length=500, default='', blank=True)
-    live1 = models.BooleanField(default=False)
     name2 = models.CharField(max_length=200, default='name goes here')
     video2 = models.CharField(max_length=500, default='', blank=True)
-    live2 = models.BooleanField(default=False)
     name3 = models.CharField(max_length=200, default='name goes here')
     video3 = models.CharField(max_length=500, default='', blank=True)
-    live3 = models.BooleanField(default=False)
+    name4 = models.CharField(max_length=200, default='name goes here')
+    video4 = models.CharField(max_length=500, default='', blank=True)
     region = models.ForeignKey(Region, default=8, null=True)
     
     def __str__(self):

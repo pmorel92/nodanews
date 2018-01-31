@@ -11,7 +11,7 @@ class Media_OrgAdmin(admin.ModelAdmin):
 
 class NodeAdmin(admin.ModelAdmin):
     
-    list_display = ['headline', 'hotness', 'region', 'node_direc', 'date_posted', 'editorial', 'analysis', 'category']
+    list_display = ['headline', 'hotness', 'region', 'node_direc', 'date_posted']
 
 
 class LinkAdmin(admin.ModelAdmin):
@@ -30,7 +30,7 @@ class Node_DirAdmin(admin.ModelAdmin):
     list_display = ['name', 'date_updated', 'active']
 
 class Breaking_LinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'media', 'region', 'posted', 'category']
+    list_display = ['title', 'media', 'region', 'posted']
     date_hierarchy = 'posted'
 
 admin.site.register(Node, NodeAdmin)

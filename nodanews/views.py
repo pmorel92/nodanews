@@ -83,20 +83,8 @@ def index_europe(request):
 	livevideos = LiveVideo.objects.filter( region__id=2 )
 	return render(request, 'nodanews/red.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
 
-def index_editorials(request):
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
-    nodes = Node.objects.filter( editorial=True).order_by('-date_posted')
-    breaking_links = Breaking_Link.objects.all()
-    livevideos = LiveVideo.objects.filter( region__id=8 )
-    return render(request, 'nodanews/editorials.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-    
-def index_analysis(request):
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
-    nodes = Node.objects.filter( analysis=True).order_by('-date_posted')
-    breaking_links = Breaking_Link.objects.all()
-    livevideos = LiveVideo.objects.filter( region__id=8 )
-    return render(request, 'nodanews/analysis.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos}) 
-    
+
+
 def about(request):
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
     breaking_links = Breaking_Link.objects.all()
