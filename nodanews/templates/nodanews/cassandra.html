@@ -36,14 +36,7 @@
         <p class="video_names">{{video.name1}}</p>
 		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
 		  </div>    
-		  <div class="video2">  
-		    <p class="video_names">{{video.name2}}</p>
-		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
-		  </div>
-		  <div class="video3">  
-		    <p class="video_names">{{video.name3}}</p>
-		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
-		  </div>
+
   {% endfor %}
     <div class="asia">
         <ul class="list">
@@ -60,7 +53,13 @@
             <li><a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank"><p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
           {% endfor %}
         </ul>
-    </div>    
+    </div>
+    {% for video in videos %}
+		  <div class="video3">  
+		    <p class="video_names">{{video.name3}}</p>
+		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		  </div>
+		  {% endfor %}
     <div class="africa">
         <ul class="list">
             <li class="title">News From Africa</li>          
@@ -69,6 +68,9 @@
           {% endfor %}
         </ul>
     </div>
+      {% for oped in opeds|slice:":3" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+  {% endfor %}
   </div>
   <div class="second column">  
   {% for oped in opeds|slice:":1" %}
@@ -94,7 +96,12 @@
   
 
   <div class="third column">
-    
+		  {% for video in videos %}
+		  <div class="video2">  
+		    <p class="video_names">{{video.name2}}</p>
+		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+		  </div>  
+		  {% endfor %}
     <div class="europe">
         <ul class="list">
             <li class="title">News From Europe</li>          
@@ -103,7 +110,9 @@
           {% endfor %}
         </ul>
     </div>
-
+  {% for oped in opeds|slice:":2" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+  {% endfor %}
     <div class="me">
         <ul class="list">
             <li class="title">News From the Middle East</li>          
@@ -112,7 +121,12 @@
           {% endfor %}
         </ul>
     </div>    
-      
+    {% for video in videos %}
+		  <div class="video4">  
+		    <p class="video_names">{{video.name4}}</p>
+		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
+		  </div>
+		  {% endfor %}
 
     <div class="sasia">
         <ul class="list">
