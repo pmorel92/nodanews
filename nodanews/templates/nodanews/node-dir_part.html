@@ -42,42 +42,17 @@
   </header>
 	<ul id="node_list">
 	{% for node in nodes|slice:":1" %}
-<h1 id="node_title">{{node.node_direc}}</h2>
+<h1 id="node_title">{{node.node_direc}}</h1>
 	{% endfor %}
 <hr id="hr2">
 <img src="https://nodastorage.s3.amazonaws.com/media/{{node_dirs.banner}}" id="banner_image" alt=""/>
 <p id="description_node_dir">{{node_dirs.description|linebreaksbr}}</p>
 	{% for node in nodes %}
+			<li>
 			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
-				{% if node.hotness %}
 				<h2 class="headline1">{{node.headline}}</h2>
-				{% else %}
-				<h2 class="headline2">{{node.headline}}</h2>
-				{% endif %}
-				{% if node.editorial %}
-					{% if node.hotness %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial1">EDITORIAL</h2></a>
-					{% else %}
-					<a href='http://www.nodanews.com/editorials' style="text-decoration: none"><h2 class="editorial2">EDITORIAL</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.analysis %}
-					{% if node.hotness %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis1">ANALYSIS</h2></a>
-					{% else %}
-					<a href="http://www.nodanews.com/analysis" style="text-decoration: none"><h2 class="analysis2">ANALYSIS</h2></a>
-					{% endif %}
-				{% endif %}
-				{% if node.hotness %}
 				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% else %}
-				<h3 class="date_posted_2">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				{% endif %}
-				{% if node.hotness %}
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
-				{% else %}
-				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_2"/></a>
-				{% endif %}
 				<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black" target="_blank"><p class="index_part_node_dir">{{node_direc.name}}</a></p>
 			</li>
 			<hr>
