@@ -14,71 +14,33 @@
 <meta charset="utf-8">
 <title>Noda News</title>
 {% load static from staticfiles %}
-<link href="{% static 'css_style_sheets/nav4.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/cassnav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/media_dir1.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 </head>
 
-<body>
-	<header>
-			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-			<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="menu_icon"> 
-
-			<p id="bg_white"></p>
-		<ul id="nav_list">
-			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
-    		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
-    		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
-	    </ul>
-<div id="index">
-	<ul id="region_list">
-		<li>NEWS BY REGION</li>
-		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">AFRICA</li></a>
-		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">ASIA-PACIFIC</li></a>
-		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">EUROPE</li></a>
-		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">MIDDLE EAST</li></a>
-		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">NORTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH ASIA</li></a>																																	
-												
-	</ul>
-	</div>
-
-	<ul id="topic_index">
-		<li>Topics of the Day:</li>
-	{% for node_dir in node_dirs %}
-		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black" target="_blank"><li class="topic_1">{{node_dir.name}}</li></a>
-	{% endfor %}
-	</ul>
-	<ul id='news_ticker'>
-		{% for breaking_link in breaking_links %}
-		<li><a href="{{breaking_link.url}}" class="breaking_link{{breaking_link.region.color}}" target="_blank"><p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a></li>
-		{% endfor %}
-	</ul>	
-	<ul id="mobile_menu">
-		<a href="http://www.nodanews.com/node-dir"><li class="mobile_menu_item">Node Directory</li></a>
-    	<a href="http://www.nodanews.com/media_dir"><li class="mobile_menu_item">Media Org. Directory</li></a>
-    	<a href="http://www.nodanews.com/about"><li class="mobile_menu_item">About Noda News</li></a>
-		<li class="mobile_category">NEWS BY REGION</li>
-		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">AFRICA</li></a>
-		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">ASIA-PACIFIC</li></a>
-		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">EUROPE</li></a>
-		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">MIDDLE EAST</li></a>
-		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">NORTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH ASIA</li></a>
-		<li class="mobile_category">Topics of the Day:</li>
-	{% for node_dir in node_dirs %}
-		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black" target="_blank"><li class="mobile_menu_item">{{node_dir.name}}</li></a>
-	{% endfor %}
-	</ul>
-	
-		<div id="social_media">
+<body> 
+  <header>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <div id="bg_white"></div>
+    <nav>
+      <a href="http://www.nodanews.com/node-dir">Op-Ed Directory</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/about">About Noda News</a>
 		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
 		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
-	</div>
-	</header>	
+    </nav>
+      <div id="mobile_menu">
+        <a href="#asia" class="mobile">Asia-Pacific</a>
+        <a href="#africa" class="mobile">Africa</a>    
+        <a href="#europe" class="mobile">Europe</a>
+        <a href="#namerica" class="mobile">North America</a>
+        <a href="#me" class="mobile">Middle East</a>
+        <a href="#samerica" class="mobile">South America</a>
+        <a href="#sasia" class="mobile">South Asia</a>
+      </div>
+  </header>
 
 	<div>
 	  	<h1 id="title">Media Organization Directory</h1>

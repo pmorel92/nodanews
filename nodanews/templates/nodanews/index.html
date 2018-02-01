@@ -11,101 +11,147 @@
   gtag('config', 'UA-109012884-1');
 </script>	
 <meta charset="utf-8">
-<title>Noda News</title>
+<title>Noda News, Where you Get the News</title>
+
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
-<link href="{% static 'css_style_sheets/nav4.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css_style_sheets/index5.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/cassnav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/cassandra.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
-
 </head>
 
-<body>
-	<header>
-			<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-			<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="menu_icon"> 
-			<p id="bg_white"></p>
-		<ul id="nav_list">
-			<a href="http://www.nodanews.com/node-dir"><li class="nav_li_1">Node Directory</li></a>
-    		<a href="http://www.nodanews.com/media_dir"><li class="nav_li_1">Media Org. Directory</li></a>
-
-    		<a href="http://www.nodanews.com/about"><li class="nav_li_1">About Noda News</li></a>
-	    </ul>
-<div id="index">
-	<ul id="region_list">
-		<li>NEWS BY REGION</li>
-		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">AFRICA</li></a>
-		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">ASIA-PACIFIC</li></a>
-		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">EUROPE</li></a>
-		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">MIDDLE EAST</li></a>
-		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">NORTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="region_1">SOUTH ASIA</li></a>																																	
-												
-	</ul>
-	</div>
-
-	<ul id="topic_index">
-		<li>Topics of the Day:</li>
-	{% for node_dir in node_dirs %}
-		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="topic_1">{{node_dir.name}}</li></a>
-	{% endfor %}
-	</ul>
-	<ul id='news_ticker'>
-		{% for breaking_link in breaking_links %}
-		<li><a href="{{breaking_link.url}}" class="breaking_link{{breaking_link.region.color}}" target="_blank"><p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a></li>
-		{% endfor %}
-	</ul>
-	<ul id="mobile_menu">
-		<a href="http://www.nodanews.com/node-dir" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">Node Directory</li></a>
-    	<a href="http://www.nodanews.com/media_dir" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">Media Org. Directory</li></a>
-    	<a href="http://www.nodanews.com/about" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">About Noda News</li></a>
-		<li class="mobile_category">NEWS BY REGION</li>
-		<a href="http://www.nodanews.com/Green" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">AFRICA</li></a>
-		<a href="http://www.nodanews.com/Blue" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">ASIA-PACIFIC</li></a>
-		<a href="http://www.nodanews.com/Red" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">EUROPE</li></a>
-		<a href="http://www.nodanews.com/Purple" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">MIDDLE EAST</li></a>
-		<a href="http://www.nodanews.com/Orange" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">NORTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Yellow" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH AMERICA</li></a>
-		<a href="http://www.nodanews.com/Cyan" style="text-decoration: none;color: black; font-family: Century"><li class="mobile_menu_item">SOUTH ASIA</li></a>
-		<li class="mobile_category">Topics of the Day:</li>
-	{% for node_dir in node_dirs %}
-		 <a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none;color: black"><li class="mobile_menu_item">{{node_dir.name}}</li></a>
-	{% endfor %}
-	</ul>
-		<div id="social_media">
+<body> 
+  <header>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <div id="bg_white"></div>
+    <nav>
+      <a href="http://www.nodanews.com/node-dir">Op-Ed Directory</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/about">About Noda News</a>
 		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
 		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
-	</div>
-	</header>	
+    </nav>
+      <div id="mobile_menu">
+        <a href="#asia" class="mobile">Asia-Pacific</a>
+        <a href="#africa" class="mobile">Africa</a>    
+        <a href="#europe" class="mobile">Europe</a>
+        <a href="#namerica" class="mobile">North America</a>
+        <a href="#me" class="mobile">Middle East</a>
+        <a href="#samerica" class="mobile">South America</a>
+        <a href="#sasia" class="mobile">South Asia</a>
+      </div>
+  </header>
+<div id="maincontent">
+  <div class="first column">
 
-	<div id="feed">
-	{% for node_dir in node_dirs %}
-		<ul class="column">
-			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><h1 class="node_dir_name">{{node_dir.name}}</a></h1>
-			{% for node in nodes_by_dir|get_item:node_dir %}
-			<li class="node">	
-			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
-				<h2 class="headline1">{{node.headline}}</h2>
-				</a>
-				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <a href='http://www.nodanews.com/{{node.region.color}}' class="{{node.region.color}}"> {{node.region}}</a></h3>
-				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
-			</li>
-			<hr>
-			{% endfor %}
-		</ul>		
-	{% endfor %}
-	</div>
-	<div id="video_feed">
-		{% for livevideo in livevideos %}
-			<p class="video_names">{{livevideo.name1}}</p>
-			<iframe class="livevideo" width="420" height="236" src="{{livevideo.video1}}" frameborder="0" allowfullscreen></iframe>
-			<p class="video_names">{{livevideo.name2}}</p>
-			<iframe class="livevideo" width="420" height="236" src="{{livevideo.video2}}" frameborder="0" allowfullscreen></iframe>
-			<p class="video_names">{{livevideo.name3}}</p>
-			<iframe class="livevideo" width="420" height="236" src="{{livevideo.video3}}" frameborder="0" allowfullscreen></iframe>
-		{% endfor %}
-	</div>
+  {% for video in videos %}
+      <div class="video1">  
+        <p class="video_names">{{video.name1}}</p>
+		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		  </div>    
 
+  {% endfor %}
+    <div class="asia">
+        <ul class="list">
+            <li class="title" id="asia">News From Asia-Pacific</li>          
+          {% for asia in asias %}
+            <li><a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank"><p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+      <div class="samerica">
+        <ul class="list">
+            <li class="title" id="samerica">News From South America</li>          
+          {% for samerica in samericas %}
+            <li><a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank"><p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    {% for video in videos %}
+		  <div class="video3">  
+		    <p class="video_names">{{video.name3}}</p>
+		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		  </div>
+		  {% endfor %}
+    <div class="africa">
+        <ul class="list">
+            <li class="title" id="africa">News From Africa</li>          
+          {% for africa in africas %}
+            <li><a href="{{africa.url}}" class="link{{africa.region.color}}" target="_blank"><p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+      {% for oped in opeds|slice:"2:3" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+  {% endfor %}
+  </div>
+  <div class="second column">  
+  {% for oped in opeds|slice:":1" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+  {% endfor %}
+    <div class="oped">
+      <ul class="list">
+            <li class="title">Recent Opinion</li>
+        {% for oped in opeds %}
+           <li><a href="http://www.nodanews.com/node-dir/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p></li>   
+        {% endfor %}
+      </ul>  
+    </div>
+    <div class="namerica">
+        <ul class="list">
+            <li class="title" id="namerica">News From North America</li>          
+          {% for namerica in namericas %}
+            <li><a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank"><p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+
+
+  </div>
+  
+
+  <div class="third column">
+		  {% for video in videos %}
+		  <div class="video2">  
+		    <p class="video_names">{{video.name2}}</p>
+		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+		  </div>  
+		  {% endfor %}
+    <div class="europe">
+        <ul class="list">
+            <li class="title" id="europe">News From Europe</li>          
+          {% for europe in europes %}
+            <li><a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank"><p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+  {% for oped in opeds|slice:"1:2" %}
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+  {% endfor %}
+    <div class="me">
+        <ul class="list">
+            <li class="title" id="me">News From the Middle East</li>          
+          {% for me in mes %}
+            <li><a href="{{me.url}}" class="link{{me.region.color}}" target="_blank"><p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>    
+    {% for video in videos %}
+		  <div class="video4">  
+		    <p class="video_names">{{video.name4}}</p>
+		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
+		  </div>
+		  {% endfor %}
+
+    <div class="sasia">
+        <ul class="list">
+            <li class="title" id="sasia">News From South Asia</li>
+          {% for sasia in sasias %}
+            <li><a href="{{sasia.url}}" class="link{{sasia.region.color}}" target="_blank"><p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>      
+  </div>
+</div>
+<footer>Footer Content</footer>
 </body>
-</html> 

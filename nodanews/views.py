@@ -13,14 +13,14 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
-def index(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	breaking_links = Breaking_Link.objects.all()
-	livevideos = LiveVideo.objects.filter( region__id=8 )
-	nodes_by_dir = {
-		n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:1] for n in node_dirs
-	}
-	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
+#def index(request):
+#	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
+#	breaking_links = Breaking_Link.objects.all()
+#	livevideos = LiveVideo.objects.filter( region__id=8 )
+#	nodes_by_dir = {
+#		n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:1] for n in node_dirs
+#	}
+#	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 
 def cassandra(request):
     opeds = Node.objects.all()[0:5]
@@ -32,58 +32,14 @@ def cassandra(request):
     namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
     samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
-    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
+    return render(request, 'nodanews/index.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
     
-def index_asia(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	breaking_links = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=1 )
-	nodes = Node.objects.filter( region__id=1 ).order_by('-date_posted')
-	return render(request, 'nodanews/blue.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-
-def index_africa(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	nodes = Node.objects.filter( region__id=3 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=3 )
-	return render(request, 'nodanews/green.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-	
-def index_sasia(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	nodes = Node.objects.filter( region__id=6 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=6 )
-	return render(request, 'nodanews/cyan.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-	
-def index_me(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	nodes = Node.objects.filter( region__id=7 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=7 )
-	return render(request, 'nodanews/purple.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-	
-def index_namerica(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-	nodes = Node.objects.filter( region__id=4 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=4 )
-	return render(request, 'nodanews/orange.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-	
-def index_samerica(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
-	nodes = Node.objects.filter( region__id=5 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=5 )
-	return render(request, 'nodanews/yellow.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-	
-def index_europe(request):
-	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
-	nodes = Node.objects.filter( region__id=2 ).order_by('-date_posted')
-	breaking_links = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
-	livevideos = LiveVideo.objects.filter( region__id=2 )
-	return render(request, 'nodanews/red.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
-
-
+#def index_asia(request):
+#	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
+#	breaking_links = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
+#	livevideos = LiveVideo.objects.filter( region__id=1 )
+#	nodes = Node.objects.filter( region__id=1 ).order_by('-date_posted')
+#	return render(request, 'nodanews/blue.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
 
 def about(request):
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')

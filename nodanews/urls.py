@@ -4,15 +4,7 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
-	url(r'^cassandra/$', views.cassandra, name="cassandra"),
-	url(r'^Blue/$', views.index_asia, name="asia"),
-	url(r'^Red/$', views.index_europe, name="europe"),
-	url(r'^Yellow/$', views.index_samerica, name="samerica"),
-	url(r'^Orange/$', views.index_namerica, name="namerica"),
-	url(r'^Purple/$', views.index_me, name="me"),
-	url(r'^Cyan/$', views.index_sasia, name="sasia"),
-	url(r'^Green/$', views.index_africa, name="africa"),
+	url(r'^$', views.cassandra, name='index'),
 	url(r'^about/$', views.about, name='about'),
 	url(r'^node-dir/$', views.node_dir, name='node_dir_index'),
 	url(r'^node-dir/(?P<node_dir_id>[0-9]+)/$', views.node_dir_part, name='node_dir'),
