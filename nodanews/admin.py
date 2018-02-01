@@ -11,7 +11,7 @@ class Media_OrgAdmin(admin.ModelAdmin):
 
 class NodeAdmin(admin.ModelAdmin):
     
-    list_display = ['headline', 'hotness', 'region', 'node_direc', 'date_posted']
+    list_display = ['headline', 'region', 'node_direc', 'date_posted']
 
 
 class LinkAdmin(admin.ModelAdmin):
