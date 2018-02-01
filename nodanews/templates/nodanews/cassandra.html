@@ -51,11 +51,11 @@
   {% endfor %}
     <div class="asia">
         <ul class="list">
-            <li class="title" id="asia">News From Asia-Pacific</li>          
+            <li class="title">News From Asia-Pacific</li>          
           {% for asia in asias %}
             <li><a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank"><p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a></li>
           {% endfor %}
-        </ul>
+        </ul id="asia">
     </div>
       <div class="samerica">
         <ul class="list">
