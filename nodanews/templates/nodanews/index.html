@@ -81,13 +81,18 @@
           {% endfor %}
         </ul>
     </div>
-      {% for oped in opeds|slice:"2:3" %}
-    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+    {% for oped in opeds|slice:"2:3" %}
+    <a href="http://www.nodanews.com/node/{{oped.id}}"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
+    <p class="caption">{{oped.headline}}</p>
+    </a>
   {% endfor %}
   </div>
   <div class="second column">  
   {% for oped in opeds|slice:":1" %}
-    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+<a href="http://www.nodanews.com/node/{{oped.id}}"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
+    <p class="caption">{{oped.headline}}</p>
+    </a>
+
   {% endfor %}
     <div class="oped">
       <ul class="list">
@@ -126,7 +131,9 @@
         </ul>
     </div>
   {% for oped in opeds|slice:"1:2" %}
-    <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/></a>
+<a href="http://www.nodanews.com/node/{{oped.id}}"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
+    <p class="caption">{{oped.headline}}</p>
+    </a>
   {% endfor %}
     <div class="me">
         <ul class="list">
