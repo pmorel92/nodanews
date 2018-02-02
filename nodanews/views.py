@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline
 
 
 @register.filter
@@ -24,6 +24,7 @@ def get_item(dictionary, key):
 
 def cassandra(request):
     opeds = Node.objects.all()[0:5]
+    headlines = Headline.objects.all()
     videos = LiveVideo.objects.filter( region__id=8 )
     asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
     africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
@@ -32,7 +33,7 @@ def cassandra(request):
     namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
     samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
-    return render(request, 'nodanews/index.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
+    return render(request, 'nodanews/index.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
     
 #def index_asia(request):
 #	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')

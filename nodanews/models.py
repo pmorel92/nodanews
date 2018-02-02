@@ -95,7 +95,13 @@ class Journalist(models.Model):
 		return self.name
 	class Meta:
 		ordering = ('name',)
-			
+		
+class Headline(models.Model):
+    text = models.CharField(max_length=750, default='')
+    url = models.CharField(max_length=750, default='')
+
+    def __str__(self):
+        return self.text
 		
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
