@@ -50,7 +50,7 @@
         <ul class="list">
           <li class="title">Breaking News</li>
           {% for latest in latests %}
-             <li><a href="{{latest.url}}" class="link{{africa.region.color}}"><p>{{latest.title}}</a></p></li>
+             <li><a href="{{latest.url}}" class="link{{latest.region.color}}"><p>{{latest.title}}</a></p></li>
           {% endfor %}
         </ul>
     </div>
