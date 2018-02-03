@@ -33,7 +33,8 @@ def cassandra(request):
     namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
     samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
-    return render(request, 'nodanews/index.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
+    latests = Breaking_Link.objects.all()[0:10]
+    return render(request, 'nodanews/index.html', {'opeds': opeds, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
     
 #def index_asia(request):
 #	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
