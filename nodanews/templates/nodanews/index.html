@@ -101,15 +101,15 @@
         {% endfor %}
       </ul>  
     </div>
-    <div class="libtard">
-      <ul class="list">
-        <li class="title">From the Left-Wing</li>
-        {% for libtard in libtards %}
-           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
-        {% endfor %}
-      </ul>
+    <div class="europe">
+        <ul class="list">
+            <li class="title" id="europe">News From Europe</li>          
+          {% for europe in europes %}
+            <li><a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank"><p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
     </div>
-    <div class="namerica">
+        <div class="namerica">
         <ul class="list">
             <li class="title" id="namerica">News From North America</li>          
           {% for namerica in namericas %}
@@ -143,14 +143,16 @@
         {% endfor %}
       </ul>
     </div>
-    <div class="europe">
-        <ul class="list">
-            <li class="title" id="europe">News From Europe</li>          
-          {% for europe in europes %}
-            <li><a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank"><p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
-          {% endfor %}
-        </ul>
+    <div class="libtard">
+      <ul class="list">
+        <li class="title">From the Left-Wing</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
     </div>
+
+
     <div class="me">
         <ul class="list">
             <li class="title" id="me">News From the Middle East</li>          
