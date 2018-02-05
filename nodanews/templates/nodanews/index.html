@@ -52,7 +52,12 @@
         <ul class="list">
           <li class="title">Breaking News</li>
           {% for latest in latests %}
-             <li><a href="{{latest.url}}" class="link{{latest.region.color}}"><p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a></li>
+             <li>
+               <a href="{{latest.url}}" class="link{{latest.region.color}}">
+              {% if latest.imageQ %}
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+              {% endif %}    
+                 <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a></li>
           {% endfor %}
         </ul>
     </div>
