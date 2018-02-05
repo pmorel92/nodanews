@@ -64,7 +64,8 @@ class Media_Character(models.Model):
 	
     def __str__(self):
         return self.name
-	    
+
+
 class Media_Org(models.Model):
     name = models.CharField(max_length=100, default='')
     date_posted = models.DateTimeField()
@@ -125,6 +126,17 @@ class Breaking_Link(models.Model):
 	class Meta:
 		ordering = ('-posted',)
 
+class PoliticalBiasNews(models.Model):
+	url = models.CharField(max_length=300, default='')
+	title = models.CharField(max_length=150, default='')
+	media = models.ForeignKey(Media_Org)
+	posted = models.DateTimeField(default=datetime.now, blank=True)
+	region = models.ForeignKey(Region, default=9, null=True)
+	def __str__(self):
+	    return "{}/{}".format(self.id, self.media)
+
+	class Meta:
+		ordering = ('-posted',)
 
     
 	    

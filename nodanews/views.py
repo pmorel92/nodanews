@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline, PoliticalBiasNews
 
 
 @register.filter
@@ -26,8 +26,8 @@ def cassandra(request):
     opeds = Node.objects.all()[3:8]
     nodes = Node.objects.all()[0:3]
     headlines = Headline.objects.all()
-    conservaturds = Breaking_Link.objects.filter( region__id=9 ).order_by('-posted')
-    libtards = Breaking_Link.objects.filter( region__id=10 ).order_by('-posted')    
+    conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+    libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
     videos = LiveVideo.objects.filter( region__id=8 )
     asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
     africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
