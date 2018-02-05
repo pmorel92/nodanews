@@ -30,7 +30,7 @@ class Node_DirAdmin(admin.ModelAdmin):
     list_display = ['name', 'date_updated', 'active']
 
 class Breaking_LinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'media', 'region', 'posted']
+    list_display = ['title', 'media', 'region', 'posted', 'imageQ']
     date_hierarchy = 'posted'
 
 class PoliticalBiasNewsAdmin(admin.ModelAdmin):

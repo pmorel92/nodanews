@@ -63,7 +63,7 @@
           {% for asia in asias %}
             <li>
               {% if asia.imageQ %}
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="brekaing_image">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{asia.image}}" class="breaking_image">
               {% endif %}    
                 <a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank"><p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a>
             </li>
