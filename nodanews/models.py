@@ -120,6 +120,9 @@ class Breaking_Link(models.Model):
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=8, null=True)
+	imageQ = models.BooleanField(default=False)
+	image = models.ImageField(upload_to='media/nodes', default='', blank=True)
+
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.media)
 
