@@ -26,6 +26,8 @@ def cassandra(request):
     opeds = Node.objects.all()[3:8]
     nodes = Node.objects.all()[0:3]
     headlines = Headline.objects.all()
+    conservaturds = Breaking_Link.objects.filter( region__id=9 ).order_by('-posted')
+    libtards = Breaking_Link.objects.filter( region__id=10 ).order_by('-posted')    
     videos = LiveVideo.objects.filter( region__id=8 )
     asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
     africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
@@ -35,7 +37,7 @@ def cassandra(request):
     samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
     latests = Breaking_Link.objects.all()[0:15]
-    return render(request, 'nodanews/index.html', {'opeds': opeds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'europes': europes})
+    return render(request, 'nodanews/index.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
     
 #def index_asia(request):
 #	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')

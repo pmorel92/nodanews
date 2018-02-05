@@ -101,7 +101,14 @@
         {% endfor %}
       </ul>  
     </div>
-
+    <div class="libtard">
+      <ul class="list">
+        <li class="title">From the Left-Wing</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
     <div class="namerica">
         <ul class="list">
             <li class="title" id="namerica">News From North America</li>          
@@ -128,6 +135,14 @@
 		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
 		  </div>    
   {% endfor %}
+    <div class="conservaturd">
+      <ul class="list">
+        <li class="title">From the Right-Wing</li>
+        {% for conservaturd in conservaturds %}
+           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
     <div class="europe">
         <ul class="list">
             <li class="title" id="europe">News From Europe</li>          
