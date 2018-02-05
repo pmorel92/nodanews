@@ -99,6 +99,7 @@ class Journalist(models.Model):
 class Headline(models.Model):
     text = models.CharField(max_length=750, default='')
     url = models.CharField(max_length=750, default='')
+    image = models.ImageField(upload_to='media/nodes', default='')
 
     def __str__(self):
         return self.text

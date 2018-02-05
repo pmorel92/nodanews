@@ -43,7 +43,9 @@
   </header>
 <div id="maincontent">
   {% for headline in headlines %}
-    <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.text}}</p></a>
+    <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.text}}</p>
+    <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+    </a>
   {% endfor %}
   <div class="first column">
     <div class="latest">
@@ -55,13 +57,6 @@
         </ul>
     </div>
 
-  {% for video in videos %}
-      <div class="video1">  
-        <p class="video_names">{{video.name1}}</p>
-		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
-		  </div>    
-
-  {% endfor %}
     <div class="asia">
         <ul class="list">
             <li class="title" id="asia">News From Asia-Pacific</li>          
@@ -78,12 +73,6 @@
           {% endfor %}
         </ul>
     </div>
-    {% for video in videos %}
-		  <div class="video3">  
-		    <p class="video_names">{{video.name3}}</p>
-		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
-		  </div>
-		  {% endfor %}
     <div class="africa">
         <ul class="list">
             <li class="title" id="africa">News From Africa</li>          
@@ -92,16 +81,13 @@
           {% endfor %}
         </ul>
     </div>
-    {% for oped in opeds|slice:"2:3" %}
-    <a href="http://www.nodanews.com/node/{{oped.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
-    <p>{{oped.headline}}</p>
-    </a>
-  {% endfor %}
+
   </div>
   <div class="second column">  
-  {% for oped in opeds|slice:":1" %}
-<a href="http://www.nodanews.com/node/{{oped.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
-    <p>{{oped.headline}}</p>
+  {% for node in nodes %}
+<a href="http://www.nodanews.com/node/{{node.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
+    <p>{{node.headline}}</p>
+    <p class='posted'>Posted: {{node.date_posted}}</p>
     </a>
 
   {% endfor %}
@@ -109,7 +95,9 @@
       <ul class="list">
             <li class="title">Recent From Nodanews</li>
         {% for oped in opeds %}
-           <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p></li>   
+           <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p>
+               <p class='posted'>Posted: {{oped.date_posted}}</p>
+           </li>   
         {% endfor %}
       </ul>  
     </div>
@@ -128,12 +116,18 @@
   
 
   <div class="third column">
-		  {% for video in videos %}
-		  <div class="video2">  
+  {% for video in videos %}
+      <div class="video1">  
+        <p class="video_names">{{video.name1}}</p>
+		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
 		    <p class="video_names">{{video.name2}}</p>
 		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
-		  </div>  
-		  {% endfor %}
+		    <p class="video_names">{{video.name3}}</p>
+		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		    <p class="video_names">{{video.name4}}</p>
+		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
+		  </div>    
+  {% endfor %}
     <div class="europe">
         <ul class="list">
             <li class="title" id="europe">News From Europe</li>          
@@ -142,11 +136,6 @@
           {% endfor %}
         </ul>
     </div>
-  {% for oped in opeds|slice:"1:2" %}
-<a href="http://www.nodanews.com/node/{{oped.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{oped.head_image}}" class="banner"/>
-    <p>{{oped.headline}}</p>
-    </a>
-  {% endfor %}
     <div class="me">
         <ul class="list">
             <li class="title" id="me">News From the Middle East</li>          
@@ -155,12 +144,6 @@
           {% endfor %}
         </ul>
     </div>    
-    {% for video in videos %}
-		  <div class="video4">  
-		    <p class="video_names">{{video.name4}}</p>
-		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
-		  </div>
-		  {% endfor %}
 
     <div class="sasia">
         <ul class="list">
