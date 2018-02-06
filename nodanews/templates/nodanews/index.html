@@ -65,7 +65,7 @@
     </div>
   <div class="top_nodes">
       {% for node in nodes %}
-        <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none, font-color: black ">
+        <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none; font-color: black">
           <p class="node_headline">{{node.headline}}</p>
             <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
             <p class='posted'>Posted: {{node.date_posted}}</p>
