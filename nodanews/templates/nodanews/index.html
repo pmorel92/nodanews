@@ -81,28 +81,14 @@
 
   <div class="top_nodes">
       {% for node in nodes %}
-        <a href="http://www.nodanews.com/node/{{node.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
+        <a href="http://www.nodanews.com/node/{{node.id}}" class="node_headline"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
           <p>{{node.headline}}</p>
             <p class='posted'>Posted: {{node.date_posted}}</p>
         </a>
 
   {% endfor %}
   </div>
-  <div class="video_list">
-  {% for video in videos %}
-      <div class="video1">  
-        <p class="video_names">VIDEO {{video.name1}}</p>
-		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names">VIDEO {{video.name2}}</p>
-		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names"> VIDEO {{video.name3}}</p>
-		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names"> VIDEO {{video.name4}}</p>
-		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
-		  </div>    
-  {% endfor %}
-  </div>
-  </div>
+
   <div style="clear: both"></div>
   <div class="second column">  
     <div class="libtard">
