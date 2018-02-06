@@ -63,6 +63,19 @@
           {% endfor %}
         </ul>
     </div>
+  <div class="top_nodes">
+      {% for node in nodes %}
+        <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none, font-color: black ">
+          <p class="node_headline">{{node.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node.date_posted}}</p>
+        </a>
+
+  {% endfor %}
+  </div>
+  </div>
+  <div style="clear: both"></div>
+  <div class="first column">
       <div class="video_list">
   {% for video in videos %}
       <div class="video1">  
@@ -77,20 +90,7 @@
 		  </div>    
   {% endfor %}
   </div>
-  </div>
-  <div style="clear: both"></div>
-  <div class="first column">
 
-  <div class="top_nodes">
-      {% for node in nodes %}
-        <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none, font-color: black ">
-          <p class="node_headline">{{node.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node.date_posted}}</p>
-        </a>
-
-  {% endfor %}
-  </div>
 
   <div style="clear: both"></div>
   <div class="second column">  
