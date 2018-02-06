@@ -48,19 +48,23 @@
       <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
       </a>
     {% endfor %}
-  </div>
-  <div style="clear: both"></div>
-  <div class="first column">
-    <div class="latest">
+        <div class="latest">
         <ul class="list">
           <li class="title">Breaking News</li>
           {% for latest in latests %}
              <li>
+               {% if asia.imageQ %}
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+              {% endif %}   
                <a href="{{latest.url}}" class="link{{latest.region.color}}">
                  <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a></li>
           {% endfor %}
         </ul>
     </div>
+  </div>
+  <div style="clear: both"></div>
+  <div class="first column">
+
   <div class="top_nodes">
       {% for node in nodes %}
         <a href="http://www.nodanews.com/node/{{node.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
@@ -131,6 +135,7 @@
                 </a>
             </li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>
 
@@ -145,6 +150,7 @@
               {% endif %}
                 <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>
     <div class="me">
@@ -158,6 +164,7 @@
               {% endif %}
                 <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>    
         <div class="namerica">
@@ -171,6 +178,7 @@
               {% endif %}
                 <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>
         <div class="samerica">
@@ -184,6 +192,7 @@
               {% endif %}    
                 <p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>
     <div class="africa">
@@ -197,6 +206,7 @@
               {% endif %}  
                 <p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>
   
@@ -211,6 +221,7 @@
               {% endif %}
                 <p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a></li>
           {% endfor %}
+          <li class="button"> Click for More</li>
         </ul>
     </div>      
   </div>
