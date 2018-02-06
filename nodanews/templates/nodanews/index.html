@@ -51,7 +51,7 @@
     {% endfor %}
     </div>
         <div class="latest">
-        <ul class="list">
+        <ul class="breaking_list">
           <li class="title">Breaking News</li>
           {% for latest in latests %}
              <li>
@@ -101,7 +101,7 @@
   <div style="clear: both"></div>
   <div class="second column">  
     <div class="libtard">
-      <ul class="list">
+      <ul class="second_list">
         <li class="title">From the Left-Wing</li>
         {% for libtard in libtards %}
            <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
@@ -109,7 +109,7 @@
       </ul>
     </div>
     <div class="oped">
-      <ul class="list">
+      <ul class="second_list">
             <li class="title">Recent From Nodanews</li>
         {% for oped in opeds %}
            <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p>
@@ -119,7 +119,7 @@
       </ul>  
     </div>
     <div class="conservaturd">
-      <ul class="list">
+      <ul class="second_list">
         <li class="title">From the Right-Wing</li>
         {% for conservaturd in conservaturds %}
            <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
@@ -131,9 +131,9 @@
 <div style="clear: both"></div>  
 
   <div class="third column">
-    <div class="asia">
+    <div id="asia">
         <ul class="list">
-            <li class="title" id="asia">News From Asia-Pacific</li>          
+            <li class="title" id="asia">News From Asia-Pacific<span class=button> Click to Expand</span></li>          
           {% for asia in asias %}
             <li>
                 <a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank">
@@ -144,13 +144,12 @@
                 </a>
             </li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>
 
-    <div class="europe">
+    <div id="europe">
         <ul class="list">
-            <li class="title" id="europe">News From Europe</li>          
+            <li class="title" id="europe">News From Europe<span class=button> Click to Expand</span></li>          
           {% for europe in europes %}
             <li>
               <a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank">
@@ -159,12 +158,11 @@
               {% endif %}
                 <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>
-    <div class="me">
+    <div id="me">
         <ul class="list">
-            <li class="title" id="me">News From the Middle East</li>          
+            <li class="title" id="me">News From the Middle East<span class=button> Click to Expand</span></li>          
           {% for me in mes %}
             <li>
               <a href="{{me.url}}" class="link{{me.region.color}}" target="_blank">
@@ -173,12 +171,11 @@
               {% endif %}
                 <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>    
-        <div class="namerica">
+        <div id="namerica">
         <ul class="list">
-            <li class="title" id="namerica">News From North America</li>          
+            <li class="title" id="namerica">News From North America<span class=button> Click to Expand</span></li>          
           {% for namerica in namericas %}
             <li>
               <a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank">
@@ -187,12 +184,11 @@
               {% endif %}
                 <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>
-        <div class="samerica">
+        <div id="samerica">
         <ul class="list">
-            <li class="title" id="samerica">News From South America</li>          
+            <li class="title" id="samerica">News From South America<span class=button> Click to Expand</span></li>          
           {% for samerica in samericas %}
             <li>
               <a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank">
@@ -201,12 +197,11 @@
               {% endif %}    
                 <p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>
-    <div class="africa">
+    <div id="africa">
         <ul class="list">
-            <li class="title" id="africa">News From Africa</li>          
+            <li class="title" id="africa">News From Africa<span class=button> Click to Expand</span></li>          
           {% for africa in africas %}
             <li>
               <a href="{{africa.url}}" class="link{{africa.region.color}}" target="_blank">
@@ -215,13 +210,12 @@
               {% endif %}  
                 <p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>
   
-    <div class="sasia">
+    <div id="sasia">
         <ul class="list">
-            <li class="title" id="sasia">News From South Asia</li>
+            <li class="title" id="sasia">News From South Asia<span class=button> Click to Expand</span></li>
           {% for sasia in sasias %}
             <li>
               <a href="{{sasia.url}}" class="link{{sasia.region.color}}" target="_blank">
@@ -230,7 +224,6 @@
               {% endif %}
                 <p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a></li>
           {% endfor %}
-          <li class="button"> Click for More</li>
         </ul>
     </div>      
   </div>
