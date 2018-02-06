@@ -42,11 +42,14 @@
       </div>
   </header>
 <div id="maincontent">
-  {% for headline in headlines %}
-    <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.text}}</p>
-    <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
-    </a>
-  {% endfor %}
+  <div class="headliner">
+    {% for headline in headlines %}
+      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.text}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+      </a>
+    {% endfor %}
+  </div>
+  <div style="clear: both"></div>
   <div class="first column">
     <div class="latest">
         <ul class="list">
@@ -61,7 +64,62 @@
           {% endfor %}
         </ul>
     </div>
+  <div class="top_nodes">
+      {% for node in nodes %}
+        <a href="http://www.nodanews.com/node/{{node.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
+          <p>{{node.headline}}</p>
+            <p class='posted'>Posted: {{node.date_posted}}</p>
+        </a>
 
+  {% endfor %}
+  </div>
+  {% for video in videos %}
+      <div class="video1">  
+        <p class="video_names">VIDEO {{video.name1}}</p>
+		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		    <p class="video_names">VIDEO {{video.name2}}</p>
+		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+		    <p class="video_names"> VIDEO {{video.name3}}</p>
+		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		    <p class="video_names"> VIDEO {{video.name4}}</p>
+		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
+		  </div>    
+  {% endfor %}
+  
+  </div>
+  <div style="clear: both"></div>
+  <div class="second column">  
+    <div class="libtard">
+      <ul class="list">
+        <li class="title">From the Left-Wing</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="oped">
+      <ul class="list">
+            <li class="title">Recent From Nodanews</li>
+        {% for oped in opeds %}
+           <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p>
+               <p class='posted'>Posted: {{oped.date_posted}}</p>
+           </li>   
+        {% endfor %}
+      </ul>  
+    </div>
+    <div class="conservaturd">
+      <ul class="list">
+        <li class="title">From the Right-Wing</li>
+        {% for conservaturd in conservaturds %}
+           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>    
+
+  </div>
+<div style="clear: both"></div>  
+
+  <div class="third column">
     <div class="asia">
         <ul class="list">
             <li class="title" id="asia">News From Asia-Pacific</li>          
@@ -77,7 +135,47 @@
           {% endfor %}
         </ul>
     </div>
-      <div class="samerica">
+
+    <div class="europe">
+        <ul class="list">
+            <li class="title" id="europe">News From Europe</li>          
+          {% for europe in europes %}
+            <li>
+              <a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank">
+              {% if europe.imageQ %}
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{europe.image}}" class="breaking_image">
+              {% endif %}
+                <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div class="me">
+        <ul class="list">
+            <li class="title" id="me">News From the Middle East</li>          
+          {% for me in mes %}
+            <li>
+              <a href="{{me.url}}" class="link{{me.region.color}}" target="_blank">
+              {% if me.imageQ %}
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{me.image}}" class="breaking_image">
+              {% endif %}
+                <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>    
+        <div class="namerica">
+        <ul class="list">
+            <li class="title" id="namerica">News From North America</li>          
+          {% for namerica in namericas %}
+            <li>
+              <a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank">
+              {% if namerica.imageQ %}
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{namerica.image}}" class="breaking_image">
+              {% endif %}
+                <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
+          {% endfor %}
+        </ul>
+    </div>
+        <div class="samerica">
         <ul class="list">
             <li class="title" id="samerica">News From South America</li>          
           {% for samerica in samericas %}
@@ -103,102 +201,7 @@
           {% endfor %}
         </ul>
     </div>
-
-  </div>
-  <div class="second column">  
-  {% for node in nodes %}
-<a href="http://www.nodanews.com/node/{{node.id}}" class="caption"><img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
-    <p>{{node.headline}}</p>
-    <p class='posted'>Posted: {{node.date_posted}}</p>
-    </a>
-
-  {% endfor %}
-    <div class="oped">
-      <ul class="list">
-            <li class="title">Recent From Nodanews</li>
-        {% for oped in opeds %}
-           <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p>
-               <p class='posted'>Posted: {{oped.date_posted}}</p>
-           </li>   
-        {% endfor %}
-      </ul>  
-    </div>
-    <div class="europe">
-        <ul class="list">
-            <li class="title" id="europe">News From Europe</li>          
-          {% for europe in europes %}
-            <li>
-              <a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank">
-              {% if europe.imageQ %}
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{europe.image}}" class="breaking_image">
-              {% endif %}
-                <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
-          {% endfor %}
-        </ul>
-    </div>
-        <div class="namerica">
-        <ul class="list">
-            <li class="title" id="namerica">News From North America</li>          
-          {% for namerica in namericas %}
-            <li>
-              <a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank">
-              {% if namerica.imageQ %}
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{namerica.image}}" class="breaking_image">
-              {% endif %}
-                <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
-          {% endfor %}
-        </ul>
-    </div>
-
-
-  </div>
   
-
-  <div class="third column">
-  {% for video in videos %}
-      <div class="video1">  
-        <p class="video_names">VIDEO {{video.name1}}</p>
-		      <iframe class="livevideo1" width="420" height="236" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names">VIDEO {{video.name2}}</p>
-		      <iframe class="livevideo2" width="420" height="236" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names"> VIDEO {{video.name3}}</p>
-		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
-		    <p class="video_names"> VIDEO {{video.name4}}</p>
-		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
-		  </div>    
-  {% endfor %}
-    <div class="conservaturd">
-      <ul class="list">
-        <li class="title">From the Right-Wing</li>
-        {% for conservaturd in conservaturds %}
-           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="libtard">
-      <ul class="list">
-        <li class="title">From the Left-Wing</li>
-        {% for libtard in libtards %}
-           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
-        {% endfor %}
-      </ul>
-    </div>
-
-
-    <div class="me">
-        <ul class="list">
-            <li class="title" id="me">News From the Middle East</li>          
-          {% for me in mes %}
-            <li>
-              <a href="{{me.url}}" class="link{{me.region.color}}" target="_blank">
-              {% if me.imageQ %}
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{me.image}}" class="breaking_image">
-              {% endif %}
-                <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
-          {% endfor %}
-        </ul>
-    </div>    
-
     <div class="sasia">
         <ul class="list">
             <li class="title" id="sasia">News From South Asia</li>
