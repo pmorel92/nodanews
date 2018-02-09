@@ -62,10 +62,13 @@
           {% for latest in latests %}
              <li>
                <a href="{{latest.url}}" class="link{{latest.region.color}}">
-               {% if latest.imageQ %}
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+                 <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a>
+                  {% if latest.imageQ %}
+                  <a href="{{latest.url}}">
+                    <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+                  </a>
               {% endif %}   
-                 <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a></li>
+                 </li>
           {% endfor %}
         </ul>
     </div>
