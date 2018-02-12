@@ -65,7 +65,7 @@
                  <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a>
                   {% if latest.imageQ %}
                   <a href="{{latest.url}}">
-                    <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
                   </a>
               {% endif %}   
                  </li>
@@ -99,10 +99,7 @@
 		    <p class="video_names"> VIDEO {{video.name3}}</p>
 		      <iframe class="livevideo3" width="420" height="236" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
 		    </div>
-		    <div class="video4">
-		    <p class="video_names"> VIDEO {{video.name4}}</p>
-		      <iframe class="livevideo4" width="420" height="236" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
-        </div>	    
+	    
   {% endfor %}
   </div>
 
@@ -146,11 +143,12 @@
           {% for asia in asias %}
             <li>
                 <a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank">
+                  <p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a>
               {% if asia.imageQ %}
+               <a href="{{asia.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{asia.image}}" class="breaking_image">
-              {% endif %}    
-                  <p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p>
-                </a>
+              </a>
+              {% endif %}
             </li>
           {% endfor %}
         </ul>
@@ -162,10 +160,13 @@
           {% for europe in europes %}
             <li>
               <a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank">
+                <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a>
               {% if europe.imageQ %}
+               <a href="{{eurpoe.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{europe.image}}" class="breaking_image">
+              </a>
               {% endif %}
-                <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a></li>
+            </li>
           {% endfor %}
         </ul>
     </div>
@@ -175,10 +176,13 @@
           {% for me in mes %}
             <li>
               <a href="{{me.url}}" class="link{{me.region.color}}" target="_blank">
+                <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a>
               {% if me.imageQ %}
+               <a href="{{me.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{me.image}}" class="breaking_image">
+              </a>
               {% endif %}
-                <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a></li>
+            </li>
           {% endfor %}
         </ul>
     </div>    
@@ -189,10 +193,13 @@
           {% for samerica in samericas %}
             <li>
               <a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank">
+                <p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a>
               {% if samerica.imageQ %}
+               <a href="{{samerica.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{samerica.image}}" class="breaking_image">
-              {% endif %}    
-                <p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a></li>
+              </a>
+              {% endif %}
+            </li>
           {% endfor %}
         </ul>
     </div>
@@ -202,10 +209,13 @@
           {% for africa in africas %}
             <li>
               <a href="{{africa.url}}" class="link{{africa.region.color}}" target="_blank">
+                <p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a>
               {% if africa.imageQ %}
+               <a href="{{africa.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{africa.image}}" class="breaking_image">
-              {% endif %}  
-                <p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a></li>
+              </a>
+              {% endif %}
+            </li>
           {% endfor %}
         </ul>
     </div>
@@ -216,10 +226,13 @@
           {% for sasia in sasias %}
             <li>
               <a href="{{sasia.url}}" class="link{{sasia.region.color}}" target="_blank">
+                <p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a>
               {% if sasia.imageQ %}
+               <a href="{{sasia.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{sasia.image}}" class="breaking_image">
+              </a>
               {% endif %}
-                <p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a></li>
+            </li>
           {% endfor %}
         </ul>
     </div>
@@ -229,10 +242,13 @@
           {% for namerica in namericas %}
             <li>
               <a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank">
+                <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a>
               {% if namerica.imageQ %}
+               <a href="{{namerica.url}}">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{namerica.image}}" class="breaking_image">
+              </a>
               {% endif %}
-                <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a></li>
+            </li>
           {% endfor %}
         </ul>
     </div>
