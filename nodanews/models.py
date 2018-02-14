@@ -98,12 +98,12 @@ class Journalist(models.Model):
 		ordering = ('name',)
 		
 class Headline(models.Model):
-    text = models.CharField(max_length=750, default='')
-    url = models.CharField(max_length=750, default='')
-    image = models.ImageField(upload_to='media/temp', default='')
-
-    def __str__(self):
-        return self.text
+	url = models.CharField(max_length=300, default='')
+	title = models.CharField(max_length=150, default='')
+	image = models.ImageField(upload_to='media/temp', default='')
+	
+	def __str__(self):
+	    return self.text
 		
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
@@ -154,8 +154,7 @@ class LiveVideo(models.Model):
     name3 = models.CharField(max_length=200, default='name goes here')
     video3 = models.CharField(max_length=500, default='', blank=True)
     name4 = models.CharField(max_length=200, default='name goes here')
-    video4 = models.CharField(max_length=500, default='', blank=True)
-    region = models.ForeignKey(Region, default=8, null=True)
+
     
     def __str__(self):
 	    return "{}".format(self.region.name)
