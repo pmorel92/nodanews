@@ -103,7 +103,7 @@ class Headline(models.Model):
 	image = models.ImageField(upload_to='media/temp', default='')
 	
 	def __str__(self):
-	    return self.text
+	    return self.title
 		
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
