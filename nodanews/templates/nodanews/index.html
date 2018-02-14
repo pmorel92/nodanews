@@ -50,7 +50,7 @@
   <div class="headliner">
     <div class="headlineandimage">
     {% for headline in headlines %}
-      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.text}}</p>
+      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.title}}</p>
       <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
       </a>
     {% endfor %}
