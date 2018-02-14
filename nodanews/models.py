@@ -98,13 +98,10 @@ class Journalist(models.Model):
 		ordering = ('name',)
 		
 class Headline(models.Model):
-	url = models.CharField(max_length=300, default='')
-	title = models.CharField(max_length=150, default='')
+	url = models.CharField(max_length=300, default=' ')
+	title = models.CharField(max_length=150, default=' ')
 	image = models.ImageField(upload_to='media/temp', default='')
-	
-	def __str__(self):
-	    return self.title
-		
+
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
 	title = models.CharField(max_length=150, default='', blank=True)
