@@ -109,12 +109,7 @@ Tweet</a>
 		{% endfor %}
 	</ul>
 </div>
-<div id="asswebs" style="display: none">
-	<ul id="assweb_list">
-		{% for assweb in asswebs %}
-		<li><a href="{{assweb.url}}" class="assweb{{assweb.region.color}}" target="_blank"><p>{{assweb.title}}</a><a href="http://www.nodanews.com/media_dir/{{assweb.media.id}}" class="breaking_media" target="_blank"> -- {{assweb.media.name}}</p></a></li>		{% endfor %}
-	</ul>
-</div>
+
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
 <div id="disqus_thread"></div>
