@@ -93,9 +93,10 @@ Tweet</a>
 	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
 	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>
 	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed3}}" frameborder="0" allowfullscreen></iframe>
-	<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
 </div>
-
+<div class="image_2">
+		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
+</div>
 <div id="assnodes">
 	<ul id="assnode_list">
 		{% for assnode in assnodes|slice:":1" %}
