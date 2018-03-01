@@ -78,6 +78,7 @@ class Media_Org(models.Model):
     ready = models.BooleanField(default=False)
     political_lean = models.ForeignKey(Political_Lean, default=1, null=True)
     media_character = models.ForeignKey(Media_Character, default=1, null=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
 	
     def __str__(self):

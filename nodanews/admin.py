@@ -7,7 +7,7 @@ class Media_OrgAdmin(admin.ModelAdmin):
     
     list_display = ['name', 'country', 'ready', 'political_lean', 'media_character', 'region']
     search_fields = ['name']
-
+    prepopulated_fields = {"slug": ("name",)}
 
 class NodeAdmin(admin.ModelAdmin):
     
