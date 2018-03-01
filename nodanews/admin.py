@@ -12,7 +12,7 @@ class Media_OrgAdmin(admin.ModelAdmin):
 class NodeAdmin(admin.ModelAdmin):
     
     list_display = ['headline', 'region', 'node_direc', 'date_posted']
-
+    prepopulated_fields = {"slug": ("headline",)}
 
 class LinkAdmin(admin.ModelAdmin):
     
@@ -28,6 +28,7 @@ class RegionAdmin(admin.ModelAdmin):
 
 class Node_DirAdmin(admin.ModelAdmin):
     list_display = ['name', 'date_updated', 'active']
+    
 
 class Breaking_LinkAdmin(admin.ModelAdmin):
     list_display = ['title', 'media', 'region', 'posted', 'imageQ']
