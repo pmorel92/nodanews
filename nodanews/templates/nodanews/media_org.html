@@ -56,24 +56,13 @@
       </div>
   </header>
 <div id="center-flow">
-	<div>
+	<div id="primary">
 	  <p id="name">{{media_org.name}}</p>
-	</div>
-	<div>
-	  <p id="date_founded">Date Founded: {{media_org.date_founded}}</p>
-	</div>
-	<div>
-		<p id="media_region">Region: {{media_org.region.name}}</p>
-	</div>
-	<div>
-		<p id="country">Country: {{media_org.country}}</p>
-	</div>
-	<div>
-		<p id="lean">Bias: {{media_org.political_lean.name}}</p>
-	</div>
-
-	<div>
-		<p id="character">Character: {{media_org.media_character.name}}</p>
+	  <p class="attribute">Date Founded: {{media_org.date_founded}}</p>
+		<p class="attribute">Region: {{media_org.region.name}}</p>
+		<p class="attribute">Country: {{media_org.country}}</p>
+		<p class="attribute">Bias: {{media_org.political_lean.name}}</p>
+		<p class="attribute">Character: {{media_org.media_character.name}}</p>
 	</div>
 
 	<div>
