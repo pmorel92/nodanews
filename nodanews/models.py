@@ -38,7 +38,6 @@ class Node(models.Model):
     video_embed3 = models.CharField(max_length=500, default='', blank=True)    
     node_direc = models.ForeignKey(Node_Dir)
     region = models.ForeignKey(Region, default=1, null=True)
-    slug = models.SlugField(max_length=200, default=' ')
 
     def __str__(self):
         return "{}/{}".format(self.headline, self.country)
