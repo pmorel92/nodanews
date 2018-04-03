@@ -29,5 +29,5 @@ urlpatterns = [
 	url(r'^media_dir/(?P<media_org_id>[0-9]+)/$', views.media_org, name='media_org'),
 	url(r'^blog/(?P<slug>[\w-]+)/$', views.blog, name='blog'),
 	url(r'^blog-list/$', views.blog_list, name='blog_list'),
-	url(r'^node/(?P<analysis_id>[0-9]+)/$', views.node, name='in-depth'),	
+	url(r'^in-depth/(?P<analysis_id>[0-9]+)/$', views.analysis, name='in-depth'),	
 ]
