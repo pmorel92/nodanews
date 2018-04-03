@@ -38,7 +38,7 @@
 		</form>
     <nav>
       <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <a href="http://www.nodanews.com/blog-list">Blogs</a>
+      <a href="http://www.nodanews.com/blog-list">Blog</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/node-dir">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
@@ -48,7 +48,7 @@
 		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
 
 		<div id="mobile_menu">
-      <a href="http://www.nodanews.com/blog-list">Blogs</a>
+      <a href="http://www.nodanews.com/blog-list">Blog</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/node-dir">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
@@ -71,7 +71,7 @@
 	</div>
 </div>
 <div id="summary">
-		{{analysis.summary}}	
+		{{analysis.summary|linebreaksbr}}	
 </div>
 	<iframe id="video_embed1" width="420" height="236" src="{{analysis.video_embed1}}" frameborder="0" allowfullscreen></iframe>
 <p id="text1">{{analysis.text1|linebreaksbr}}</p>
