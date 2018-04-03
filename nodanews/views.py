@@ -180,7 +180,10 @@ def analysis(request, analysis_id):
 def blog(request, slug):
 	blog = get_object_or_404(Blog, slug=slug)
 	return render(request, 'nodanews/blog.html', {'blog': blog})
-
+	
+def blog_list(request):
+	blogs = Blog.objects.all().order_by("date_posted")
+	return render(request, 'nodanews/blog-list.html', {'blogs': blogs})
 def media_org(request, media_org_id):
     media_org = get_object_or_404(Media_Org, pk=media_org_id)
     breaking_links = Breaking_Link.objects.all()
