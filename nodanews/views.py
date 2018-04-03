@@ -169,9 +169,9 @@ def node(request, node_id):
 	}
     return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 
-def analysis(request, analysis_id):
-    analysis = get_object_or_404(Analysis, pk=analysis_id)
-    perspectives = AnalPerspective.objects.filter( article__id = analysis_id )
+def analysis(request, slug):
+    analysis = get_object_or_404(Analysis, slug=slug)
+    perspectives = AnalPerspective.objects.filter( article__slug = slug )
     perspective_links = {
 		p: AnalLink.objects.filter(perspective__id = p.id) for p in perspectives
 	}
