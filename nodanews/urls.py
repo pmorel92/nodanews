@@ -27,4 +27,6 @@ urlpatterns = [
 	url(r'^media_dir/liberal/$', views.media_dir_liberal, name='media_dir_liberal'),	
 	url(r'^node/(?P<node_id>[0-9]+)/$', views.node, name='node'),
 	url(r'^media_dir/(?P<media_org_id>[0-9]+)/$', views.media_org, name='media_org'),
+	url(r'^blog/(?P<slug>[\w-]+)/$', views.blog, name='blog'),
+	url(r'^node/(?P<analysis_id>[0-9]+)/$', views.node, name='in-depth'),	
 ]

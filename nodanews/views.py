@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline, PoliticalBiasNews
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective
 
 
 @register.filter
@@ -13,14 +13,6 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
-#def index(request):
-#	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-#	breaking_links = Breaking_Link.objects.all()
-#	livevideos = LiveVideo.objects.filter( region__id=8 )
-#	nodes_by_dir = {
-#		n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:1] for n in node_dirs
-#	}
-#	return render(request, 'nodanews/index.html', {'nodes_by_dir': nodes_by_dir, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})		
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -39,12 +31,6 @@ def cassandra(request):
     latests = Breaking_Link.objects.all()[0:20]
     return render(request, 'nodanews/index.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
     
-#def index_asia(request):
-#	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-#	breaking_links = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
-#	livevideos = LiveVideo.objects.filter( region__id=1 )
-#	nodes = Node.objects.filter( region__id=1 ).order_by('-date_posted')
-#	return render(request, 'nodanews/blue.html', {'nodes': nodes, 'node_dirs': node_dirs, 'breaking_links': breaking_links, 'livevideos': livevideos})
 
 def about(request):
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
@@ -183,6 +169,17 @@ def node(request, node_id):
 	}
     return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 
+def analysis(request, analysis_id):
+    analysis = get_object_or_404(Analysis, pk=analysis_id)
+    perspectives = Perspective.objects.filter( analysis__id = analysis_id )
+    perspective_links = {
+		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
+	}
+    return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
+    
+def blog(request, slug):
+	blog = get_object_or_404(Blog, slug=slug)
+	return render(request, 'nodanews/blog.html', {'blog': blog})
 
 def media_org(request, media_org_id):
     media_org = get_object_or_404(Media_Org, pk=media_org_id)

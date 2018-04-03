@@ -45,6 +45,46 @@ class Node(models.Model):
     class Meta:
         ordering = ('-date_posted',)
 
+class Blog(models.Model):
+    headline = models.CharField(max_length=200, default='')
+    date_posted = models.DateField()
+    head_image = models.ImageField(upload_to='media/nodes', default='')
+    text = models.TextField()
+    slug = models.SlugField(max_length=200, default=' ')    
+    def __str__(self):
+        return "{}".format(self.headline)
+    class Meta:
+        ordering = ('-date_posted',)
+        
+class Analysis(models.Model):
+    headline = models.CharField(max_length=200, default='')
+    date_posted = models.DateField()
+    head_image = models.ImageField(upload_to='media/nodes', default='')
+    summary = models.TextField()
+    text1 = models.TextField()
+    second_image = models.ImageField(upload_to='media/nodes', default='')
+    text2 = models.TextField()
+    pop_out_quote = models.TextField()
+    video_embed1 = models.CharField(max_length=500, default='', blank=True)
+    video_embed2 = models.CharField(max_length=500, default='', blank=True)
+    video_embed3 = models.CharField(max_length=500, default='', blank=True)    
+    node_direc = models.ForeignKey(Node_Dir)
+
+    def __str__(self):
+        return "{}".format(self.headline)
+    class Meta:
+        ordering = ('-date_posted',)
+
+class AnalPerspective(models.Model):
+    name = models.CharField(max_length=47, default='')
+    article = models.ForeignKey(Analysis)
+    
+    def __str__(self):
+	    return "{}/{}".format(self.node, self.name)
+    class Meta:
+	    ordering = ('-id',)
+
+
 class Perspective(models.Model):
     name = models.CharField(max_length=47, default='')
     node = models.ForeignKey(Node)
@@ -109,6 +149,15 @@ class Link(models.Model):
 	title = models.CharField(max_length=150, default='', blank=True)
 	media = models.ForeignKey(Media_Org)
 	perspective = models.ForeignKey(Perspective)
+	
+	def __str__(self):
+	    return "{}/{}".format(self.id, self.perspective)
+
+class AnalLink(models.Model):
+	url = models.CharField(max_length=300, default='', blank=True)
+	title = models.CharField(max_length=150, default='', blank=True)
+	media = models.ForeignKey(Media_Org)
+	perspective = models.ForeignKey(AnalPerspective)
 	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.perspective)
