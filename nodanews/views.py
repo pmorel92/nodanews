@@ -171,9 +171,9 @@ def node(request, node_id):
 
 def analysis(request, analysis_id):
     analysis = get_object_or_404(Analysis, pk=analysis_id)
-    perspectives = Perspective.objects.filter( analysis__id = analysis_id )
+    perspectives = AnalPerspective.objects.filter( article__id = analysis_id )
     perspective_links = {
-		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
+		p: AnalLink.objects.filter(perspective__id = p.id) for p in perspectives
 	}
     return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
     
