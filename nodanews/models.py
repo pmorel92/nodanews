@@ -79,7 +79,7 @@ class AnalPerspective(models.Model):
     article = models.ForeignKey(Analysis)
     
     def __str__(self):
-	    return "{}/{}".format(self.node, self.name)
+	    return "{}/{}".format(self.article, self.name)
     class Meta:
 	    ordering = ('-id',)
 
