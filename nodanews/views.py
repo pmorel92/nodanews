@@ -170,15 +170,15 @@ def node(request, node_id):
     return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 
 def analysis(request, slug, analysis_id):
-    analysis = get_object_or_404(Analysis, slug=slug)
-    perspectives = AnalPerspective.objects.filter( article__slug = slug )
+    analysis = get_object_or_404(Analysis, pk=analysis_id)
+    perspectives = AnalPerspective.objects.filter( article__id = analysis_id )
     perspective_links = {
 		p: AnalLink.objects.filter(perspective__id = p.id) for p in perspectives
 	}
     return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
     
 def blog(request, slug, blog_id):
-	blog = get_object_or_404(Blog, slug=slug)
+	blog = get_object_or_404(Blog, pk=blog_id)
 	return render(request, 'nodanews/blog.html', {'blog': blog})
 	
 def blog_list(request):
