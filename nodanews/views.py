@@ -177,7 +177,7 @@ def analysis(request, slug):
 	}
     return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
     
-def blog(request, slug):
+def blog(request, slug, blog_id):
 	blog = get_object_or_404(Blog, slug=slug)
 	return render(request, 'nodanews/blog.html', {'blog': blog})
 	
