@@ -78,9 +78,12 @@
 	<p id="text1">{{analysis.text1|linebreaksbr}}</p>
 </div>
 <img src="https://nodastorage.s3.amazonaws.com/media/{{analysis.second_image}}" id="image_2" alt=""/>
+<div id="block2">
 <p id="pop_out_quote">{{analysis.pop_out_quote|linebreaksbr}}</p>
 	<iframe id="video_embed2" width="420" height="236" src="{{analysis.video_embed2}}" frameborder="0" allowfullscreen></iframe>
 <p id="text2">{{analysis.text2|linebreaksbr}}</p>
+</div>
+<div id="block3">
 	{% for perspective, links in perspectives.items %}
 	<div class="perspective">
 		<h2 class="heading">{{perspective.name}}</h2>
@@ -93,7 +96,7 @@
 	<hr>
 	</div>
 	<iframe id="video_embed3" width="420" height="236" src="{{analysis.video_embed3}}" frameborder="0" allowfullscreen></iframe>
-
+</div>
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
 <div id="disqus_thread"></div>
