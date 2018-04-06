@@ -15,7 +15,7 @@ def get_item(dictionary, key):
 
 
 def cassandra(request):
-    opeds = Node.objects.random()
+    opeds = Node.objects.all()[3:8]
     nodes = Node.objects.all()[0:3]
     headlines = Headline.objects.all()
     conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
