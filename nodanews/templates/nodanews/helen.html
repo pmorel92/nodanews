@@ -58,9 +58,8 @@
 
 <div id="maincontent">
   <div class="top_nodes">
-    {% load shuffle %}
 <ul>
-{% for node in nodes|shuffle %}
+
     <li>
         <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none; color: black;">
           <p class="node_headline">{{node.headline}}</p>
@@ -68,9 +67,8 @@
             <p class='posted'>Posted: {{node.date_posted}}</p>
         </a>
       </li>
-{% endfor %}
+
 </ul>
-  {% endfor %}
   </div>
 </div>
 <footer>Email: contact@nodanews.com</footer>

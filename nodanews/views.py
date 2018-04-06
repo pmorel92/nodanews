@@ -14,7 +14,7 @@ def get_item(dictionary, key):
 
 
 def helen(request):
-	nodes = Node.objects.all()[0:5]
+	nodes = Node.objects.random()
 	return render(request, 'nodanews/helen.html', {'nodes': nodes})
 
 def cassandra(request):
