@@ -13,6 +13,9 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
+def helen(request):
+	nodes = Node.objects.random()
+	return render(request, 'helen.html', {'nodes': nodes,})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]

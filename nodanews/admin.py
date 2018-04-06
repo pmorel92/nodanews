@@ -12,7 +12,6 @@ class Media_OrgAdmin(admin.ModelAdmin):
 class NodeAdmin(admin.ModelAdmin):
     
     list_display = ['headline', 'region', 'node_direc', 'date_posted']
-    prepopulated_fields = {"slug": ("headline",)}
 
 class LinkAdmin(admin.ModelAdmin):
     
