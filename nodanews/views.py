@@ -14,8 +14,17 @@ def get_item(dictionary, key):
 
 
 def helen(request):
-	nodes = Node.objects.random()
-	return render(request, 'nodanews/helen.html', {'nodes': nodes})
+	node1 = Node.objects.random()
+	node2 = Node.objects.random()
+	node3 = Node.objects.random()
+	breaking_links = Breaking_Link.objects.all()
+	headlines = Headline.objects.all()
+	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
+	videos = LiveVideo.objects.filter( region__id=8 )
+	indepths = Analysis.objects.all()[0:4]
+	blogs = Blog.objects.all()[0:5]
+	return render(request, 'nodanews/helen.html', {'node1': node1, 'node2': node2, 'node3': node3, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -36,10 +45,8 @@ def cassandra(request):
     
 
 def about(request):
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-    breaking_links = Breaking_Link.objects.all()
     abouts = About.objects.all()
-    return render(request, 'nodanews/about.html', {'node_dirs': node_dirs, 'breaking_links': breaking_links, 'abouts': abouts})
+    return render(request, 'nodanews/about.html', {'abouts': abouts})
 
 def node_dir(request):
     node_dir_topics = Node_Dir.objects.filter(active=True).order_by('-date_updated')

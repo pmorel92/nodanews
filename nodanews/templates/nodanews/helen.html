@@ -57,14 +57,112 @@
   </header>
 
 <div id="maincontent">
-  <div class="top_nodes">
+      <div class="headlineandimage">
+    {% for headline in headlines %}
+      {% if headline.banner %}
+      <a href="{{headline.url}}"  target="_blank" class="banner_headline"><p>{{headline.title}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="banner_headline_image">
+      </a>
+      {% else %}
+      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.title}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+  <div id="breaking_links">
+      <ul>
+        {% for breaking_link in breaking_links %}
+            <li>
+               <a href="{{breaking_link.url}}" class="link{{breaking_link.region.color}}" target="_blank">
+                 <p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a>
+                  {% if breaking_link.imageQ %}
+                  <a href="breaking_link.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>
+        {% endfor %}
+      </ul>
+  </div>
+  <div id="blog_list">
+    <p class="section_title">Blog from the Editor</p>
+    <ul>
+    {% for blog in blogs %}
+      <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">  
+        <li>
+          <p class="blog_headline">{{blog.headline}}</p>
+          <p class="blog_posted">{{blog.date_posted}}</p>
+        </li>
+      </a>  
+    {% endfor %}
+   </ul>
+  </div>
+  <div id="video1">
+        <p class="video_names">VIDEO {{video.name1}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+    <div id="video2">
+        <p class="video_names">VIDEO {{video.name2}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div id="indepth_list">
+    <p class="section_title">In-depth Analysis</p>
+    <ul>
+      {% for indepth in indepths %}
+      <a href="http://www.nodanews.com/blog/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
+        <li class="indepth_link">
+          <p class="indepth_headline">{{indepth.headline}}</p>
+          <img src="https://nodastorage.s3.amazonaws.com/media/{{indepth.head_image}}" id="indepth_image" alt=""/>
+        </li>
+      </a>  
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="political_bias">
+    <div class="libtard">
+      <ul class="second_list">
+        <li class="title">From the Left-Wing</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="conservaturd">
+      <ul class="second_list">
+        <li class="title">From the Right-Wing</li>
+        {% for conservaturd in conservaturds %}
+           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>    
+  </div>
+      <div id="video3">
+        <p class="video_names">VIDEO {{video.name3}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="archives">
 <ul>
 
     <li>
-        <a href="http://www.nodanews.com/node/{{nodes.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{nodes.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{nodes.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{nodes.date_posted}}</p>
+        <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node1.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node1.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node1.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node2.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node2.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node2.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node2.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node3.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node3.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node3.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node3.date_posted}}</p>
         </a>
       </li>
 
