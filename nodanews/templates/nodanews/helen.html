@@ -99,6 +99,7 @@
     {% endfor %}
    </ul>
   </div>
+    {% for video in videos %}
   <div id="video1">
         <p class="video_names">VIDEO {{video.name1}}</p>
 		    <iframe class="livevideo" width="380" height="213" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
@@ -107,6 +108,7 @@
         <p class="video_names">VIDEO {{video.name2}}</p>
 		    <iframe class="livevideo" width="380" height="213" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
   </div>
+{% endfor %}
   <div id="indepth_list">
     <p class="section_title">In-depth Analysis</p>
     <ul>
@@ -138,10 +140,12 @@
       </ul>
     </div>    
   </div>
+      {% for video in videos %}
       <div id="video3">
         <p class="video_names">VIDEO {{video.name3}}</p>
 		    <iframe class="livevideo" width="380" height="213" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
   </div>
+  {% endfor %}
   <div class="archives">
 <ul>
 
