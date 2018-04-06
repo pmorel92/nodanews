@@ -101,16 +101,6 @@
     {% endfor %}
    </ul>
   </div>
-    {% for video in videos %}
-  <div id="video1">
-        <p class="video_names">VIDEO {{video.name1}}</p>
-		    <iframe class="livevideo" width="255" height="150" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
-  </div>
-    <div id="video2">
-        <p class="video_names">VIDEO {{video.name2}}</p>
-		    <iframe class="livevideo" width="255" height="150" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
-  </div>
-{% endfor %}
   <div id="indepth_list">
     <ul>
     <li class="section_title">In-depth Analysis</li>
@@ -125,6 +115,19 @@
       {% endfor %}
     </ul>
   </div>
+  </div>
+  <div id="videoblock">
+    {% for video in videos %}
+  <div id="video1">
+        <p class="video_names">VIDEO {{video.name1}}</p>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+    <div id="video2">
+        <p class="video_names">VIDEO {{video.name2}}</p>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+{% endfor %}
+
   </div>
   <div id="block3">
   <div id="political_bias">
