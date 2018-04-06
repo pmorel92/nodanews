@@ -84,6 +84,7 @@
 <p id="text2">{{analysis.text2|linebreaksbr}}</p>
 </div>
 <div id="block3">
+	<iframe id="video_embed3" width="420" height="236" src="{{analysis.video_embed3}}" frameborder="0" allowfullscreen></iframe>
 	{% for perspective, links in perspectives.items %}
 	<div class="perspective">
 		<h2 class="heading">{{perspective.name}}</h2>
@@ -95,7 +96,6 @@
 		{% endfor %}
 	<hr>
 	</div>
-	<iframe id="video_embed3" width="420" height="236" src="{{analysis.video_embed3}}" frameborder="0" allowfullscreen></iframe>
 </div>
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
