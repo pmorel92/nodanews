@@ -71,8 +71,8 @@
     {% endfor %}
     </div>
   <div id="breaking_links">
-      <p class="section_title">Breaking News</p>
       <ul>
+      <li class="section_title">Breaking News</li>
         {% for breaking_link in breaking_links %}
             <li>
                <a href="{{breaking_link.url}}" class="link{{breaking_link.region.color}}" target="_blank">
@@ -88,8 +88,9 @@
   </div>
   <div id="block2">
   <div id="blog_list">
-    <p class="section_title">Blog from the Editor</p>
+
     <ul>
+    <li class="section_title">Blog from the Editor</li>
     {% for blog in blogs %}
       <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">  
         <li>
@@ -111,9 +112,10 @@
   </div>
 {% endfor %}
   <div id="indepth_list">
-    <p class="section_title">In-depth Analysis</p>
     <ul>
+    <li class="section_title">In-depth Analysis</li>
       {% for indepth in indepths %}
+
       <a href="http://www.nodanews.com/blog/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
         <li class="indepth_link">
           <p class="indepth_headline">{{indepth.headline}}</p>
@@ -155,9 +157,9 @@
   </div>
   {% endfor %}
   <div class="archives">
-  <p class="section_title">From the Archives</p>
-<ul>
 
+<ul>
+  <li class="section_title">From the Archives</li>
     <li>
         <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
           <p class="node_headline">{{node1.headline}}</p>
