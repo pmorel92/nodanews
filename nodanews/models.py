@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from django.db.models.aggregates import Count
+from random import randint
 
 class Node_Dir(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -38,6 +40,11 @@ class Node(models.Model):
     video_embed3 = models.CharField(max_length=500, default='', blank=True)    
     node_direc = models.ForeignKey(Node_Dir)
     region = models.ForeignKey(Region, default=1, null=True)
+
+    def random(self):
+        count = self.aggregate(count=Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return self.all()[random_index]
 
     def __str__(self):
         return "{}/{}".format(self.headline, self.country)
@@ -142,6 +149,7 @@ class Headline(models.Model):
 	url = models.CharField(max_length=300, default=' ')
 	title = models.CharField(max_length=150, default=' ')
 	image = models.ImageField(upload_to='media/temp', default='')
+	banner = models.BooleanField(default=False)
 
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
