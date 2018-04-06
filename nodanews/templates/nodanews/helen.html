@@ -103,11 +103,11 @@
     {% for video in videos %}
   <div id="video1">
         <p class="video_names">VIDEO {{video.name1}}</p>
-		    <iframe class="livevideo" width="380" height="213" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
   </div>
     <div id="video2">
         <p class="video_names">VIDEO {{video.name2}}</p>
-		    <iframe class="livevideo" width="380" height="213" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
   </div>
 {% endfor %}
   <div id="indepth_list">
@@ -146,7 +146,11 @@
       {% for video in videos %}
       <div id="video3">
         <p class="video_names">VIDEO {{video.name3}}</p>
-		    <iframe class="livevideo" width="380" height="213" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+        <div id="video4">
+        <p class="video_names">VIDEO {{video.name4}}</p>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
   </div>
   </div>
   {% endfor %}

@@ -210,6 +210,9 @@ class LiveVideo(models.Model):
     video2 = models.CharField(max_length=500, default='', blank=True)
     name3 = models.CharField(max_length=200, default='name goes here')
     video3 = models.CharField(max_length=500, default='', blank=True)
+    name4 = models.CharField(max_length=200, default='name goes here')
+    video4 = models.CharField(max_length=500, default='', blank=True)
+
     region = models.ForeignKey(Region, default=8, null=True)
 
     
