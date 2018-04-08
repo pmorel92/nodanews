@@ -159,7 +159,36 @@
   </div>
   </div>
   {% endfor %}
-  <!-- start sw-rss-feed code --> 
+
+  <div class="archives">
+
+<ul>
+  <li class="section_title">From the Archives</li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node1.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node1.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node1.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node2.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node2.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node2.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node2.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node3.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node3.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node3.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node3.date_posted}}</p>
+        </a>
+      </li>
+
+</ul>
+  </div>
+    <!-- start sw-rss-feed code --> 
 <script type="text/javascript"> 
 <!-- 
 rssfeed_url = new Array(); 
@@ -204,34 +233,6 @@ rssfeed_cache = "26883fcaaf396f5cedecf6fc0c6a4144";
 <!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. --> 
 <div style="text-align:right; width:230px;">powered by <a href="http://www.surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;font-size:10px">Surfing Waves</a></div> 
 <!-- end sw-rss-feed code -->
-  <div class="archives">
-
-<ul>
-  <li class="section_title">From the Archives</li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node1.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node1.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node1.date_posted}}</p>
-        </a>
-      </li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node2.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node2.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node2.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node2.date_posted}}</p>
-        </a>
-      </li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node3.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node3.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node3.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node3.date_posted}}</p>
-        </a>
-      </li>
-
-</ul>
-  </div>
 </div>
 <footer>Email: contact@nodanews.com</footer>
 </body>
