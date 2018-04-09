@@ -193,7 +193,7 @@ def blog(request, slug, blog_id):
 	
 def content(request):
 	blogs = Blog.objects.all().order_by("-date_posted")
-	indepths = Analysis.Ojects.all().order_by("-date_posted")
+	indepths = Analysis.objects.all().order_by("-date_posted")
 	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths})
 
 
