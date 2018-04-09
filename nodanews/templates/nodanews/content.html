@@ -15,7 +15,7 @@
 <title>Blog Archive</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
-<link href="{% static 'css_style_sheets/indepth.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/blog_list.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,7 +38,7 @@
 		</form>
     <nav>
       <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <a href="http://www.nodanews.com/blog-list">Blog</a>
+      <a href="http://www.nodanews.com/blog-list">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/node-dir">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
@@ -48,7 +48,7 @@
 		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
 
 		<div id="mobile_menu">
-      <a href="http://www.nodanews.com/blog-list">Blog</a>
+      <a href="http://www.nodanews.com/blog-list">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/node-dir">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
@@ -57,6 +57,17 @@
   </header>
 
 <div id="central-column">
+  <ul>
+  {% for blog in blogs %}
+  <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
+    <li>
+      <p class="headline">{{blog.headline}}</p>
+      <p class="posted">{{blog.date_posted}}</p>
+  
+    </li>
+  </a>
+  {% endfor %}
+  </ul>
   <ul>
   {% for indepth in indepths %}
   <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
@@ -68,7 +79,6 @@
   </a>
   {% endfor %}
   </ul>
-
 </div>    
 </body>
 </html>

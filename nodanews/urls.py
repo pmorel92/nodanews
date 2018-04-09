@@ -29,7 +29,6 @@ urlpatterns = [
 	url(r'^node/(?P<node_id>[0-9]+)/$', views.node, name='node'),
 	url(r'^media_dir/(?P<media_org_id>[0-9]+)/$', views.media_org, name='media_org'),
 	url(r'^blog/(?P<blog_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.blog, name='blog'),
-	url(r'^blog-list/$', views.blog_list, name='blog_list'),
-	url(r'^indepth-list/$', views.indepth_list, name='indepth_list'),
+	url(r'^content/$', views.content, name='content'),
 	url(r'^in-depth/(?P<analysis_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.analysis, name='in-depth'),	
 ]
