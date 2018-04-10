@@ -93,10 +93,7 @@
     <li class="section_title">Blog from the Editor</li>
     {% for blog in blogs %}
       <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" target="_blank">  
-        <li>
-          <p class="blog_headline">{{blog.headline}}</p>
-          <p class="blog_posted">{{blog.date_posted}}</p>
-        </li>
+        <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
       </a>  
     {% endfor %}
    </ul>
@@ -115,6 +112,25 @@
       {% endfor %}
     </ul>
   </div>
+  <div id="oped_list">
+    <ul>
+      <li>Editorials from Around the World</li>
+        {% for oped in opeds %}
+           <li>
+               <a href="{{oped.url}}" class="link{{oped.region.color}}" target="_blank">
+                 <p>{{oped.title}}</a><a href="http://www.nodanews.com/media_dir/{{oped.media.id}}" class="breaking_journalist" target="_blank"> -- {{oped.journalist.name}}</p></a>
+                  {% if oped.imageQ %}
+                  <a href="{{oped.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>
+        
+        
+        {% endfor %}
+    
+    </ul>
+  </div>
   </div>
   <div id="videoblock">
     {% for video in videos %}
@@ -125,6 +141,14 @@
     <div id="video2">
         <p class="video_names">VIDEO {{video.name2}}</p>
 		    <iframe class="livevideo" width="255" height="150" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+      <div id="video3">
+        <p class="video_names">VIDEO {{video.name3}}</p>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+        <div id="video4">
+        <p class="video_names">VIDEO {{video.name4}}</p>
+		    <iframe class="livevideo" width="255" height="150" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
   </div>
 {% endfor %}
 
@@ -148,15 +172,7 @@
       </ul>
     </div>    
   </div>
-      {% for video in videos %}
-      <div id="video3">
-        <p class="video_names">VIDEO {{video.name3}}</p>
-		    <iframe class="livevideo" width="255" height="150" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
-  </div>
-        <div id="video4">
-        <p class="video_names">VIDEO {{video.name4}}</p>
-		    <iframe class="livevideo" width="255" height="150" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
-  </div>
+
   </div>
   {% endfor %}
 

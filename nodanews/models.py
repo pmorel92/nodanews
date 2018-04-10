@@ -141,7 +141,7 @@ class Journalist(models.Model):
 	organization = models.ForeignKey(Media_Org)
 	bio = models.TextField(default='bio goes here')
 	picture = models.ImageField(upload_to='media/logos', default=" ")
-    
+	slug = models.SlugField(max_length=100, default=' ')
 	def __str__(self):
 		return self.name
 	class Meta:
@@ -177,6 +177,7 @@ class Breaking_Link(models.Model):
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=8, null=True)
+	journalist = models.ForeignKey(Journalist, null=True, blank=True)
 	imageQ = models.BooleanField(default=False)
 	image = models.ImageField(upload_to='media/temp', default='', blank=True)
 

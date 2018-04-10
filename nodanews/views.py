@@ -17,6 +17,7 @@ def helen(request):
 	node1 = Node.objects.random()
 	node2 = Node.objects.random()
 	node3 = Node.objects.random()
+	opeds = Breaking_Link.objects.filter( region__id=8 )
 	breaking_links = Breaking_Link.objects.all()
 	headlines = Headline.objects.all()
 	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
@@ -24,7 +25,7 @@ def helen(request):
 	videos = LiveVideo.objects.filter( region__id=8 )
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
-	return render(request, 'nodanews/helen.html', {'node1': node1, 'node2': node2, 'node3': node3, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+	return render(request, 'nodanews/helen.html', {'node1': node1, 'node2': node2, 'node3': node3, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -203,3 +204,7 @@ def media_org(request, media_org_id):
     node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
     journalists = Journalist.objects.filter( organization__id = media_org_id )
     return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists, 'node_dirs': node_dirs, 'breaking_links': breaking_links})	
+
+def journalist(request, slug, journalist_id):
+	journalists = get_object_or_404(Journalist, pk=journalist_id)
+	return render(request, 'nodanews/journalist.html', {'journalists': journalists})
