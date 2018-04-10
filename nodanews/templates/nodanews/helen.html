@@ -94,6 +94,7 @@
     {% for blog in blogs %}
       <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" target="_blank">  
         <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
+      <hr>
       </a>  
     {% endfor %}
    </ul>
@@ -108,7 +109,8 @@
           <p class="indepth_headline">{{indepth.headline}}</p>
           <img src="https://nodastorage.s3.amazonaws.com/media/{{indepth.head_image}}" class="indepth_image" alt=""/>
         </li>
-      </a>  
+      </a>
+      <hr>
       {% endfor %}
     </ul>
   </div>
