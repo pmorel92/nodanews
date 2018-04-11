@@ -18,7 +18,7 @@ def helen(request):
 	node2 = Node.objects.random()
 	node3 = Node.objects.random()
 	opeds = Breaking_Link.objects.filter( region__id=8 )
-	breaking_links = Breaking_Link.objects.all()
+	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
 	headlines = Headline.objects.all()
 	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
 	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
