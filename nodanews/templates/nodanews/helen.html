@@ -97,7 +97,7 @@
     <ul>
     <li class="section_title">Blog from the Editor</li>
     {% for blog in blogs %}
-      <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" target="_blank">  
+      <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}">  
         <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
       <hr>
       </a>  
@@ -109,7 +109,7 @@
     <li class="section_title">In-Depth Analysis</li>
       {% for indepth in indepths %}
 
-      <a href="http://www.nodanews.com/blog/{{indepth.id}}/{{indepth.slug}}" target="_blank">
+      <a href="http://www.nodanews.com/blog/{{indepth.id}}/{{indepth.slug}}">
         <li class="indepth_link">
           <p class="indepth_headline">{{indepth.headline}}</p>
           <img src="https://nodastorage.s3.amazonaws.com/media/{{indepth.head_image}}" class="indepth_image" alt=""/>
