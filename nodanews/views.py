@@ -25,7 +25,7 @@ def helen(request):
 	videos = LiveVideo.objects.filter( region__id=8 )
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
-	return render(request, 'nodanews/helen.html', {'node1': node1, 'node2': node2, 'node3': node3, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -42,7 +42,7 @@ def cassandra(request):
     samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
     latests = Breaking_Link.objects.all()[0:20]
-    return render(request, 'nodanews/index.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
+    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
     
 
 def about(request):

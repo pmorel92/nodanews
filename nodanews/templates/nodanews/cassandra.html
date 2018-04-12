@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>	
+<meta charset="utf-8">
+<title>Noda News, Where you Get the News</title>
+
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/cassnav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/cassandra2.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+</head>
+
+<body> 
+  <header>
+    		<form method="get" action="https://www.google.com/search">
+			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
+			<input type="text" size="15" name="q" placeholder="Search" />
+			<button type="submit"></button>
+		</form>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <div id="bg_white"></div>
+    <nav>
+      <a href="http://www.nodanews.com/node-dir">Node Directory</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
+		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
+    </nav>
+    		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook_mobile"></a>
+		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter_mobile"></a>
+      <div id="mobile_menu">
+        <a href="#asia" class="mobile">Asia-Pacific</a>
+        <a href="#africa" class="mobile">Africa</a>    
+        <a href="#europe" class="mobile">Europe</a>
+        <a href="#namerica" class="mobile">North America</a>
+        <a href="#me" class="mobile">Middle East</a>
+        <a href="#samerica" class="mobile">South America</a>
+        <a href="#sasia" class="mobile">South Asia</a>
+      </div>
+  </header>
+<div id="maincontent">
+  <div class="headliner">
+    <div class="headlineandimage">
+    {% for headline in headlines %}
+      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.title}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+      </a>
+    {% endfor %}
+    </div>
+        <div class="latest">
+        <ul class="breaking_list">
+          <li class="title">Breaking News</li>
+          {% for latest in latests %}
+             <li>
+               <a href="{{latest.url}}" class="link{{latest.region.color}}" target="_blank">
+                 <p>{{latest.title}}</a><a href="http://www.nodanews.com/media_dir/{{latest.media.id}}" class="breaking_media" target="_blank"> -- {{latest.media.name}}</p></a>
+                  {% if latest.imageQ %}
+                  <a href="{{latest.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{latest.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+                 </li>
+          {% endfor %}
+        </ul>
+    </div>
+  <div class="top_nodes">
+      {% for node in nodes %}
+        <a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node.date_posted}}</p>
+        </a>
+
+  {% endfor %}
+  </div>
+  </div>
+  <div style="clear: both"></div>
+  <div class="first column">
+      <div class="video_list">
+  {% for video in videos %}
+      <div class="video1">  
+        <p class="video_names">VIDEO {{video.name1}}</p>
+		      <iframe class="livevideo1" width="380" height="213" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+		  </div>
+		  <div class="video2">
+		    <p class="video_names">VIDEO {{video.name2}}</p>
+		      <iframe class="livevideo2" width="380" height="213" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+		  </div>  
+		    <div class="video3">
+		    <p class="video_names"> VIDEO {{video.name3}}</p>
+		      <iframe class="livevideo3" width="380" height="213" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+		    </div>
+	    
+  {% endfor %}
+  </div>
+
+
+  <div style="clear: both"></div>
+  <div class="second column">  
+    <div class="libtard">
+      <ul class="second_list">
+        <li class="title">From the Left-Wing</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="oped">
+      <ul class="second_list">
+            <li class="title">Recent From Nodanews</li>
+        {% for oped in opeds %}
+           <li><a href="http://www.nodanews.com/node/{{oped.id}}" class="oped_name"><p>{{oped.headline}}</a></p>
+               <p class='posted'>Posted: {{oped.date_posted}}</p>
+           </li>   
+        {% endfor %}
+      </ul>  
+    </div>
+    <div class="conservaturd">
+      <ul class="second_list">
+        <li class="title">From the Right-Wing</li>
+        {% for conservaturd in conservaturds %}
+           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>    
+
+  </div>
+<div style="clear: both"></div>  
+
+  <div class="third column">
+    <div id="asia">
+        <ul class="list">
+            <li class="title">News From Asia-Pacific</li>          
+          {% for asia in asias %}
+            <li>
+                <a href="{{asia.url}}" class="link{{asia.region.color}}" target="_blank">
+                  <p>{{asia.title}}</a><a href="http://www.nodanews.com/media_dir/{{asia.media.id}}" class="breaking_media" target="_blank"> -- {{asia.media.name}}</p></a>
+              {% if asia.imageQ %}
+               <a href="{{asia.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{asia.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+
+    <div id="europe">
+        <ul class="list">
+            <li class="title">News From Europe</li>          
+          {% for europe in europes %}
+            <li>
+              <a href="{{europe.url}}" class="link{{europe.region.color}}" target="_blank">
+                <p>{{europe.title}}</a><a href="http://www.nodanews.com/media_dir/{{europe.media.id}}" class="breaking_media" target="_blank"> -- {{europe.media.name}}</p></a>
+              {% if europe.imageQ %}
+               <a href="{{eurpoe.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{europe.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div id="me">
+        <ul class="list">
+            <li class="title">News From the Middle East</li>          
+          {% for me in mes %}
+            <li>
+              <a href="{{me.url}}" class="link{{me.region.color}}" target="_blank">
+                <p>{{me.title}}</a><a href="http://www.nodanews.com/media_dir/{{me.media.id}}" class="breaking_media" target="_blank"> -- {{me.media.name}}</p></a>
+              {% if me.imageQ %}
+               <a href="{{me.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{me.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>    
+
+        <div id="samerica">
+        <ul class="list">
+            <li class="title">News From South America</li>          
+          {% for samerica in samericas %}
+            <li>
+              <a href="{{samerica.url}}" class="link{{samerica.region.color}}" target="_blank">
+                <p>{{samerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{samerica.media.id}}" class="breaking_media" target="_blank"> -- {{samerica.media.name}}</p></a>
+              {% if samerica.imageQ %}
+               <a href="{{samerica.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{samerica.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div id="africa">
+        <ul class="list">
+            <li class="title">News From Africa</li>          
+          {% for africa in africas %}
+            <li>
+              <a href="{{africa.url}}" class="link{{africa.region.color}}" target="_blank">
+                <p>{{africa.title}}</a><a href="http://www.nodanews.com/media_dir/{{africa.media.id}}" class="breaking_media" target="_blank"> -- {{africa.media.name}}</p></a>
+              {% if africa.imageQ %}
+               <a href="{{africa.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{africa.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  
+    <div id="sasia">
+        <ul class="list">
+            <li class="title">News From South Asia</li>
+          {% for sasia in sasias %}
+            <li>
+              <a href="{{sasia.url}}" class="link{{sasia.region.color}}" target="_blank">
+                <p>{{sasia.title}}</a><a href="http://www.nodanews.com/media_dir/{{sasia.media.id}}" class="breaking_media" target="_blank"> -- {{sasia.media.name}}</p></a>
+              {% if sasia.imageQ %}
+               <a href="{{sasia.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{sasia.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+            <div id="namerica">
+        <ul class="list">
+            <li class="title">News From North America</li>          
+          {% for namerica in namericas %}
+            <li>
+              <a href="{{namerica.url}}" class="link{{namerica.region.color}}" target="_blank">
+                <p>{{namerica.title}}</a><a href="http://www.nodanews.com/media_dir/{{namerica.media.id}}" class="breaking_media" target="_blank"> -- {{namerica.media.name}}</p></a>
+              {% if namerica.imageQ %}
+               <a href="{{namerica.url}}">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{namerica.image}}" class="breaking_image">
+              </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+</div>
+<div style="clear: both"></div>
+<footer>Email: contact@nodanews.com</footer>
+</body>

@@ -14,7 +14,7 @@
 <meta charset="utf-8">
 <title>{{media_org.name}}</title>
 {% load static from staticfiles %}
-<link href="{% static 'css_style_sheets/cassnav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/media_org5.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
@@ -36,28 +36,25 @@
 			<input type="text" size="15" name="q" placeholder="Search" />
 			<button type="submit"></button>
 		</form>
-      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <div id="bg_white"></div>
     <nav>
-      <a href="http://www.nodanews.com/node-dir">Node Directory</a>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <a href="http://www.nodanews.com/content">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/node-dir">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
-		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook"></a>
-		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter"></a>
-    </nav>
-        		<a href="https://www.facebook.com/nodanews/"><img src="{% static 'images/elements/facebook1.png' %}" alt="" id="facebook_mobile"></a>
-		<a href="https://twitter.com/NodanewsContact"><img src="{% static 'images/elements/twitter1.png' %}" alt="" id="twitter_mobile"></a>
-      <div id="mobile_menu">
-        <a href="#asia" class="mobile">Asia-Pacific</a>
-        <a href="#africa" class="mobile">Africa</a>    
-        <a href="#europe" class="mobile">Europe</a>
-        <a href="#namerica" class="mobile">North America</a>
-        <a href="#me" class="mobile">Middle East</a>
-        <a href="#samerica" class="mobile">South America</a>
-        <a href="#sasia" class="mobile">South Asia</a>
-      </div>
-  </header>
-<div id="center-flow">
+  	</nav>
+  	<div id="bg_white"></div>
+  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
+
+		<div id="mobile_menu">
+      <a href="http://www.nodanews.com/content">Noda News Content</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/node-dir">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  		
+		</div>
+  </header><div id="center-flow">
 	<div id="primary">
 	  <p id="name">{{media_org.name}}</p>
 	  <p class="attribute">Date Founded: {{media_org.date_founded}}</p>
