@@ -91,7 +91,7 @@
 			<ul class="link_list">	
 				{% for link in links %}
 					{% if link.academic %}
-					<li class="link"><a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank"><h3 class="link">{{link.title}}</a><a href="http://www.nodanews.com/journalist/{{link.journalist.id}}/{{link.journalist.slug}}" style="text-decoration: none;color: orange" target="_blank"> -- {{link.journalist.name}}</h3></a></li>
+					<li class="link"><a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank"><h3 class="link">{{link.title}}</a><a href="http://www.nodanews.com/journalist/{{link.author.id}}/{{link.author.slug}}" style="text-decoration: none;color: orange" target="_blank"> -- {{link.author.name}}</h3></a></li>
 					{% else %}
 					<li class="link"><a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank"><h3 class="link">{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{link.media.name}}{{}}</h3></a></li>
 					{% endif %}
