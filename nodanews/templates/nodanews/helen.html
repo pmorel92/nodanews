@@ -109,7 +109,7 @@
     <li class="section_title">In-Depth Analysis</li>
       {% for indepth in indepths %}
 
-      <a href="http://www.nodanews.com/blog/{{indepth.id}}/{{indepth.slug}}">
+      <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}">
         <li class="indepth_link">
           <p class="indepth_headline">{{indepth.headline}}</p>
           <img src="https://nodastorage.s3.amazonaws.com/media/{{indepth.head_image}}" class="indepth_image" alt=""/>
@@ -121,7 +121,7 @@
   </div>
   <div id="oped_list">
     <ul>
-      <li class="section_title">Editorials from Around the World</li>
+      <li class="section_title">Editorials</li>
         {% for oped in opeds %}
            <li>
                <a href="{{oped.url}}" class="link{{oped.region.color}}" target="_blank">
