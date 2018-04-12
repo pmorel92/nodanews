@@ -165,7 +165,9 @@ class Link(models.Model):
 class AnalLink(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
 	title = models.CharField(max_length=150, default='', blank=True)
-	media = models.ForeignKey(Media_Org)
+	media = models.ForeignKey(Media_Org, blank=True)
+	academic = models.BooleanField(default=False)
+	author = models.ForeignKey(Journalist, null=True, blank=True)
 	perspective = models.ForeignKey(AnalPerspective)
 	
 	def __str__(self):
