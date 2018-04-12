@@ -206,5 +206,5 @@ def media_org(request, media_org_id):
     return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists, 'node_dirs': node_dirs, 'breaking_links': breaking_links})	
 
 def journalist(request, slug, journalist_id):
-	journalists = get_object_or_404(Journalist, pk=journalist_id)
-	return render(request, 'nodanews/journalist.html', {'journalists': journalists})
+	journalist = get_object_or_404(Journalist, pk=journalist_id)
+	return render(request, 'nodanews/journalist.html', {'journalist': journalist})
