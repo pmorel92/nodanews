@@ -56,13 +56,13 @@
 		</div>
   </header>
 <div id="center-flow">
-		{% for journalist in journalists %}
+
 		<p class="journalist_name">{{journalist.name}}</p>
 		<img src="https://nodastorage.s3.amazonaws.com/media/{{journalist.picture}}" class="journalist_pic" alt=""/>		
 		<p class="journalist_bio">{{journalist.bio|linebreaksbr}}</p>
 		<a href="{{journalist.contact}}"><p style="text-decoration: none;color: black" target="_blank" class="journalist_contact">CONTACT : {{journalist.contact}}</p></a>
 		<hr class="journalist_hr">
-		{% endfor %}
+
 	</div>
 </body>
 </html>
