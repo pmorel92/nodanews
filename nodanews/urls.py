@@ -32,5 +32,5 @@ urlpatterns = [
 	url(r'^content/$', views.content, name='content'),
 	url(r'^in-depth/(?P<analysis_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.analysis, name='in-depth'),
 	url(r'^journalist/(?P<journalist_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.journalist, name='journalist'),
-	url(r'^issue/(?P<issue_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.issue, name='political issue'),	
+	url(r'^issue/(?P<issue_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.political_issue, name='political issue'),	
 ]
