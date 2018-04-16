@@ -189,14 +189,21 @@ class Breaking_Link(models.Model):
 	class Meta:
 		ordering = ('-posted',)
 
+class PoliticalIssue(models.Model):
+    name = models.CharField(max_length=150)
+    
+    def __str__(self):
+        return "{}".format(self.name)
+
 class PoliticalBiasNews(models.Model):
 	url = models.CharField(max_length=300, default='')
 	title = models.CharField(max_length=150, default='')
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=9, null=True)
+#	issue = models.ForeignKey(PoliticalIssue, default=1)	
 	def __str__(self):
-	    return "{}/{}".format(self.id, self.media)
+	    return "{}/{}".format(self.title, self.issue.name)
 
 	class Meta:
 		ordering = ('-posted',)
