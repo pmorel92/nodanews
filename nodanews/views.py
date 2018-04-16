@@ -42,7 +42,7 @@ def helen_test(request):
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
 	issue_links = {
-        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted')[0:3] for n in issues
+        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
     }
 	return render(request, 'nodanews/helen.html', {'node1': node1, 'node2': node2, 'node3': node3, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
