@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, LiveVideo, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue
 
 
 @register.filter
@@ -17,6 +17,7 @@ def helen(request):
 	node1 = Node.objects.random()
 	node2 = Node.objects.random()
 	node3 = Node.objects.random()
+	issues = PoliticalIssue.objects.all()[0:3]
 	opeds = Breaking_Link.objects.filter( region__id=8 )
 	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
 	headlines = Headline.objects.all()
@@ -25,7 +26,7 @@ def helen(request):
 	videos = LiveVideo.objects.filter( region__id=8 )
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
-	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'issues': issues, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -43,7 +44,13 @@ def cassandra(request):
     europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
     latests = Breaking_Link.objects.all()[0:20]
     return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
-    
+
+def political_issue(request, slug, issue_id):
+    issue = get_object_or_404(PoliticalIssue, pk=issue_id) 
+    issue_links = {
+        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-date_posted') for n in issue
+    }	
+    return render(request, 'nodanews/issue.html', {'issue': issue, 'issue_links': issue_links})
 
 def about(request):
     abouts = About.objects.all()
