@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>
+	
+<meta charset="utf-8">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/helen.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <header>
+  	    		<form method="get" action="https://www.google.com/search">
+			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
+			<input type="text" size="15" name="q" placeholder="Search" />
+			<button type="submit"></button>
+		</form>
+    <nav>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <a href="http://www.nodanews.com/content">Noda News Content</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/node-dir">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  	</nav>
+  	<div id="bg_white"></div>
+		<a href="#mobile_menu"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
+  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+		<div id="mobile_menu">
+		  <a href="#breaking_links">Breaking News</a>
+		  <a href="#blog_list">Blog from the Editor</a>
+		  <a href="#indepth_list">In-Depth Analysis</a>
+		  <a href="#oped_list">Outside Editorials</a>
+		  <a href="#videoblock">Videos</a>
+		  <a href="#block3">Politically Biased News</a>
+      <a href="http://www.nodanews.com/content">Noda News Content</a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/node-dir">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  		
+		</div>
+  </header>
+
+<div id="maincontent">
+      <div class="headlineandimage">
+    {% for headline in headlines %}
+      {% if headline.banner %}
+      <a href="{{headline.url}}"  target="_blank" class="banner_headline"><p>{{headline.title}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="banner_headline_image">
+      </a>
+      {% else %}
+      <a href="{{headline.url}}"  target="_blank" class="mainheadline"><p>{{headline.title}}</p>
+      <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+  <div id="breaking_links">
+      <ul>
+      <li class="section_title">Breaking News</li>
+        {% for breaking_link in breaking_links %}
+            <li>
+               <a href="{{breaking_link.url}}" class="link{{breaking_link.region.color}}" target="_blank">
+                 <p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a>
+                  {% if breaking_link.imageQ %}
+                  <a href="{{breaking_link.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>
+        {% endfor %}
+      </ul>
+  </div>
+  <div id="block2">
+  <div id="blog_list">
+
+    <ul>
+    <li class="section_title">Blog from the Editor</li>
+    {% for blog in blogs %}
+      <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}">  
+        <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
+      <hr>
+      </a>  
+    {% endfor %}
+   </ul>
+  </div>
+  <div id="indepth_list">
+    <ul>
+    <li class="section_title">In-Depth Analysis</li>
+      {% for indepth in indepths %}
+
+      <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}">
+        <li class="indepth_link">
+          <p class="indepth_headline">{{indepth.headline}}</p>
+          <img src="https://nodastorage.s3.amazonaws.com/media/{{indepth.head_image}}" class="indepth_image" alt=""/>
+        </li>
+      </a>
+      <hr>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="oped_list">
+    <ul>
+      <li class="section_title">Editorials</li>
+        {% for oped in opeds %}
+           <li>
+               <a href="{{oped.url}}" class="link{{oped.region.color}}" target="_blank">
+                 <p>{{oped.title}}</a><a href="http://www.nodanews.com/journalist/{{oped.journalist.id}}/{{oped.journalist.slug}}" class="breaking_journalist" target="_blank"> -- {{oped.journalist.name}}</p></a>
+                  {% if oped.imageQ %}
+                  <a href="{{oped.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{oped.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>
+        
+        
+        {% endfor %}
+    
+    </ul>
+  </div>
+  </div>
+  <div id="videoblock">
+    {% for video in videos %}
+  <div class="video">
+        <p class="video_names">VIDEO {{video.name1}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video1}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+    <div class="video">
+        <p class="video_names">VIDEO {{video.name2}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video2}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+      <div class="video">
+        <p class="video_names">VIDEO {{video.name3}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video3}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+        <div class="video">
+        <p class="video_names">VIDEO {{video.name4}}</p>
+		    <iframe class="livevideo" width="380" height="213" src="{{video.video4}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+{% endfor %}
+
+  </div>
+  <div id="block3">
+  <div id="political_bias">
+    <div class="libtard">
+      <ul class="second_list">
+        <li class="title">From the Left</li>
+        {% for libtard in libtards %}
+           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="conservaturd">
+      <ul class="second_list">
+        <li class="title">From the Right</li>
+        {% for conservaturd in conservaturds %}
+           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
+        {% endfor %}
+      </ul>
+    </div>    
+  </div>
+	{% for issue in issues %}
+		<ul class="active">
+			<a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none; color: black"><li class="issue_name">{{issue.name}}</li></a>
+			<ul class="issue_list">
+
+	<div class="perspective">
+			<ul class="link_list">	
+		      <li class="heading">From the Left</li>
+				{% for issue_link in issue_links|get_item:issue %}
+					{% if issue_link.liberal %}
+					<li class="link">
+					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
+					  <a href="http://www.nodanews.com/media_dir/{{issue_link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{issue_link.media}}</h3></a>
+					  </li>
+	          <hr>
+	       {% else %}   
+			    {% endif %}
+			    
+
+	{% endfor %}
+			</ul>
+	</div>
+
+	<div class="perspective">
+			<ul class="link_list">	
+		      <li class="heading">From the Right</li>
+				{% for issue_link in issue_links|get_item:issue %}
+					{% if issue_link.conservative %}
+					<li class="link">
+					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
+					  <a href="http://www.nodanews.com/media_dir/{{issue_link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{issue_link.media}}</h3></a>
+					  </li>
+	          <hr>
+	          {% else %} 
+			    {% endif %}
+		{% endfor %}
+      </ul>
+
+
+	</div>
+			</ul>
+		</ul>		
+	{% endfor %}
+  </div>
+
+
+  <div class="archives">
+
+<ul>
+  <li class="section_title">From the Archives</li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node1.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node1.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node1.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node2.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node2.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node2.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node2.date_posted}}</p>
+        </a>
+      </li>
+    <li>
+        <a href="http://www.nodanews.com/node/{{node3.id}}" style="text-decoration: none; color: black;">
+          <p class="node_headline">{{node3.headline}}</p>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{node3.head_image}}" class="banner"/>
+            <p class='posted'>Posted: {{node3.date_posted}}</p>
+        </a>
+      </li>
+
+</ul>
+  </div>
+
+</div>
+<footer>Email: contact@nodanews.com</footer>
+</body>
+</html>
