@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.helen, name='index'),
-	url(r'^helen/$', views.helen_test, name="testing page"),
 	url(r'^cassandra/$', views.cassandra, name='helen'),
 	url(r'^about/$', views.about, name='about'),
 	url(r'^node-dir/$', views.node_dir, name='node_dir_index'),
