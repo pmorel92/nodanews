@@ -191,6 +191,7 @@ class Breaking_Link(models.Model):
 
 class PoliticalIssue(models.Model):
     name = models.CharField(max_length=150)
+    description = models.TextField(default="description goes here")
     
     def __str__(self):
         return "{}".format(self.name)
@@ -201,7 +202,7 @@ class PoliticalBiasNews(models.Model):
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=9, null=True)
-#	issue = models.ForeignKey(PoliticalIssue, default=1)	
+	issue = models.ForeignKey(PoliticalIssue, default=1)	
 	def __str__(self):
 	    return "{}/{}".format(self.title, self.issue.name)
 
