@@ -203,6 +203,8 @@ class PoliticalBiasNews(models.Model):
 	media = models.ForeignKey(Media_Org)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
 	region = models.ForeignKey(Region, default=9, null=True)
+	conservative = models.BooleanField(default=False)
+	liberal = models.BooleanField(default=True)
 	issue = models.ForeignKey(PoliticalIssue, default=1)	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.issue.name)

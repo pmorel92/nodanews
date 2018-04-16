@@ -12,7 +12,7 @@
 </script>
 	
 <meta charset="utf-8">
-<title>Noda News Content</title>
+<title>{{issue.name}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/content.css' %}" rel="stylesheet" type="text/css">
@@ -57,30 +57,22 @@
   </header>
 
 <div id="central-column">
-  <ul>
-    <li class="title">Blog from the Editor</li>
-  {% for blog in blogs %}
-  <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
-    <li>
-      <p class="headline">{{blog.headline}}</p>
-      <p class="posted">{{blog.date_posted}}</p>
-  
-    </li>
-  </a>
-  {% endfor %}
-  </ul>
-  <ul>
-    <li class="title">In-Depth Analysis</li>
-  {% for indepth in indepths %}
-  <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
-    <li>
-      <p class="headline">{{indepth.headline}}</p>
-      <p class="posted">{{indepth.date_posted}}</p>
-  
-    </li>
-  </a>
-  {% endfor %}
-  </ul>
+  <h1 id="title">{{issue.name}}</h1>
+  <div id="socialmediabuttons">
+<div class="twitterbutton"><a href="https://twitter.com/NodanewsContact?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @NodanewsContact</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<div class="fb-like" data-href="https://www.facebook.com/nodanews/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+<div id="twittershare">
+<a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text={{node.headline}}"
+  data-size="large">
+Tweet</a>
+</div>
+</div>
+<div id="mainimage">
+<img src="https://nodastorage.s3.amazonaws.com/media/{{issue.image}}" id="image_1" alt=""/>
+</div>
+<p id="text">{{issue.description|linebreaksbr}}</p>
+
 </div>    
 </body>
 </html>
