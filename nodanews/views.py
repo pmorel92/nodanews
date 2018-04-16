@@ -46,9 +46,10 @@ def cassandra(request):
     return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'videos': videos, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
 
 def political_issue(request, slug, issue_id):
-    issue = get_object_or_404(PoliticalIssue, pk=issue_id) 
+    issue = get_object_or_404(PoliticalIssue, pk=issue_id)
+    issue_perspectives = PoliticalIssue.objects.all()
     issue_links = {
-        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-date_posted') for n in issue
+        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-date_posted') for n in issue_perspectives
     }	
     return render(request, 'nodanews/issue.html', {'issue': issue, 'issue_links': issue_links})
 
