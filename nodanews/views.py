@@ -47,7 +47,7 @@ def cassandra(request):
 
 def political_issue(request, slug, issue_id):
     issue = get_object_or_404(PoliticalIssue, pk=issue_id)
-    issue_links = PoliticalBiasNews.objects.filter(issue__id = issue_id).order_by('-date_posted')
+    issue_links = PoliticalBiasNews.objects.filter(issue__id = issue_id).order_by('-posted')
     return render(request, 'nodanews/issue.html', {'issue': issue, 'issue_links': issue_links})
 
 def about(request):
