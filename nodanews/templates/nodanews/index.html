@@ -161,29 +161,13 @@
 
   </div>
   <div id="block3">
-  <div id="political_bias">
-    <div class="libtard">
-      <ul class="second_list">
-        <li class="title">From the Left</li>
-        {% for libtard in libtards %}
-           <li><a href="{{libtard.url}}" class="link{{libtard.region.color}}" target="_blank"><p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a></li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="conservaturd">
-      <ul class="second_list">
-        <li class="title">From the Right</li>
-        {% for conservaturd in conservaturds %}
-           <li><a href="{{conservaturd.url}}" class="link{{conservaturd.region.color}}" target="_blank"><p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a></li>
-        {% endfor %}
-      </ul>
-    </div>    
-  </div>
-	{% for issue in issues %}
-		<ul class="active">
-			<a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none; color: black"><li class="issue_name">{{issue.name}}</li></a>
-			<ul class="issue_list">
 
+	{% for issue in issues %}
+	<div class="issue">
+			<a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none; color: black"><p class="issue_name">{{issue.name}}</p></a>
+<div class="issue_image">
+<img src="https://nodastorage.s3.amazonaws.com/media/{{issue.head_image}}" class="issue_main_image" alt=""/>
+</div>
 	<div class="perspective">
 			<ul class="link_list">	
 		      <li class="heading">From the Left</li>
@@ -219,11 +203,9 @@
 
 
 	</div>
-			</ul>
-		</ul>		
 	{% endfor %}
   </div>
-
+</div>
 
   <div class="archives">
 
