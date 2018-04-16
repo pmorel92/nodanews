@@ -69,12 +69,49 @@ Tweet</a>
 </div>
 </div>
 <div id="mainimage">
-<img src="https://nodastorage.s3.amazonaws.com/media/{{issue.image}}" id="image_1" alt=""/>
+<img src="https://nodastorage.s3.amazonaws.com/media/{{issue.head_image}}" id="image_1" alt=""/>
 </div>
 <p id="text">{{issue.description|linebreaksbr}}</p>
+	{% for issue_link in issue_links %}
+	<div class="perspective">
+			<ul class="link_list">	
+		      <li class="heading">From the Left</li>
+					{% if issue_link.liberal %}
+					<li class="link">
+					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
+					  <a href="http://www.nodanews.com/media_dir/{{issue_link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{issue_link.media}}</h3></a>
+					  </li>
+			</ul>
+			    {% endif %}
+  
+	<hr>
+	</div>
+	<div class="perspective">
+			<ul class="link_list">	
+		      <li class="heading">From the Right</li>
+					{% if issue_link.conservative %}
+					<li class="link">
+					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
+					  <a href="http://www.nodanews.com/media_dir/{{issue_link.media.id}}" style="text-decoration: none;color: orange" target="_blank"> -- {{issue_link.media}}</h3></a>
+					  </li>
+			</ul>
+			    {% endif %}
+		{% endfor %}
+	<hr>
+	</div>	
+<script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
+<div id="disqus_thread"></div>
+<script>
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://nodanews.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>    
 </body>
 </html>
-
-
