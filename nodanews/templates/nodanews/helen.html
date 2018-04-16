@@ -163,9 +163,8 @@
   <div id="block3">
 
 	{% for issue in issues %}
-		<ul class="active">
-			<a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none; color: black"><li class="issue_name">{{issue.name}}</li></a>
-			<ul class="issue_list">
+	<div class="issue">
+			<a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none; color: black"><p class="issue_name">{{issue.name}}</p></a>
 
 	<div class="perspective">
 			<ul class="link_list">	
@@ -202,11 +201,9 @@
 
 
 	</div>
-			</ul>
-		</ul>		
 	{% endfor %}
   </div>
-
+</div>
 
   <div class="archives">
 
