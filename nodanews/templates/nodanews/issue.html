@@ -72,10 +72,11 @@ Tweet</a>
 <img src="https://nodastorage.s3.amazonaws.com/media/{{issue.head_image}}" id="image_1" alt=""/>
 </div>
 <p id="text">{{issue.description|linebreaksbr}}</p>
-	{% for issue_link in issue_links %}
+
 	<div class="perspective">
 			<ul class="link_list">	
 		      <li class="heading">From the Left</li>
+	{% for issue_link in issue_links %}
 					{% if issue_link.liberal %}
 					<li class="link">
 					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
@@ -86,9 +87,11 @@ Tweet</a>
   
 	<hr>
 	</div>
+	{% endfor %}
 	<div class="perspective">
 			<ul class="link_list">	
 		      <li class="heading">From the Right</li>
+		      	{% for issue_link in issue_links %}
 					{% if issue_link.conservative %}
 					<li class="link">
 					  <a href="{{issue_link.url}}" style="text-decoration: none;color: black" target="_blank"><h3>{{issue_link.title}}</a>
