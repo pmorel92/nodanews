@@ -192,7 +192,8 @@ class Breaking_Link(models.Model):
 class PoliticalIssue(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(default="description goes here")
-    
+    head_image = models.ImageField(upload_to='media/nodes', default='')
+    slug = models.SlugField(max_length=100, default=' ')    
     def __str__(self):
         return "{}".format(self.name)
 
