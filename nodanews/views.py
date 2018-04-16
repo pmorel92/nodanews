@@ -26,7 +26,10 @@ def helen(request):
 	videos = LiveVideo.objects.filter( region__id=8 )
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
-	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'issues': issues, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+	issue_links = {
+        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-date_posted')[0:3] for n in issues
+    }
+	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
