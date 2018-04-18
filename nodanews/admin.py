@@ -5,7 +5,7 @@ from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journa
 
 class Media_OrgAdmin(admin.ModelAdmin):
     
-    list_display = ['name', 'country', 'ready', 'political_lean', 'media_character', 'region']
+    list_display = ['name', 'country', 'ready', 'slug', 'region']
     search_fields = ['name']
     prepopulated_fields = {"slug": ("name",)}
 
