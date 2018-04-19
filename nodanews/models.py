@@ -196,6 +196,8 @@ class PoliticalIssue(models.Model):
     slug = models.SlugField(max_length=100, default=' ')    
     def __str__(self):
         return "{}".format(self.name)
+    class Meta:
+	    ordering = ('-id',)
 
 class PoliticalBiasNews(models.Model):
 	url = models.CharField(max_length=300, default='')
