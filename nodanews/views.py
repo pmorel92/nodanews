@@ -18,6 +18,9 @@ def helen(request):
 	node1 = Node.objects.random()
 	node2 = Node.objects.random()
 	node3 = Node.objects.random()
+	node4 = Node.objects.random()
+	node5 = Node.objects.random()
+	node6 = Node.objects.random()
 	issues = PoliticalIssue.objects.all()[0:3]
 	opeds = Breaking_Link.objects.filter( region__id=8 )
 	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
@@ -30,7 +33,7 @@ def helen(request):
 	issue_links = {
         n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
     }
-	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+	return render(request, 'nodanews/index.html', {'node1': node1, 'node2': node2, 'node3': node3,'node4': node4,'node5': node5,'node6': node6, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'videos': videos, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 def cassandra(request):
     opeds = Node.objects.all()[3:8]
@@ -204,7 +207,8 @@ def blog(request, slug, blog_id):
 def content(request):
 	blogs = Blog.objects.all().order_by("-date_posted")
 	indepths = Analysis.objects.all().order_by("-date_posted")
-	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths})
+	issues = PoliticalIssue.objects.all().order_by("-id")
+	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths, 'issues': issues})
 
 
 def media_org(request, media_org_id):

@@ -81,6 +81,18 @@
   </a>
   {% endfor %}
   </ul>
+  <ul>
+    <li class="title">The Political Divide</li>
+  {% for issue in issues %}
+  <a href="http://www.nodanews.com/in-depth/{{issue.id}}/{{issue.slug}}" style="text-decoration: none, color: black">
+    <li>
+      <p class="headline">{{issue.name}}</p>
+
+  
+    </li>
+  </a>
+  {% endfor %}
+  </ul>  
 </div>    
 </body>
 </html>
