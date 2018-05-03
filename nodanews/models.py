@@ -197,7 +197,7 @@ class PoliticalIssue(models.Model):
     def __str__(self):
         return "{}".format(self.name)
     class Meta:
-	    ordering = ('id',)
+	    ordering = ('-id',)
 
 class PoliticalBiasNews(models.Model):
 	url = models.CharField(max_length=300, default='')
