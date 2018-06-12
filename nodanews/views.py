@@ -24,7 +24,7 @@ def helen(request):
 	videos = LiveVideo.objects.filter( region__id=8 )
 	indepths = Analysis.objects.all()[0:4]
 	blogs = Blog.objects.all()[0:5]
-	recents = Node.objects.all()[1:3].order_by('-date_posted')
+	recents = Node.objects.all()[1:3]
 	issue_links = {
         n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
     }
