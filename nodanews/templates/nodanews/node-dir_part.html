@@ -54,7 +54,7 @@
 <p id="description_node_dir">{{node_dirs.description|linebreaksbr}}</p>
 	{% for node in nodes %}
 			<li>
-			<a href="http://www.nodanews.com/node/{{node.id}}" style="text-decoration: none;color: black">
+			<a href="http://www.nodanews.com/node/{{node.id}}/{{node.slug}}" style="text-decoration: none;color: black">
 				<h2 class="headline1">{{node.headline}}</h2>
 				<h3 class="date_posted_1">Posted: {{node.date_posted}} / <span class="{{node.region.color}}"> {{node.region}} </span></h3>
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
