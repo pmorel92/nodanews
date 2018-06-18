@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.helen, name='index'),
-	url(r'^cassandra/$', views.cassandra, name='helen'),
+	url(r'^diana/$', views.diana, name='diana'),
 	url(r'^about/$', views.about, name='about'),
 	url(r'^node-dir/$', views.node_dir, name='node_dir_index'),
 	url(r'^node-dir/(?P<node_dir_id>[0-9]+)/$', views.node_dir_part, name='node_dir'),

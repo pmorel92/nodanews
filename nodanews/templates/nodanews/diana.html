@@ -15,7 +15,7 @@
 <title>Noda News</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
-<link href="{% static 'css_style_sheets/helen.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/helen2.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -47,12 +47,6 @@
 		<a href="#mobile_menu"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
   	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
 		<div id="mobile_menu">
-		  <a href="#breaking_links">Breaking News</a>
-		  <a href="#blog_list">Blog from the Editor</a>
-		  <a href="#indepth_list">In-Depth Analysis</a>
-		  <a href="#oped_list">Outside Editorials</a>
-		  <a href="#videoblock">Videos</a>
-		  <a href="#block3">Politically Biased News</a>
       <a href="http://www.nodanews.com/content">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
       <a href="http://www.nodanews.com/node-dir">Archives</a>      
@@ -75,7 +69,7 @@
       {% endif %}
     {% endfor %}
     </div>
-        <div id="recent">
+    <div id="recent">
       <ul>
           <li class="section_title">Recent Big Stories</li>
           {% for recent in recents %}
@@ -220,34 +214,6 @@
   </div>
 </div>
 
-  <div class="archives">
-
-<ul>
-  <li class="section_title">From the Archives</li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node1.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node1.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node1.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node1.date_posted}}</p>
-        </a>
-      </li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node2.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node2.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node2.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node2.date_posted}}</p>
-        </a>
-      </li>
-    <li>
-        <a href="http://www.nodanews.com/node/{{node3.id}}" style="text-decoration: none; color: black;">
-          <p class="node_headline">{{node3.headline}}</p>
-            <img src="https://nodastorage.s3.amazonaws.com/media/{{node3.head_image}}" class="banner"/>
-            <p class='posted'>Posted: {{node3.date_posted}}</p>
-        </a>
-      </li>
-
-</ul>
-  </div>
 
 </div>
 <footer>Email: contact@nodanews.com</footer>

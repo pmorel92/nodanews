@@ -69,19 +69,7 @@
       {% endif %}
     {% endfor %}
     </div>
-    <div id="recent" style="display: none">
-      <ul>
-          <li class="section_title">Recent Big Stories</li>
-          {% for recent in recents %}
-              <li>  
-                  <a href="https://www.nodanews.com/node/{{recent.idl}}/{{recent.slug}}"  target="_blank" class="recent_headline"><p>{{recent.headline}}</p>
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{recent.head_image}}" class="recent_image">
-                  </a>
-            </li>
-          {% endfor %}
-      </ul>
-      
-    </div>
+
   <div id="breaking_links">
       <ul>
       <li class="section_title">Breaking News</li>
