@@ -15,7 +15,7 @@
 <title>Noda News</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
-<link href="{% static 'css_style_sheets/helen2.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/diana.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -68,8 +68,17 @@
       </a>
       {% endif %}
     {% endfor %}
-    </div>
-
+      <ul id="recent">
+          <li class="section_title">Recent Big Stories</li>
+          {% for recent in recents %}
+              <li>  
+                  <a href="https://www.nodanews.com/node/{{recent.idl}}/{{recent.slug}}"  target="_blank" class="recent_headline"><p>{{recent.headline}}</p>
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{recent.head_image}}" class="recent_image">
+                  </a>
+            </li>
+          {% endfor %}
+      </ul>
+      </div>
   <div id="breaking_links">
       <ul>
       <li class="section_title">Breaking News</li>
