@@ -15,6 +15,7 @@
 <title>{{node.headline}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<meta property='og:image' content='https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}'/>
 <link href="{% static 'css_style_sheets/node10.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
@@ -43,7 +44,6 @@
       <a href="http://www.nodanews.com/about">About Noda News</a>
   	</nav>
   	<div id="bg_white"></div>
-  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
 		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
 
 		<div id="mobile_menu">
