@@ -16,7 +16,7 @@
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <meta property='og:image' content='https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}'/>
-<link href="{% static 'css_style_sheets/node10.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/node_new.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 </head>
@@ -55,15 +55,10 @@
 		</div>
   </header>
 <div id="central-column">
-<h1 id="headline">{{node.headline}}</h1>
+<div id="section_1">
+	<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black"><p id="related_node_direc">{{node.node_direc}}</a></p>
 	<h3 id="posted">Posted: {{node.date_posted}}</h3>
-	<div id="related">
-		<h2 id="related_to">Related to</h2>
-		<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black"><p id="related_node_direc">{{node.node_direc}}</a></p>
-		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.node_direc.banner}}" id="node_dir_image" alt=""/>		
-	</div>
-
-<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" id="image_1" alt=""/>
+	<h1 id="headline">{{node.headline}}</h1>
 <div id="socialmediabuttons">
 <div class="twitterbutton"><a href="https://twitter.com/NodanewsContact?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @NodanewsContact</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 <div class="fb-like" data-href="https://www.facebook.com/nodanews/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
@@ -74,8 +69,20 @@
 Tweet</a>
 </div>
 </div>
-<p id="my_take">{{node.my_take|linebreaksbr}}</p>
-
+<p id="lead">{{node.lead}}</p>
+<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" id="image_1" alt=""/>
+</div>
+<div id="section_2">
+	<p id="my_take">{{node.my_take|linebreaksbr}}</p>
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
+		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
+</div>
+<div id="section_3">
+	<p id="my_take">{{node.my_take2|linebreaksbr}}</p>	
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id="section_4">
+	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed3}}" frameborder="0" allowfullscreen></iframe>
 	{% for perspective, links in perspectives.items %}
 	<div class="perspective">
 		<h2 class="heading">{{perspective.name}}</h2>
@@ -87,15 +94,8 @@ Tweet</a>
 		{% endfor %}
 	<hr>
 	</div>
-
-<div id="videos">
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed3}}" frameborder="0" allowfullscreen></iframe>
 </div>
-<div class="image_2">
-		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
-</div>
+<div id="section_5">
 <div id="assnodes">
 	<ul id="assnode_list">
 		{% for assnode in assnodes|slice:":1" %}
@@ -123,6 +123,7 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 </div>    
 </body>
 </html>
