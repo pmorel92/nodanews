@@ -74,11 +74,13 @@ Tweet</a>
 </div>
 <p id="lead">{{node.lead}}</p>
 <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" id="image_1" alt=""/>
+		<p class="photo_credit">{{node.credit2}}</p>
 </div>
 <div id="section_2">
 	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
 	<p id="my_take">{{node.my_take|linebreaksbr}}</p>
 		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
+		<p class="photo_credit">{{node.credit2}}</p>
 </div>
 <div id="section_3">
 	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>	
@@ -99,19 +101,6 @@ Tweet</a>
 	</div>
 </div>
 <div id="section_5">
-<div id="assnodes">
-	<ul id="assnode_list">
-		{% for assnode in assnodes|slice:":1" %}
-			<p id="assnode_title">More Nodes on {{assnode.node_direc.name}}</p>
-		{% endfor %}
-		{% for assnode in assnodes %}
-			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
-			<br>Posted: {{assnode.date_posted}}
-			</li></a>
-			<hr>
-		{% endfor %}
-	</ul>
-</div>
 
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
@@ -127,6 +116,20 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+<div id="assnodes">
+	<ul id="assnode_list">
+		{% for assnode in assnodes|slice:":1" %}
+			<p id="assnode_title">More Nodes on {{assnode.node_direc.name}}</p>
+		{% endfor %}
+		{% for assnode in assnodes %}
+			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
+			<br>Posted: {{assnode.date_posted}}
+			</li></a>
+			<hr>
+		{% endfor %}
+	</ul>
+</div>
+
 </div>    
 </body>
 </html>
