@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, LiveVideo, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue
+from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue
 
 
 class Media_OrgAdmin(admin.ModelAdmin):
@@ -39,6 +39,10 @@ class Breaking_LinkAdmin(admin.ModelAdmin):
     list_display = ['title', 'media', 'region', 'posted', 'imageQ']
     date_hierarchy = 'posted'
 
+class Topic_LinkAdmin(admin.ModelAdmin):
+    list_display = ['title', 'media', 'region', 'posted']
+    date_hierarchy = 'posted'
+
 class PoliticalBiasNewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'media', 'conservative', 'liberal', 'posted']
     date_hierarchy = 'posted'
@@ -53,7 +57,7 @@ admin.site.register(Link, LinkAdmin)
 admin.site.register(Perspective)
 admin.site.register(Political_Lean)
 admin.site.register(About)
-admin.site.register(LiveVideo)
+admin.site.register(Topic_Link, Topic_LinkAdmin)
 admin.site.register(Media_Character)
 admin.site.register(Journalist, JournalistAdmin)
 admin.site.register(Media_Org, Media_OrgAdmin)

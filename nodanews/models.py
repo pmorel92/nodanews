@@ -1,7 +1,11 @@
 from django.db import models
 from datetime import datetime
 from django.db.models.aggregates import Count
-from random import randint
+
+class Headline(models.Model):
+	url = models.CharField(max_length=300, default=' ')
+	title = models.CharField(max_length=150, default=' ')
+	image = models.ImageField(upload_to='media/temp', default='')
 
 class Node_Dir(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -9,7 +13,7 @@ class Node_Dir(models.Model):
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField(default=' ')
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
-    related = models.ManyToManyField("self", blank=True)
+
 
     def __str__(self):
 	    return self.name
@@ -27,14 +31,8 @@ class Region(models.Model):
     class Meta:
 	    ordering = ('name',)    
 
-class NodesManager(models.Manager):
-    def random(self):
-        count = self.aggregate(count=Count('id'))['count']
-        random_index = randint(0, count - 1)
-        return self.all()[random_index]
-    		
+
 class Node(models.Model):
-    objects = NodesManager()    
     headline = models.CharField(max_length=200, default='')
     country = models.CharField(max_length=100, default='')
     date_posted = models.DateTimeField()
@@ -48,8 +46,13 @@ class Node(models.Model):
     foot_image = models.ImageField(upload_to='media/nodes', default='')
     credit2 = models.CharField(max_length=200, default='')    
     video_embed3 = models.CharField(max_length=500, default='', blank=True)    
-    node_direc = models.ForeignKey(Node_Dir)
-    region = models.ForeignKey(Region, default=1, null=True)
+    node_direc = models.ForeignKey(
+        'Node_Dir',
+        on_delete=models.PROTECT,)
+    region = models.ForeignKey('Region',
+    default=1,
+    null=True,
+    on_delete=models.PROTECT,)
     slug = models.SlugField(max_length=200, default=' ') 
 
     def __str__(self):
@@ -58,49 +61,11 @@ class Node(models.Model):
         ordering = ('-date_posted',)
 
 
-class Blog(models.Model):
-    headline = models.CharField(max_length=200, default='')
-    date_posted = models.DateField()
-    head_image = models.ImageField(upload_to='media/nodes', default='')
-    text = models.TextField()
-    slug = models.SlugField(max_length=200, default=' ')    
-    def __str__(self):
-        return "{}".format(self.headline)
-    class Meta:
-        ordering = ('-date_posted',)
-        
-class Analysis(models.Model):
-    headline = models.CharField(max_length=200, default='')
-    date_posted = models.DateField()
-    head_image = models.ImageField(upload_to='media/nodes', default='')
-    summary = models.TextField()
-    text1 = models.TextField()
-    second_image = models.ImageField(upload_to='media/nodes', default='')
-    text2 = models.TextField()
-    pop_out_quote = models.TextField()
-    video_embed1 = models.CharField(max_length=500, default='', blank=True)
-    video_embed2 = models.CharField(max_length=500, default='', blank=True)
-    video_embed3 = models.CharField(max_length=500, default='', blank=True)    
-    node_direc = models.ForeignKey(Node_Dir)
-    slug = models.SlugField(max_length=200, default=' ') 
-    def __str__(self):
-        return "{}".format(self.headline)
-    class Meta:
-        ordering = ('-date_posted',)
-
-class AnalPerspective(models.Model):
-    name = models.CharField(max_length=47, default='')
-    article = models.ForeignKey(Analysis)
-    
-    def __str__(self):
-	    return "{}/{}".format(self.article, self.name)
-    class Meta:
-	    ordering = ('-id',)
-
-
 class Perspective(models.Model):
     name = models.CharField(max_length=47, default='')
-    node = models.ForeignKey(Node)
+    node = models.ForeignKey(
+        'Node',
+        on_delete=models.CASCADE,)
     
     def __str__(self):
 	    return "{}/{}".format(self.node, self.name)
@@ -125,13 +90,24 @@ class Media_Org(models.Model):
     date_posted = models.DateTimeField()
     home_page = models.CharField(max_length=200, default='')
     country = models.CharField(max_length=100, default='')
-    region = models.ForeignKey(Region, default=1, null=True)
+    region = models.ForeignKey('Region',
+    default=1,
+    null=True,
+    on_delete=models.PROTECT,)
     date_founded = models.DateField(default='1956-02-27')
     logo = models.ImageField(upload_to='media/logos')
     description = models.TextField()
     ready = models.BooleanField(default=False)
-    political_lean = models.ForeignKey(Political_Lean, default=1, null=True)
-    media_character = models.ForeignKey(Media_Character, default=1, null=True)
+    political_lean = models.ForeignKey(
+        'Political_Lean',
+        default=1,
+        null=True,
+        on_delete=models.PROTECT,)
+    media_character = models.ForeignKey(
+        'Media_Character',
+        default=1,
+        null=True,
+        on_delete=models.PROTECT,)
     slug = models.SlugField(max_length=100, default=' ')
 
 	
@@ -143,7 +119,9 @@ class Media_Org(models.Model):
 class Journalist(models.Model):
 	name = models.CharField(max_length=200, default='')
 	contact = models.CharField(max_length=200, default='')
-	organization = models.ForeignKey(Media_Org)
+	organization = models.ForeignKey(
+	    'Media_Org',
+	    on_delete=models.PROTECT,)
 	bio = models.TextField(default='bio goes here')
 	picture = models.ImageField(upload_to='media/logos', default=" ")
 	slug = models.SlugField(max_length=100, default=' ')
@@ -152,39 +130,59 @@ class Journalist(models.Model):
 	class Meta:
 		ordering = ('name',)
 		
-class Headline(models.Model):
-	url = models.CharField(max_length=300, default=' ')
-	title = models.CharField(max_length=150, default=' ')
-	image = models.ImageField(upload_to='media/temp', default='')
-	banner = models.BooleanField(default=False)
-
 class Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
 	title = models.CharField(max_length=150, default='', blank=True)
-	media = models.ForeignKey(Media_Org)
-	perspective = models.ForeignKey(Perspective)
+	media = models.ForeignKey(
+	    'Media_Org',
+	    on_delete=models.CASCADE,)
+	perspective = models.ForeignKey(
+	    'Perspective',
+	    on_delete=models.CASCADE,)
 	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.perspective)
 
-class AnalLink(models.Model):
+class Topic_Link(models.Model):
 	url = models.CharField(max_length=300, default='', blank=True)
 	title = models.CharField(max_length=150, default='', blank=True)
-	media = models.ForeignKey(Media_Org, blank=True, null=True)
-	academic = models.BooleanField(default=False)
-	author = models.ForeignKey(Journalist, null=True, blank=True)
-	perspective = models.ForeignKey(AnalPerspective)
-	
+	posted = models.DateTimeField(default=datetime.now, blank=True)
+	region = models.ForeignKey(
+	    'Region',
+	    default=8,
+	    null=True,
+	    on_delete=models.PROTECT,)
+	media = models.ForeignKey(
+	    'Media_Org',
+	    on_delete=models.CASCADE,)
+	node_dir = models.ForeignKey(
+	    'Node_Dir',
+	    on_delete=models.CASCADE,)
+	journalist = models.ForeignKey('Journalist',
+	null=True,
+	blank=True,
+	on_delete=models.PROTECT,)	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.perspective)
+
+
 
 class Breaking_Link(models.Model):
 	url = models.CharField(max_length=300, default='')
 	title = models.CharField(max_length=150, default='')
-	media = models.ForeignKey(Media_Org)
+	media = models.ForeignKey(
+	    'Media_Org',
+	    on_delete=models.CASCADE,)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
-	region = models.ForeignKey(Region, default=8, null=True)
-	journalist = models.ForeignKey(Journalist, null=True, blank=True)
+	region = models.ForeignKey(
+	    'Region',
+	    default=8,
+	    null=True,
+	    on_delete=models.PROTECT,)
+	journalist = models.ForeignKey('Journalist',
+	null=True,
+	blank=True,
+	on_delete=models.PROTECT,)
 	imageQ = models.BooleanField(default=False)
 	image = models.ImageField(upload_to='media/temp', default='', blank=True)
 
@@ -193,6 +191,55 @@ class Breaking_Link(models.Model):
 
 	class Meta:
 		ordering = ('-posted',)
+
+    
+	    
+class About(models.Model):
+    description = models.TextField()
+
+############################### Old Stuff Below ######################################
+class Blog(models.Model):
+    headline = models.CharField(max_length=200, default='')
+    date_posted = models.DateField()
+    head_image = models.ImageField(upload_to='media/nodes', default='')
+    text = models.TextField()
+    slug = models.SlugField(max_length=200, default=' ')    
+    def __str__(self):
+        return "{}".format(self.headline)
+    class Meta:
+        ordering = ('-date_posted',)
+        
+class Analysis(models.Model):
+    headline = models.CharField(max_length=200, default='')
+    date_posted = models.DateField()
+    head_image = models.ImageField(upload_to='media/nodes', default='')
+    summary = models.TextField()
+    text1 = models.TextField()
+    second_image = models.ImageField(upload_to='media/nodes', default='')
+    text2 = models.TextField()
+    pop_out_quote = models.TextField()
+    video_embed1 = models.CharField(max_length=500, default='', blank=True)
+    video_embed2 = models.CharField(max_length=500, default='', blank=True)
+    video_embed3 = models.CharField(max_length=500, default='', blank=True)    
+    node_direc = models.ForeignKey(
+        'Node_Dir',
+        on_delete=models.CASCADE,)
+    slug = models.SlugField(max_length=200, default=' ') 
+    def __str__(self):
+        return "{}".format(self.headline)
+    class Meta:
+        ordering = ('-date_posted',)
+
+class AnalPerspective(models.Model):
+    name = models.CharField(max_length=47, default='')
+    article = models.ForeignKey(
+        'Analysis',
+        on_delete=models.CASCADE,)
+    
+    def __str__(self):
+	    return "{}/{}".format(self.article, self.name)
+    class Meta:
+	    ordering = ('-id',)
 
 class PoliticalIssue(models.Model):
     name = models.CharField(max_length=150)
@@ -207,35 +254,43 @@ class PoliticalIssue(models.Model):
 class PoliticalBiasNews(models.Model):
 	url = models.CharField(max_length=300, default='')
 	title = models.CharField(max_length=150, default='')
-	media = models.ForeignKey(Media_Org)
+	media = models.ForeignKey(
+	    'Media_Org',
+	    on_delete=models.CASCADE,)
 	posted = models.DateTimeField(default=datetime.now, blank=True)
-	region = models.ForeignKey(Region, default=9, null=True)
+	region = models.ForeignKey(
+	    'Region',
+	    default=9,
+	    null=True,
+	    on_delete=models.CASCADE,)
 	conservative = models.BooleanField(default=False)
 	liberal = models.BooleanField(default=True)
-	issue = models.ForeignKey(PoliticalIssue, default=1)	
+	issue = models.ForeignKey(
+	    'PoliticalIssue',
+	    default=1,
+	    on_delete=models.CASCADE,)	
 	def __str__(self):
 	    return "{}/{}".format(self.id, self.issue.name)
 
 	class Meta:
 		ordering = ('-posted',)
 
-    
-	    
-class About(models.Model):
-    description = models.TextField()
-
-class LiveVideo(models.Model):
-    name1 = models.CharField(max_length=200, default='name goes here')
-    video1 = models.CharField(max_length=500, default='', blank=True)
-    name2 = models.CharField(max_length=200, default='name goes here')
-    video2 = models.CharField(max_length=500, default='', blank=True)
-    name3 = models.CharField(max_length=200, default='name goes here')
-    video3 = models.CharField(max_length=500, default='', blank=True)
-    name4 = models.CharField(max_length=200, default='name goes here')
-    video4 = models.CharField(max_length=500, default='', blank=True)
-
-    region = models.ForeignKey(Region, default=8, null=True)
-
-    
-    def __str__(self):
-	    return "{}".format(self.region.name)
+class AnalLink(models.Model):
+	url = models.CharField(max_length=300, default='', blank=True)
+	title = models.CharField(max_length=150, default='', blank=True)
+	media = models.ForeignKey('Media_Org',
+	blank=True,
+	null=True,
+	on_delete=models.CASCADE,)
+	academic = models.BooleanField(default=False)
+	author = models.ForeignKey(
+	    'Journalist',
+	    null=True,
+	    blank=True,
+	    on_delete=models.CASCADE,)
+	perspective = models.ForeignKey(
+	    'AnalPerspective',
+	    on_delete=models.CASCADE,)
+	
+	def __str__(self):
+	    return "{}/{}".format(self.id, self.perspective)
