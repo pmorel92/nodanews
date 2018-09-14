@@ -13,6 +13,8 @@ class Node_Dir(models.Model):
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField(default=' ')
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
+   
+
 
 
     def __str__(self):
