@@ -52,13 +52,50 @@
   		
 		</div>
   </header>
-
-<div>
-<img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt=""style="width: 500px;">
+<div id="main">
+    <div class="headline">
+      {% for headline in headlines %}
+        <a href="{{headline.url}}"  target="_blank" class="banner_headline"><p>{{headline.title}}</p>
+          <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.image}}" class="headline_image">
+        </a>
+      {% endfor %}
+    </div>    
+  <div id="breaking_links">
+      <ul>
+      <li class="section_title">Breaking News</li>
+        {% for breaking_link in breaking_links %}
+            <li>
+               <a href="{{breaking_link.url}}" class="link{{breaking_link.region.color}}" target="_blank">
+                 <p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a>
+                  {% if breaking_link.imageQ %}
+                  <a href="{{breaking_link.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>
+        {% endfor %}
+      </ul>
+  </div>
+	<div id="topics">
+		<ul class="topic_list">
+	{% for topic in topics %}
+			<a href="http://www.nodanews.com/node-dir/{{topic.id}}" style="text-decoration: none; color: black">
+			    <li class="topic_name">{{topic.name}}</li>
+            <img src="https://nodastorage.s3.amazonaws.com/media/{{topic.banner}}" id="banner_image" alt=""/>			    
+			    </a>
+			<ul class="topic_links">
+				{% for link in topics_by_dir|get_item:node_dir %}
+					<li>
+               <a href="{{link.url}}" class="topic_link" target="_blank">
+                 <p>{{link.headline}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
+           </li>					
+					<hr>
+				{% endfor %}
+			</ul>
+	{% endfor %}
+		</ul>	
+  </div>
 </div>
-<p>
-<h1> Great Things are Coming to NodaNews. Stay Tuned!</h1>
-</p>
 <footer>Email: contact@nodanews.com</footer>
 </body>
 </html>

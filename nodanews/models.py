@@ -28,6 +28,7 @@ class Node_Dir(models.Model):
 	    null=True,
 	    on_delete=models.PROTECT,)
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
+    slug = models.SlugField(max_length=100, default=' ')    
    
 
 
