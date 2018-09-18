@@ -171,7 +171,7 @@ class Topic_Link(models.Model):
 	blank=True,
 	on_delete=models.PROTECT,)	
 	def __str__(self):
-	    return "{}/{}".format(self.id, self.perspective)
+	    return "{}/{}".format(self.id, self.node_dir.name)
 
 
 
