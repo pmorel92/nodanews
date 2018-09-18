@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.diana, name='index'),
+	url(r'^athena/$', views.athena, name='index'),	
 	url(r'^about/$', views.about, name='about'),
 	url(r'^node-dir/$', views.node_dir, name='node_dir_index'),
 	url(r'^node-dir/(?P<node_dir_id>[0-9]+)/$', views.node_dir_part, name='node_dir'),

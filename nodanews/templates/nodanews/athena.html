@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>
+	
+<meta charset="utf-8">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/athena.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/athenanav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <header>
+  	    		<form method="get" action="https://www.google.com/search">
+			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
+			<input type="text" size="15" name="q" placeholder="Search" />
+			<button type="submit"></button>
+		</form>
+    <nav>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/archives">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  	</nav>
+  	<div id="bg_white"></div>
+		<a href="#mobile_menu"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
+  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+		<div id="mobile_menu">
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/archives">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  		
+		</div>
+  </header>
+
+<div>
+<img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt=""style="width: 500px;">
+</div>
+<p>
+<h1> Great Things are Coming to NodaNews. Stay Tuned!</h1>
+</p>
+<footer>Email: contact@nodanews.com</footer>
+</body>
+</html>

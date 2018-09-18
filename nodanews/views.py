@@ -13,40 +13,47 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
+def athena(request):
+	headlines = Headline.objects.all()
+	breaking_links = Breaking_Link.objects.all()
+	
+	return render(request, 'nodanews/athena.html')
 
 def diana(request):
-	issues = PoliticalIssue.objects.all()[0:3]
-	opeds = Breaking_Link.objects.filter( region__id=8 )
-	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
-	headlines = Headline.objects.all()
-	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
-	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
+	return render (request, 'nodanews/index.html')
+#def diana(request):
+#	issues = PoliticalIssue.objects.all()[0:3]
+#	opeds = Breaking_Link.objects.filter( region__id=8 )
+#	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
+#	headlines = Headline.objects.all()
+#	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+#	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
 #	videos = LiveVideo.objects.filter( region__id=8 )
-	indepths = Analysis.objects.all()[0:4]
-	blogs = Blog.objects.all()[0:5]
-	recents = Node.objects.all()[1:4]
-	issue_links = {
-        n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
-    }
-	return render(request, 'nodanews/index.html', {'recents': recents, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+#	indepths = Analysis.objects.all()[0:4]
+#	blogs = Blog.objects.all()[0:5]
+#	recents = Node.objects.all()[1:4]
+#	issue_links = {
+ #       n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
+    #}
+#	return render(request, 'nodanews/index.html', {'recents': recents, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
 
 
-def cassandra(request):
-    opeds = Node.objects.all()[3:8]
-    nodes = Node.objects.all()[0:3]
-    headlines = Headline.objects.all()
-    conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
-    libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
-#    videos = LiveVideo.objects.filter( region__id=8 )
-    asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
-    africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
-    sasias = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
-    mes = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
-    namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
-    samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
-    europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
-    latests = Breaking_Link.objects.all()[0:20]
-    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
+#def cassandra(request):
+ #   opeds = Node.objects.all()[3:8]
+  #  nodes = Node.objects.all()[0:3]
+   # headlines = Headline.objects.all()
+#    conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+ #   libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
+# #   videos = LiveVideo.objects.filter( region__id=8 )
+  #  asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
+   # africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
+    #sasias = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
+#    mes = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
+ #   namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
+  #  samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
+   # europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
+ #   latests = Breaking_Link.objects.all()[0:20]
+#    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
 
 def political_issue(request, slug, issue_id):
     issue = get_object_or_404(PoliticalIssue, pk=issue_id)

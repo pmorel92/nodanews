@@ -7,11 +7,26 @@ class Headline(models.Model):
 	title = models.CharField(max_length=150, default=' ')
 	image = models.ImageField(upload_to='media/temp', default='')
 
+class Region(models.Model):
+    name = models.CharField(max_length=100, default='')
+    color = models.CharField(max_length=100, default='')
+    
+    def __str__(self):
+	    return self.name
+    class Meta:
+	    ordering = ('name',)    
+
+
 class Node_Dir(models.Model):
     name = models.CharField(max_length=100, default='')
     active = models.BooleanField(default=False)
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField(default=' ')
+    region = models.ForeignKey(
+	    'Region',
+	    default=8,
+	    null=True,
+	    on_delete=models.PROTECT,)
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
    
 
@@ -22,17 +37,7 @@ class Node_Dir(models.Model):
 
     
     class Meta:
-	    ordering = ('name',)   
-	    
-class Region(models.Model):
-    name = models.CharField(max_length=100, default='')
-    color = models.CharField(max_length=100, default='')
-    
-    def __str__(self):
-	    return self.name
-    class Meta:
-	    ordering = ('name',)    
-
+	    ordering = ('name',)
 
 class Node(models.Model):
     headline = models.CharField(max_length=200, default='')
