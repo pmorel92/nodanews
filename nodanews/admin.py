@@ -40,7 +40,7 @@ class Breaking_LinkAdmin(admin.ModelAdmin):
     date_hierarchy = 'posted'
 
 class Topic_LinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'media', 'region', 'posted']
+    list_display = ['title', 'media', 'region', 'posted', 'node_dir']
     date_hierarchy = 'posted'
 
 class PoliticalBiasNewsAdmin(admin.ModelAdmin):
