@@ -65,7 +65,7 @@
       <li class="section_title">Breaking News</li>
         {% for breaking_link in breaking_links %}
             <li>
-               <a href="{{breaking_link.url}}" class="link{{breaking_link.region.color}}" target="_blank">
+               <a href="{{breaking_link.url}}" class="link" target="_blank">
                  <p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a>
                   {% if breaking_link.imageQ %}
                   <a href="{{breaking_link.url}}" target="_blank">
@@ -86,7 +86,7 @@
 			<ul class="topic_links">
 				{% for link in topics_by_dir|get_item:topic %}
 					<li>
-               <a href="{{link.url}}" class="topic_link" target="_blank">
+               <a href="{{link.url}}" class="link" target="_blank">
                  <p>{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
            </li>					
 					<hr>
