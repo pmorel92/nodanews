@@ -87,7 +87,7 @@
 				{% for link in topics_by_dir|get_item:topic %}
 					<li>
                <a href="{{link.url}}" class="topic_link" target="_blank">
-                 <p>{{link.headline}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
+                 <p>{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
            </li>					
 					<hr>
 				{% endfor %}
