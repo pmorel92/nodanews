@@ -18,7 +18,7 @@ def athena(request):
 	breaking_links = Breaking_Link.objects.all()
 	topics = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
 	topics_by_dir = {
-        n: Topic_Link.objects.filter(node_dir__id = n.id).order_by('-date_posted')[0:5] for n in topics
+        n: Topic_Link.objects.filter(node_dir__id = n.id).order_by('-posted')[0:5] for n in topics
     }	
 	return render(request, 'nodanews/athena.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
