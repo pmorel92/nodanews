@@ -84,6 +84,10 @@ def node_dir_part(request, node_dir_id):
     nodes = Node.objects.filter(node_direc__id = node_dir_id)
     return render(request, 'nodanews/node-dir_part.html', {'nodes': nodes, 'asswebs': asswebs, 'node_dirs': node_dirs, 'node_dir_topics': node_dir_topics, 'breaking_links': breaking_links})	
 
+def media_dir_athena(request):
+	medias = Media_Org.objects.all()
+	return render(request, 'nodanews/media-org-directory', {'medias': medias})
+
 def media_dir(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
 	breaking_links = Breaking_Link.objects.all()

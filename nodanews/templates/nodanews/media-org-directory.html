@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-1');
+</script>
+
+<meta charset="utf-8">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link href="{% static 'css_style_sheets/athenanav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/athena-media_dir.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body> 
+  <header>
+  	    		<form method="get" action="https://www.google.com/search">
+			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
+			<input type="text" size="15" name="q" placeholder="Search" />
+			<button type="submit"></button>
+		</form>
+    <nav>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/archives">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  	</nav>
+  	<div id="bg_white"></div>
+  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
+
+		<div id="mobile_menu">
+      <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
+      <a href="http://www.nodanews.com/archives">Archives</a>      
+      <a href="http://www.nodanews.com/about">About Noda News</a>
+  		
+		</div>
+  </header>
+  <div id="main">
+	<div>
+	  	<h1 id="title">Media Organization Directory</h1>
+	  		<h2>Search by Country<br>
+	  		Region: Africa, Asia, Europe, Middle East, North America, South America, and South Asia<br>
+	  		Ideology: Liberal, Conservative, Far Right, and Far Left<br>
+	  		Character: State-Owned, Independent, Globalist, and Nationalist</h2>
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name, country, ideology, region...">	
+	</div>
+	<div id="media">	
+		<ul id="media_list">	
+		{% for media in medias %}
+					<li>
+						<a href="http://www.nodanews.com/media_dir/{{media.id}}/{{media.slug}}">
+							<p class="media_org">{{media.name}}</p>
+							<p class="media_aspect">{{media.country}}</p>
+							<p class="media_aspect">{{media.region}}</p>							
+							<p class="media_aspect">{{media.political_lean}}</p>
+							<p class="media_aspect">{{media.media_character}}</p>
+							<img src="https://nodastorage.s3.amazonaws.com/media/{{media.logo}}" class="media_logo" alt=""/></a>
+					</li>	
+		{% endfor %}
+		</ul>
+	</div>
+	</div>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("media_list");
+    li = ul.getElementsByTagName('li');
+
+   
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
