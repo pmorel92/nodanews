@@ -88,6 +88,16 @@ def media_dir_athena(request):
 	medias = Media_Org.objects.all()
 	return render(request, 'nodanews/media-org-directory.html', {'medias': medias})
 
+def archives(request):
+    node_dirs = Node_Dir.objects.order_by('name')
+    blogs = Blog.objects.all().order_by("-date_posted")
+    indepths = Analysis.objects.all().order_by("-date_posted")
+    issues = PoliticalIssue.objects.all().order_by("-id")
+    nodes_by_dir = {
+        n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:3] for n in node_dirs
+    }    
+    return render(request, 'nodanews/archives.html', {'nodae_dirs': node_dirs, 'blogs': blogs, 'indepths': indepths, 'issues': issues, 'nodes_by_dir': nodes_by_dir})
+
 def media_dir(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
 	breaking_links = Breaking_Link.objects.all()
@@ -241,12 +251,10 @@ def content(request):
 	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths, 'issues': issues})
 
 
-def media_org(request, media_org_id):
+def media_org(request, slug, media_org_id):
     media_org = get_object_or_404(Media_Org, pk=media_org_id)
-    breaking_links = Breaking_Link.objects.all()
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
     journalists = Journalist.objects.filter( organization__id = media_org_id )
-    return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists, 'node_dirs': node_dirs, 'breaking_links': breaking_links})	
+    return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists,})	
 
 def journalist(request, slug, journalist_id):
 	journalist = get_object_or_404(Journalist, pk=journalist_id)

@@ -38,9 +38,8 @@
 		</form>
     <nav>
       <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <a href="http://www.nodanews.com/content">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
-      <a href="http://www.nodanews.com/node-dir">Archives</a>      
+      <a href="http://www.nodanews.com/archives">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
   	</nav>
   	<div id="bg_white"></div>
@@ -48,16 +47,16 @@
 		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
 
 		<div id="mobile_menu">
-      <a href="http://www.nodanews.com/content">Noda News Content</a>
       <a href="http://www.nodanews.com/media_dir">Media Org. Directory</a>
-      <a href="http://www.nodanews.com/node-dir">Archives</a>      
+      <a href="http://www.nodanews.com/archives">Archives</a>      
       <a href="http://www.nodanews.com/about">About Noda News</a>
   		
 		</div>
   </header>
 
-<div id="central-column">
-  <ul>
+<div id="main">
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Archives...">	
+  <ul id="blog_list">
     <li class="title">Blog from the Editor</li>
   {% for blog in blogs %}
   <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
@@ -69,7 +68,7 @@
   </a>
   {% endfor %}
   </ul>
-  <ul>
+  <ul id="analysis_list">
     <li class="title">In-Depth Analysis</li>
   {% for indepth in indepths %}
   <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
@@ -81,7 +80,7 @@
   </a>
   {% endfor %}
   </ul>
-  <ul>
+  <ul id='politics_list'>
     <li class="title">The Political Divide</li>
   {% for issue in issues %}
   <a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none, color: black">
@@ -92,8 +91,39 @@
     </li>
   </a>
   {% endfor %}
-  </ul>  
-</div>    
+  </ul>
+		<ul id="node_list">
+	{% for node_dir in node_dirs %}
+			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="node_dir_name">{{node_dir.name}}</li></a>
+			<ul class="node_preview_list">
+				{% for node in nodes_by_dir|get_item:node_dir %}
+					<li class="node_preview">{{node.headline}}</li>
+					<hr>
+				{% endfor %}
+			</ul>
+	{% endfor %}
+			</ul>	
+</div>  
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("media_list", "politics_list", "analysis_list", "blog_list");
+    li = ul.getElementsByTagName('li', 'p');
+
+   
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 </body>
 </html>
 
