@@ -84,7 +84,7 @@
             <img src="https://nodastorage.s3.amazonaws.com/media/{{topic.banner}}" id="banner_image" alt=""/>			    
 			    </a>
 			<ul class="topic_links">
-				{% for link in topics_by_dir|get_item:node_dir %}
+				{% for link in topics_by_dir|get_item:topic %}
 					<li>
                <a href="{{link.url}}" class="topic_link" target="_blank">
                  <p>{{link.headline}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
