@@ -86,7 +86,7 @@ def node_dir_part(request, node_dir_id):
 
 def media_dir_athena(request):
 	medias = Media_Org.objects.all()
-	return render(request, 'nodanews/media-org-directory', {'medias': medias})
+	return render(request, 'nodanews/media-org-directory.html', {'medias': medias})
 
 def media_dir(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
