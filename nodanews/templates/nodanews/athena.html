@@ -79,7 +79,7 @@
 	<div id="topics">
 		<ul class="topic_list">
 	{% for topic in topics %}
-			<a href="http://www.nodanews.com/node-dir/{{topic.id}}" style="text-decoration: none; color: black">
+			<a href="http://www.nodanews.com/node-dir/{{topic.id}}/{{topic.slug}}" style="text-decoration: none; color: black">
 			    <li class="topic_name">{{topic.name}}</li>
             <img src="https://nodastorage.s3.amazonaws.com/media/{{topic.banner}}" class="banner_image" alt=""/>			    
 			    </a>
