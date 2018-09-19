@@ -48,15 +48,18 @@
   </header>
 
 <div id="main">
-  <ul id="list">
+  <ul class="list">
     <li class="title">Blog from the Editor</li>
   {% for blog in blogs %}
   <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
-    <li>{{blog.headline}}<br>{{blog.date_posted}}</li>
+      <li>
+      <p class="headline">{{blog.headline}}</p>
+      <p class="posted">{{blog.date_posted}}</p>
+      </li>
   </a>
   {% endfor %}
   </ul>
-    <ul id="list">
+    <ul class="list">
     <li class="title">In-Depth Analysis</li>
   {% for indepth in indepths %}
   <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
@@ -68,7 +71,7 @@
   </a>
   {% endfor %}
   </ul>
-    <ul id="list">
+    <ul class="list">
     <li class="title">The Political Divide</li>
   {% for issue in issues %}
   <a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none, color: black">
@@ -78,13 +81,15 @@
   </a>
   {% endfor %}
   </ul>
-    <ul id="list">
+    <ul class="list">
 	{% for node_dir in node_dirs %}
-			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="node_dir_name">{{node_dir.name}}</li></a>
+			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="title">{{node_dir.name}}</li></a>
 				{% for node in nodes_by_dir|get_item:node_dir %}
-					<li class="node_preview">{{node.headline}}</li>
+				<ul class="list">
+					<li class="headline">{{node.headline}}</li>
 					<hr>
 				{% endfor %}
+				</ul>
 	{% endfor %}
 			</ul>	
 </div>  
