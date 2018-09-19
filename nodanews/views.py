@@ -94,7 +94,7 @@ def archives(request):
     indepths = Analysis.objects.all().order_by("-date_posted")
     issues = PoliticalIssue.objects.all().order_by("-id")
     nodes_by_dir = {
-        n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:3] for n in node_dirs
+        n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted') for n in node_dirs
     }    
     return render(request, 'nodanews/archives.html', {'node_dirs': node_dirs, 'blogs': blogs, 'indepths': indepths, 'issues': issues, 'nodes_by_dir': nodes_by_dir})
 
