@@ -23,13 +23,7 @@
 
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
   <header>
   	    		<form method="get" action="https://www.google.com/search">
 			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
@@ -57,16 +51,7 @@
 <div id="central-column">
 <h1 id="headline">{{blog.headline}}</h1>
 	<h3 id="posted">Posted: {{blog.date_posted}}</h3>
-<div id="socialmediabuttons">
-<div class="twitterbutton"><a href="https://twitter.com/NodanewsContact?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @NodanewsContact</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-<div class="fb-like" data-href="https://www.facebook.com/nodanews/" data-width="300" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-<div id="twittershare">
-<a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text={{node.headline}}"
-  data-size="large">
-Tweet</a>
-</div>
-</div>
+
 <div id="mainimage">
 <img src="https://nodastorage.s3.amazonaws.com/media/{{blog.head_image}}" id="image_1" alt=""/>
 </div>

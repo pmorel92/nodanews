@@ -62,21 +62,6 @@
 	
 	{% endfor %}
 	</ul>
-	<ul id="related_node_dirs">
-		<p id="related_node_dirs_title">RELATED TO</p>
-		{% for related in node_dirs.related.all %}
-			<a href="http://www.nodanews.com/node-dir/{{related.id}}" style="text-decoration: none; color: black">
-				<li class="related_nodes">
-					<p class="related_node_title">{{ related }}</p>
-					<img src="https://nodastorage.s3.amazonaws.com/media/{{related.banner}}" class="related_banner_images" alt=""/> 
-			</a>
-				</li>
-					<div class="node_line">	
-					</div>
-
-		{% endfor %}
-	<div id="related_node_end"></div>
-	</ul>	
 
 </body>
 </html>
