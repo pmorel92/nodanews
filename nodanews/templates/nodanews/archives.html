@@ -56,7 +56,7 @@
 
 <div id="main">
 		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Archives...">	
-  <ul id="blog_list">
+  <ul class="list">
     <li class="title">Blog from the Editor</li>
   {% for blog in blogs %}
   <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
@@ -68,7 +68,7 @@
   </a>
   {% endfor %}
   </ul>
-  <ul id="analysis_list">
+  <ul class="list">
     <li class="title">In-Depth Analysis</li>
   {% for indepth in indepths %}
   <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
@@ -80,7 +80,7 @@
   </a>
   {% endfor %}
   </ul>
-  <ul id='politics_list'>
+  <ul class='list'>
     <li class="title">The Political Divide</li>
   {% for issue in issues %}
   <a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none, color: black">
@@ -92,7 +92,7 @@
   </a>
   {% endfor %}
   </ul>
-		<ul id="node_list">
+		<ul class="list">
 	{% for node_dir in node_dirs %}
 			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="node_dir_name">{{node_dir.name}}</li></a>
 			<ul class="node_preview_list">
@@ -109,7 +109,7 @@ function myFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
-    ul = document.getElementById("media_list", "politics_list", "analysis_list", "blog_list");
+    ul = document.getElementsByClassName("list");
     li = ul.getElementsByTagName('li', 'p');
 
    
