@@ -84,8 +84,9 @@
     <ul class="list">
 	{% for node_dir in node_dirs %}
 			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="title">{{node_dir.name}}</li></a>
-				{% for node in nodes_by_dir|get_item:node_dir %}
 				<ul class="list">
+				{% for node in nodes_by_dir|get_item:node_dir %}
+
 					<li class="headline">{{node.headline}}</li>
 					<hr>
 				{% endfor %}
