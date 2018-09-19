@@ -48,7 +48,6 @@
   </header>
 
 <div id="main">
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Archives...">	
   <ul id="list">
     <li class="title">Blog from the Editor</li>
   {% for blog in blogs %}
@@ -56,6 +55,8 @@
     <li>{{blog.headline}}<br>{{blog.date_posted}}</li>
   </a>
   {% endfor %}
+  </ul>
+    <ul id="list">
     <li class="title">In-Depth Analysis</li>
   {% for indepth in indepths %}
   <a href="http://www.nodanews.com/in-depth/{{indepth.id}}/{{indepth.slug}}" style="text-decoration: none, color: black">
@@ -66,6 +67,8 @@
     </li>
   </a>
   {% endfor %}
+  </ul>
+    <ul id="list">
     <li class="title">The Political Divide</li>
   {% for issue in issues %}
   <a href="http://www.nodanews.com/issue/{{issue.id}}/{{issue.slug}}" style="text-decoration: none, color: black">
@@ -74,6 +77,8 @@
     </li>
   </a>
   {% endfor %}
+  </ul>
+    <ul id="list">
 	{% for node_dir in node_dirs %}
 			<a href="http://www.nodanews.com/node-dir/{{node_dir.id}}" style="text-decoration: none; color: black"><li class="node_dir_name">{{node_dir.name}}</li></a>
 				{% for node in nodes_by_dir|get_item:node_dir %}
@@ -83,25 +88,6 @@
 	{% endfor %}
 			</ul>	
 </div>  
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("list");
-    li = ul.getElementsByTagName('li', 'p');
-
-   
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-</script>
 
 </body>
 </html>
