@@ -96,7 +96,7 @@ def archives(request):
     nodes_by_dir = {
         n: Node.objects.filter(node_direc__id = n.id).order_by('-date_posted')[0:3] for n in node_dirs
     }    
-    return render(request, 'nodanews/archives.html', {'nodae_dirs': node_dirs, 'blogs': blogs, 'indepths': indepths, 'issues': issues, 'nodes_by_dir': nodes_by_dir})
+    return render(request, 'nodanews/archives.html', {'node_dirs': node_dirs, 'blogs': blogs, 'indepths': indepths, 'issues': issues, 'nodes_by_dir': nodes_by_dir})
 
 def media_dir(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')

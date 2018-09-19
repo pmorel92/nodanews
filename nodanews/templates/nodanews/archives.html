@@ -60,11 +60,7 @@
     <li class="title">Blog from the Editor</li>
   {% for blog in blogs %}
   <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}" style="text-decoration: none, color: black">
-    <li>
-      <p class="headline">{{blog.headline}}</p>
-      <p class="posted">{{blog.date_posted}}</p>
-  
-    </li>
+    <li>{{blog.headline}}<br>{{blog.date_posted}}</li>
   </a>
   {% endfor %}
   </ul>
