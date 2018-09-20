@@ -43,13 +43,12 @@
   		
 		</div>
   </header>
+  <div id="main">
   <ul id="node_list">
-	{% for node in nodes|slice:":1" %}
-<h1 id="node_title">{{node.node_direc}}</h1>
-	{% endfor %}
+<h1 id="node_title">{{node_dir.name}}</h1>
 <hr id="hr2">
-<img src="https://nodastorage.s3.amazonaws.com/media/{{node_dirs.banner}}" id="banner_image" alt=""/>
-<p id="description_node_dir">{{node_dirs.description|linebreaksbr}}</p>
+<img src="https://nodastorage.s3.amazonaws.com/media/{{node_dir.banner}}" id="banner_image" alt=""/>
+<p id="description_node_dir">{{node_dir.description|linebreaksbr}}</p>
 	{% for node in nodes %}
 			<li>
 			<a href="http://www.nodanews.com/node/{{node.id}}/{{node.slug}}" style="text-decoration: none;color: black">
@@ -58,10 +57,19 @@
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
 				<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black" target="_blank"><p class="index_part_node_dir">{{node_direc.name}}</a></p>
 			</li>
-
-	
 	{% endfor %}
 	</ul>
-
+	<ul id="link_list">
+	{% for link in topic_links %}
+			<li>
+			<a href="{{link.url}}" style="text-decoration: none;color: black">
+				<h2 class="headline1">{{link.title}}</h2>
+				<h3 class="date_posted_1">Posted: {{link.posted}}</h3>
+			</a>	
+			</li>
+	{% endfor %}
+		
+	</ul>
+</div>
 </body>
 </html>
