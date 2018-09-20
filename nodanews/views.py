@@ -76,7 +76,7 @@ def node_dir(request):
     }
     return render(request, 'nodanews/node-dir.html', {'node_dirs': node_dirs, 'nodes_by_dir': nodes_by_dir, 'node_dir_topics': node_dir_topics, 'breaking_links': breaking_links})
 
-def node_dir_part(request, node_dir_id):
+def node_dir_part(request, node_dir_id , slug):
     node_dir = get_object_or_404(Node_Dir, pk=node_dir_id)
     nodes = Node.objects.filter(node_direc__id = node_dir_id)
     topic_links = Topic_Link.objects.filter(node_dir__id = node_dir_id)
