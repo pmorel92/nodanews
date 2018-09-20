@@ -44,11 +44,12 @@
 		</div>
   </header>
   <div id="main">
-  <ul id="node_list">
+
 <h1 id="node_title">{{node_dir.name}}</h1>
 <hr id="hr2">
 <img src="https://nodastorage.s3.amazonaws.com/media/{{node_dir.banner}}" id="banner_image" alt=""/>
 <p id="description_node_dir">{{node_dir.description|linebreaksbr}}</p>
+  <ul id="node_list">
 	{% for node in nodes %}
 			<li>
 			<a href="http://www.nodanews.com/node/{{node.id}}/{{node.slug}}" style="text-decoration: none;color: black">
