@@ -51,22 +51,24 @@
 <p id="description_node_dir">{{node_dir.description|linebreaksbr}}</p>
  <div id="lists">
   <ul id="node_list">
+  	<li class="section_title">Noda News Content</li>
 	{% for node in nodes %}
 			<li>
 			<a href="http://www.nodanews.com/node/{{node.id}}/{{node.slug}}" style="text-decoration: none;color: black">
-				<h2 class="headline1">{{node.headline}}</h2>
-				<h3 class="date_posted_1">Posted: {{node.date_posted}}</h3>
+				<p class="link">{{node.headline}}</p>
+				<p class="date_posted_1">Posted: {{node.date_posted}}</p>
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="image_1"/></a>
 				<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}" style="text-decoration: none; color: black" target="_blank"><p class="index_part_node_dir">{{node_direc.name}}</a></p>
 			</li>
 	{% endfor %}
 	</ul>
 	<ul id="link_list">
+		<li class="section_title">Outside Content</li>
 	{% for link in topic_links %}
 			<li>
 			<a href="{{link.url}}" style="text-decoration: none;color: black">
-				<h2 class="headline1">{{link.title}}</h2>
-				<h3 class="date_posted_1">Posted: {{link.posted}}</h3>
+				<p class="link">{{link.title}}</p>
+				<p class="date_posted_1">Posted: {{link.posted}}</p>
 			</a>	
 			</li>
 	{% endfor %}
