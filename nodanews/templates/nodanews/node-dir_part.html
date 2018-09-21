@@ -49,6 +49,7 @@
 <hr id="hr2">
 <img src="https://nodastorage.s3.amazonaws.com/media/{{node_dir.banner}}" id="banner_image" alt=""/>
 <p id="description_node_dir">{{node_dir.description|linebreaksbr}}</p>
+ <div id="lists">
   <ul id="node_list">
 	{% for node in nodes %}
 			<li>
@@ -71,6 +72,7 @@
 	{% endfor %}
 		
 	</ul>
+	</div>
 </div>
 </body>
 </html>
