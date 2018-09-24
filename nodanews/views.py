@@ -22,41 +22,6 @@ def athena(request):
     }	
 	return render(request, 'nodanews/athena.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
-def diana(request):
-	return render (request, 'nodanews/index.html')
-#def diana(request):
-#	issues = PoliticalIssue.objects.all()[0:3]
-#	opeds = Breaking_Link.objects.filter( region__id=8 )
-#	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
-#	headlines = Headline.objects.all()
-#	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
-#	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
-#	videos = LiveVideo.objects.filter( region__id=8 )
-#	indepths = Analysis.objects.all()[0:4]
-#	blogs = Blog.objects.all()[0:5]
-#	recents = Node.objects.all()[1:4]
-#	issue_links = {
- #       n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
-    #}
-#	return render(request, 'nodanews/index.html', {'recents': recents, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
-
-
-#def cassandra(request):
- #   opeds = Node.objects.all()[3:8]
-  #  nodes = Node.objects.all()[0:3]
-   # headlines = Headline.objects.all()
-#    conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
- #   libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
-# #   videos = LiveVideo.objects.filter( region__id=8 )
-  #  asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
-   # africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
-    #sasias = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
-#    mes = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
- #   namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
-  #  samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
-   # europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
- #   latests = Breaking_Link.objects.all()[0:20]
-#    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
 
 def political_issue(request, slug, issue_id):
     issue = get_object_or_404(PoliticalIssue, pk=issue_id)
@@ -96,6 +61,105 @@ def archives(request):
     }    
     return render(request, 'nodanews/archives.html', {'node_dirs': node_dirs, 'blogs': blogs, 'indepths': indepths, 'issues': issues, 'nodes_by_dir': nodes_by_dir})
 
+
+
+def node(request, node_id):
+    node = get_object_or_404(Node, pk=node_id)
+    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
+    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
+    perspectives = Perspective.objects.filter( node__id = node_id )
+    perspective_links = {
+		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
+	}
+    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
+
+def nodeslug(request, slug, node_id):
+    node = get_object_or_404(Node, pk=node_id)
+    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
+    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
+    perspectives = Perspective.objects.filter( node__id = node_id )
+    perspective_links = {
+		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
+	}
+    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
+
+    
+def analysis(request, slug, analysis_id):
+    analysis = get_object_or_404(Analysis, pk=analysis_id)
+    perspectives = AnalPerspective.objects.filter( article__id = analysis_id )
+    perspective_links = {
+		p: AnalLink.objects.filter(perspective__id = p.id) for p in perspectives
+	}
+    return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
+    
+def blog(request, slug, blog_id):
+	blog = get_object_or_404(Blog, pk=blog_id)
+	return render(request, 'nodanews/blog.html', {'blog': blog})
+	
+def content(request):
+	blogs = Blog.objects.all().order_by("-date_posted")
+	indepths = Analysis.objects.all().order_by("-date_posted")
+	issues = PoliticalIssue.objects.all().order_by("-id")
+	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths, 'issues': issues})
+
+
+def media_org(request, slug, media_org_id):
+    media_org = get_object_or_404(Media_Org, pk=media_org_id)
+    journalists = Journalist.objects.filter( organization__id = media_org_id )
+    return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists,})	
+
+def journalist(request, slug, journalist_id):
+	journalist = get_object_or_404(Journalist, pk=journalist_id)
+	return render(request, 'nodanews/journalist.html', {'journalist': journalist})
+	
+	
+	########################## DEPRECATED ###################
+
+def diana(request):
+	return render (request, 'nodanews/index.html')
+#def diana(request):
+#	issues = PoliticalIssue.objects.all()[0:3]
+#	opeds = Breaking_Link.objects.filter( region__id=8 )
+#	breaking_links = Breaking_Link.objects.all().exclude( region__id=8 )
+#	headlines = Headline.objects.all()
+#	conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+#	libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
+#	videos = LiveVideo.objects.filter( region__id=8 )
+#	indepths = Analysis.objects.all()[0:4]
+#	blogs = Blog.objects.all()[0:5]
+#	recents = Node.objects.all()[1:4]
+#	issue_links = {
+ #       n: PoliticalBiasNews.objects.filter(issue__id = n.id).order_by('-posted') for n in issues
+    #}
+#	return render(request, 'nodanews/index.html', {'recents': recents, 'issues': issues, 'issue_links': issue_links, 'opeds': opeds, 'conservaturds': conservaturds, 'headlines': headlines, 'libtards': libtards, 'breaking_links': breaking_links, 'blogs': blogs, 'indepths': indepths})
+
+
+#def cassandra(request):
+ #   opeds = Node.objects.all()[3:8]
+  #  nodes = Node.objects.all()[0:3]
+   # headlines = Headline.objects.all()
+#    conservaturds = PoliticalBiasNews.objects.filter( region__id=9 ).order_by('-posted')
+ #   libtards = PoliticalBiasNews.objects.filter( region__id=10 ).order_by('-posted')    
+# #   videos = LiveVideo.objects.filter( region__id=8 )
+  #  asias = Breaking_Link.objects.filter( region__id=1 ).order_by('-posted')
+   # africas = Breaking_Link.objects.filter( region__id=3 ).order_by('-posted')
+    #sasias = Breaking_Link.objects.filter( region__id=6 ).order_by('-posted')
+#    mes = Breaking_Link.objects.filter( region__id=7 ).order_by('-posted')
+ #   namericas = Breaking_Link.objects.filter( region__id=4 ).order_by('-posted')
+  #  samericas = Breaking_Link.objects.filter( region__id=5 ).order_by('-posted')
+   # europes = Breaking_Link.objects.filter( region__id=2 ).order_by('-posted')
+ #   latests = Breaking_Link.objects.all()[0:20]
+#    return render(request, 'nodanews/cassandra.html', {'opeds': opeds, 'conservaturds': conservaturds, 'nodes': nodes, 'asias': asias, 'latests': latests, 'headlines': headlines, 'africas': africas, 'sasias': sasias, 'mes': mes, 'namericas': namericas, 'samericas': samericas, 'libtards': libtards, 'europes': europes})
+
+#def node_new(request, slug, node_id):
+ #   node = get_object_or_404(Node, pk=node_id)
+#    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
+#    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
+#    perspectives = Perspective.objects.filter( node__id = node_id )
+#    perspective_links = {
+#		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
+#	}
+ #   return render(request, 'nodanews/node_new.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 def media_dir(request):
 	node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
 	breaking_links = Breaking_Link.objects.all()
@@ -199,61 +263,5 @@ def media_dir_nationalist(request):
 	media_orgs = Media_Org.objects.filter(media_character__id =1 ).order_by('name')
 	return render(request, 'nodanews/media_dir/nationalist.html', {'media_orgs': media_orgs, 'node_dirs': node_dirs, 'breaking_links': breaking_links})
 
-
-def node(request, node_id):
-    node = get_object_or_404(Node, pk=node_id)
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
-    perspectives = Perspective.objects.filter( node__id = node_id )
-    perspective_links = {
-		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
-	}
-    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
-
-def nodeslug(request, slug, node_id):
-    node = get_object_or_404(Node, pk=node_id)
-    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
-    perspectives = Perspective.objects.filter( node__id = node_id )
-    perspective_links = {
-		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
-	}
-    return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
-
-#def node_new(request, slug, node_id):
- #   node = get_object_or_404(Node, pk=node_id)
-#    node_dirs = Node_Dir.objects.filter(active=True).order_by('-date_updated')
-#    assnodes = Node.objects.filter( node_direc__id = node.node_direc_id)
-#    perspectives = Perspective.objects.filter( node__id = node_id )
-#    perspective_links = {
-#		p: Link.objects.filter(perspective__id = p.id) for p in perspectives
-#	}
- #   return render(request, 'nodanews/node_new.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
-    
-def analysis(request, slug, analysis_id):
-    analysis = get_object_or_404(Analysis, pk=analysis_id)
-    perspectives = AnalPerspective.objects.filter( article__id = analysis_id )
-    perspective_links = {
-		p: AnalLink.objects.filter(perspective__id = p.id) for p in perspectives
-	}
-    return render(request, 'nodanews/in-depth.html', {'analysis': analysis, 'perspectives': perspective_links})
-    
-def blog(request, slug, blog_id):
-	blog = get_object_or_404(Blog, pk=blog_id)
-	return render(request, 'nodanews/blog.html', {'blog': blog})
 	
-def content(request):
-	blogs = Blog.objects.all().order_by("-date_posted")
-	indepths = Analysis.objects.all().order_by("-date_posted")
-	issues = PoliticalIssue.objects.all().order_by("-id")
-	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths, 'issues': issues})
-
-
-def media_org(request, slug, media_org_id):
-    media_org = get_object_or_404(Media_Org, pk=media_org_id)
-    journalists = Journalist.objects.filter( organization__id = media_org_id )
-    return render(request, 'nodanews/media_org.html', {'media_org': media_org, 'journalists': journalists,})	
-
-def journalist(request, slug, journalist_id):
-	journalist = get_object_or_404(Journalist, pk=journalist_id)
-	return render(request, 'nodanews/journalist.html', {'journalist': journalist})
+	

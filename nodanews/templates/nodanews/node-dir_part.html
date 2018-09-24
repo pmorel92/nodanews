@@ -67,9 +67,8 @@
 	{% for link in topic_links %}
 			<li>
 			<a href="{{link.url}}" style="text-decoration: none;color: black">
-				<p class="link">{{link.title}}</p>
+                <p>{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}/{{link.media.slug}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
 				<p class="date_posted_1">Posted: {{link.posted}}</p>
-			</a>	
 			</li>
 	{% endfor %}
 		
