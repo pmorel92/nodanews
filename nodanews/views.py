@@ -20,7 +20,7 @@ def athena(request):
 	topics_by_dir = {
         n: Topic_Link.objects.filter(node_dir__id = n.id).order_by('-posted')[0:5] for n in topics
     }	
-	return render(request, 'nodanews/athena.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
+	return render(request, 'nodanews/index.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
 
 def political_issue(request, slug, issue_id):
