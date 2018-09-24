@@ -14,9 +14,10 @@
 <meta charset="utf-8">
 <title>Noda News</title>
 {% load static from staticfiles %}
-<link href="{% static 'css_style_sheets/helennav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/athenanav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/node_dir_part.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body> 
@@ -67,7 +68,7 @@
 	{% for link in topic_links %}
 			<li>
 			<a href="{{link.url}}" style="text-decoration: none;color: black">
-                <p>{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}/{{link.media.slug}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
+                <p class="link">{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}/{{link.media.slug}}" class="breaking_media" target="_blank"> -- {{link.media.name}}</p></a>
 				<p class="date_posted_1">Posted: {{link.posted}}</p>
 			</li>
 	{% endfor %}

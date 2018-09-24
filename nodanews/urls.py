@@ -15,7 +15,6 @@ urlpatterns = [
 	url(r'^node/(?P<node_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.nodeslug, name='nodes with slugs'),
 	url(r'^media_dir/(?P<media_org_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.media_org, name='media_org'),
 	url(r'^blog/(?P<blog_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.blog, name='blog'),
-	url(r'^content/$', views.content, name='content'),
 	url(r'^in-depth/(?P<analysis_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.analysis, name='in-depth'),
 	url(r'^journalist/(?P<journalist_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.journalist, name='journalist'),
 	url(r'^issue/(?P<issue_id>[0-9]+)/(?P<slug>[\w-]+)/$', views.political_issue, name='political issue'),	

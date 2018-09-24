@@ -96,12 +96,6 @@ def blog(request, slug, blog_id):
 	blog = get_object_or_404(Blog, pk=blog_id)
 	return render(request, 'nodanews/blog.html', {'blog': blog})
 	
-def content(request):
-	blogs = Blog.objects.all().order_by("-date_posted")
-	indepths = Analysis.objects.all().order_by("-date_posted")
-	issues = PoliticalIssue.objects.all().order_by("-id")
-	return render(request, 'nodanews/content.html', {'blogs': blogs, 'indepths': indepths, 'issues': issues})
-
 
 def media_org(request, slug, media_org_id):
     media_org = get_object_or_404(Media_Org, pk=media_org_id)
