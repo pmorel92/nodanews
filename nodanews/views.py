@@ -44,7 +44,7 @@ def node_dir(request):
 def node_dir_part(request, node_dir_id , slug):
     node_dir = get_object_or_404(Node_Dir, pk=node_dir_id)
     nodes = Node.objects.filter(node_direc__id = node_dir_id)
-    topic_links = Topic_Link.objects.filter(node_dir__id = node_dir_id)
+    topic_links = Topic_Link.objects.filter(node_dir__id = node_dir_id).order_by('-posted')
     return render(request, 'nodanews/node-dir_part.html', {'nodes': nodes, 'node_dir': node_dir, 'topic_links': topic_links})	
 
 def media_dir_athena(request):
