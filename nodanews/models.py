@@ -205,7 +205,7 @@ class Breaking_Link(models.Model):
 class About(models.Model):
     description = models.TextField()
 
-############################### Old Stuff Below ######################################
+
 class Blog(models.Model):
     headline = models.CharField(max_length=200, default='')
     date_posted = models.DateField()
@@ -216,6 +216,8 @@ class Blog(models.Model):
         return "{}".format(self.headline)
     class Meta:
         ordering = ('-date_posted',)
+
+############################### Old Stuff Below ######################################
         
 class Analysis(models.Model):
     headline = models.CharField(max_length=200, default='')

@@ -22,6 +22,16 @@ def athena(request):
     }	
 	return render(request, 'nodanews/index.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
+def hera(request):
+	headlines = Node.objects.all()[0:1]
+	nodes = Node.objects.all().order_by('-date_posted')[1:5]
+	blogs= Blog.objects.all().order_by('-date_posted')[0:5]	
+	breaking_links = Breaking_Link.objects.all()
+	conservaturds = Breaking_Link.objects.filter( region__id=9 ).order_by('-posted')
+	libtards = Breaking_Link.objects.filter( region__id=10 ).order_by('-posted') 	
+	
+	return render(request, 'nodanews/test.html', {'nodes': nodes, 'breaking_links': breaking_links, 'blogs': blogs, 'conservaturds': conservaturds, 'libtards': libtards, 'headlines': headlines})
+
 
 def political_issue(request, slug, issue_id):
     issue = get_object_or_404(PoliticalIssue, pk=issue_id)
