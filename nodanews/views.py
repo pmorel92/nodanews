@@ -26,7 +26,7 @@ def hera(request):
 	headlines = Node.objects.all()[0:1]
 	nodes = Node.objects.all().order_by('-date_posted')[1:5]
 	blogs= Blog.objects.all().order_by('-date_posted')[0:5]	
-	breaking_links = Breaking_Link.objects.all()
+	breaking_links = Breaking_Link.objects.all().exclude( region__id=9 and region__id=10 )
 	conservaturds = Breaking_Link.objects.filter( region__id=9 ).order_by('-posted')
 	libtards = Breaking_Link.objects.filter( region__id=10 ).order_by('-posted') 	
 	
