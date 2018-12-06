@@ -113,7 +113,9 @@
           {% for libtard in libtards %}
             <li>
                <a href="{{libtard.url}}" class="link" target="_blank">
-                 <p>{{libtard.title}}</a><a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}/{{libtard.media.slug}}" class="breaking_media" target="_blank"> -- {{libtard.media.name}}</p></a>
+                 <p>{{libtard.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}/{{libtard.media.slug}}" class="breaking_media" target="_blank">{{libtard.media.name}}</a><br>
+                 <a href="http://www.nodanews.com/journalist/{{libtard.journalist.id}}/{{libtard.journalist.slug}}" class="jouranlist" target="_blank">{{libtard.journalist.name}}</a></p>                  
                   {% if libtard.imageQ %}
                   <a href="{{libtard.url}}" target="_blank">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{libtard.image}}" class="breaking_image">
@@ -129,7 +131,9 @@
           {% for conservaturd in conservaturds %}
             <li>
                <a href="{{conservaturd.url}}" class="link" target="_blank">
-                 <p>{{conservaturd.title}}</a><a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}/{{conservaturd.media.slug}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</p></a>
+                 <p>{{conservaturd.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}/{{conservaturd.media.slug}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</a><br>
+                 <a href="http://www.nodanews.com/journalist/{{conservaturd.journalist.id}}/{{conservaturd.journalist.slug}}" class="jouranlist" target="_blank">{{conservaturd.journalist.name}}</a></p>             
                   {% if conservaturd.imageQ %}
                   <a href="{{conservaturd.url}}" target="_blank">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{conservaturd.image}}" class="breaking_image">
