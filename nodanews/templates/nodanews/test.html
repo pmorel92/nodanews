@@ -81,7 +81,9 @@
         {% for breaking_link in breaking_links %}
             <li>
                <a href="{{breaking_link.url}}" class="link" target="_blank">
-                 <p>{{breaking_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}/{{breaking_link.media.slug}}" class="breaking_media" target="_blank"> -- {{breaking_link.media.name}}</p></a>
+                 <p>{{breaking_link.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}/{{breaking_link.media.slug}}" class="breaking_media" target="_blank">{{breaking_link.media.name}}</a><br>
+                 <a href="http://www.nodanews.com/journalist/{{breaking_link.journalist.id}}/{{breaking_link.journalist.slug}}" class="jouranlist" target="_blank">{{breaking_link.journalist.name}}</a></p> 
                   {% if breaking_link.imageQ %}
                   <a href="{{breaking_link.url}}" target="_blank">
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
