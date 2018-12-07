@@ -13,14 +13,6 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
-def athena(request):
-	headlines = Headline.objects.all()
-	breaking_links = Breaking_Link.objects.all()
-	topics = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
-	topics_by_dir = {
-        n: Topic_Link.objects.filter(node_dir__id = n.id).order_by('-posted')[0:5] for n in topics
-    }	
-	return render(request, 'nodanews/index.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
 def hera(request):
 	headlines = Node.objects.all()[0:1]
@@ -30,7 +22,7 @@ def hera(request):
 	conservaturds = Breaking_Link.objects.filter( region__id=9 ).order_by('-posted')
 	libtards = Breaking_Link.objects.filter( region__id=10 ).order_by('-posted') 	
 	
-	return render(request, 'nodanews/test.html', {'nodes': nodes, 'breaking_links': breaking_links, 'blogs': blogs, 'conservaturds': conservaturds, 'libtards': libtards, 'headlines': headlines})
+	return render(request, 'nodanews/index.html', {'nodes': nodes, 'breaking_links': breaking_links, 'blogs': blogs, 'conservaturds': conservaturds, 'libtards': libtards, 'headlines': headlines})
 
 
 def political_issue(request, slug, issue_id):
@@ -118,6 +110,14 @@ def journalist(request, slug, journalist_id):
 	
 	
 	########################## DEPRECATED ###################
+def athena(request):
+	headlines = Headline.objects.all()
+	breaking_links = Breaking_Link.objects.all()
+	topics = Node_Dir.objects.filter(active=True).order_by('-date_updated')	
+	topics_by_dir = {
+        n: Topic_Link.objects.filter(node_dir__id = n.id).order_by('-posted')[0:5] for n in topics
+    }	
+	return render(request, 'nodanews/athena.html', {'headlines': headlines, 'breaking_links': breaking_links, 'topics': topics, 'topics_by_dir': topics_by_dir})
 
 def diana(request):
 	return render (request, 'nodanews/index.html')
