@@ -61,6 +61,7 @@
             <li id="headline">
                   <a href="https://www.nodanews.com/node/{{headline.id}}/{{headline.slug}}"  target="_blank" class="recent_headline"><p>{{headline.headline}}</p>
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.head_image}}" id="headline_image">
+                  <p class="blog_posted">{{headline.date_posted}}</p>
                   </a>
             </li>              
             {% endfor %}
@@ -69,6 +70,7 @@
               <li>  
                   <a href="https://www.nodanews.com/node/{{node.id}}/{{node.slug}}"  target="_blank" class="node_headline"><p>{{node.headline}}</p>
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="node_image">
+                  <p class="blog_posted">{{node.date_posted}}</p>
                   </a>
             </li>
           {% endfor %}
