@@ -97,21 +97,11 @@
   </div>
 
   <div id="right_side">
-    <div id="blog_list">
-    <ul>
-        <li class="section_title">Blog from the Editor</li>
-    {% for blog in blogs %}
-          <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}">  
-            <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
-          </a>  
-          <hr>          
-        {% endfor %}
-       </ul>    
-    </div>
+
     <div id="political_list">
         <div class="link_list">
           <ul>
-            <li class="section_title">Brexit News</li>
+            <li class="section_title">Coup in Sudan</li>
           {% for libtard in libtards %}
             <li>
                <a href="{{libtard.url}}" class="link" target="_blank">
@@ -146,6 +136,17 @@
           </ul>
         </div>
     </div>
+    <div id="blog_list">
+    <ul>
+        <li class="section_title">Blog from the Editor</li>
+    {% for blog in blogs %}
+          <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}">  
+            <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
+          </a>  
+          <hr>          
+        {% endfor %}
+       </ul>    
+    </div>    
   </div>
 <footer>Email: contact@nodanews.com</footer>
 </div>
