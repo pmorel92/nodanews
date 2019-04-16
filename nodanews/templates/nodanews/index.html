@@ -101,7 +101,7 @@
     <div id="political_list">
         <div class="link_list">
           <ul>
-          {% for libtard in libtards|slice":1" %}            
+          {% for libtard in libtards|slice"0:1" %}            
             <li class="section_title">{{libtard.region.name}}</li>
             {% endfor %}
           {% for libtard in libtards %}
@@ -121,7 +121,7 @@
         </div>
         <div class="link_list">
           <ul>
-          {% for conservaturd in conservaturds|slice:":1" %}            
+          {% for conservaturd in conservaturds|slice:"0:1" %}            
             <li class="section_title">{{conservaturd.region.name}}</li>
           {% endfor %}  
           {% for conservaturd in conservaturds %}
