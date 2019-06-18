@@ -54,10 +54,10 @@ class STF_HubAdmin(admin.ModelAdmin):
     list_display = ['name', 'node_dir', 'date_updated']
 
 class STFAdmin(admin.ModelAdmin):
-    list_display = ['headline', 'STF_Hub', 'date_updated']
+    list_display = ['headline', 'hub', 'date_updated']
 
 class STF_LinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'media']
+    list_display = ['title', 'media', 'story']
 
 admin.site.register(Node, NodeAdmin)
 admin.site.register(Node_Dir, Node_DirAdmin)

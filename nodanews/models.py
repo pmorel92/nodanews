@@ -144,7 +144,7 @@ class STF(models.Model):
     date_updated = models.DateTimeField()
     videoQ = models.BooleanField(default=False)
     video = models.CharField(max_length=500, default='', blank=True) 
-    STF_Hub= models.ForeignKey(
+    hub= models.ForeignKey(
         'STF_Hub',
         on_delete=models.PROTECT)
     node_dir = models.ForeignKey(
@@ -154,7 +154,7 @@ class STF(models.Model):
     slug = models.SlugField(max_length=200, default=' ') 
 
     def __str__(self):
-        return "{}/{}".format(self.headline, self.STF_Hub)
+        return "{}/{}".format(self.headline, self.hub)
 
 class Journalist(models.Model):
     name = models.CharField(max_length=200, default='')
@@ -189,11 +189,11 @@ class STF_Link(models.Model):
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
-    STF = models.ForeignKey(
+    story = models.ForeignKey(
         'STF',
         on_delete=models.CASCADE,)
     def __str__(self):
-        return "{}/{}".format(self.id, self.STF)
+        return "{}/{}".format(self.id, self.story)
 
 class Topic_Link(models.Model):
     url = models.CharField(max_length=300, default='', blank=True)
