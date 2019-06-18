@@ -105,7 +105,7 @@ def stf_hub(request, slug, stf_hub_id):
 def stf(request, slug, stf_id):
 	stf = get_object_or_404(STF, pk=stf_id)
 	stf_links = STF_Link.objects.filter( STF__id = stf_id)
-	return render(request, 'nodnaews.com/story.html', {'stf': stf, 'stf_links': stf_links})
+	return render(request, 'nodanews.com/story.html', {'stf': stf, 'stf_links': stf_links})
 	
 def analysis(request, slug, analysis_id):
     analysis = get_object_or_404(Analysis, pk=analysis_id)
