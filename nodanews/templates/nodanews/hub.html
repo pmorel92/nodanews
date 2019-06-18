@@ -54,7 +54,7 @@
 	</a>
  <div class="stf_list">
   <ul class="stfs">
-	{% for stf in stfs %}
+	{% for stf, stf_links in stfs.items %}
 			<li>
 			<a href="http://www.nodanews.com/story/{{stf.id}}/{{stf.slug}}" style="text-decoration: none;color: black">
 				<p class="stf_headline">{{stf.headline}}</p>
@@ -62,12 +62,12 @@
 				<img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="image"/></a>
 				<p class="description">{{stf.update|linebreaksbr}}</p>
 					<ul class="link_list">	
-						{% for stf_link in stf_links %}
+						{% for link in stf_links %}
 							<li class="link">
-								<a href="{{stf_link.url}}" style="text-decoration: none;color: black" target="_blank">
-									<h3 class="link">{{stf_link.title}}</a>
-										<a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
-										 -- {{stf_link.media.name}}</h3>
+								<a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank">
+									<h3 class="link">{{link.title}}</a>
+										<a href="http://www.nodanews.com/media_dir/{{link.media.id}}/{{link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
+										 -- {{link.media.name}}</h3>
 										</a>
 							</li>
 						{% endfor %}

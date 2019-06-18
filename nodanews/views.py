@@ -100,7 +100,7 @@ def stf_hub(request, slug, stf_hub_id):
 	stf_links = {
 		p: STF_Link.objects.filter(story__id = p.id) for p in stfs
 	}	
-	return render(request, 'nodanews/hub.html', {'stf_hub': stf_hub, 'stfs': stfs, 'stf_links': stf_links})
+	return render(request, 'nodanews/hub.html', {'stf_hub': stf_hub, 'stfs': stf_links})
 
 def stf(request, slug, stf_id):
 	stf = get_object_or_404(STF, pk=stf_id)
