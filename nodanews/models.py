@@ -42,6 +42,7 @@ class Node_Dir(models.Model):
 class STF_Hub(models.Model):
     name = models.CharField(max_length=100, default='')
     banner = models.ImageField(upload_to='media/nodes')
+    credit = models.CharField(max_length=200, default='')     
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField(default='', blank=True)
     node_dir = models.ForeignKey(
@@ -80,22 +81,6 @@ class Node(models.Model):
     class Meta:
         ordering = ('-date_posted',)
 
-class STF(models.Model):
-    headline = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='media/nodes', default='')
-    update = models.TextField()
-    date_updated = models.DateTimeField()
-    STF_Hub= models.ForeignKey(
-        'STF_Hub',
-        on_delete=models.PROTECT)
-    node_dir = models.ForeignKey(
-        'Node_Dir',
-        on_delete=models.PROTECT,)
-    slug = models.SlugField(max_length=200, default=' ') 
-
-    def __str__(self):
-        return "{}/{}".format(self.headline, self.STF_Hub)
-        
 class Perspective(models.Model):
     name = models.CharField(max_length=47, default='')
     node = models.ForeignKey(
@@ -151,6 +136,26 @@ class Media_Org(models.Model):
     class Meta:
         ordering = ('name',)
         
+class STF(models.Model):
+    headline = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='media/nodes', default='')
+    credit = models.CharField(max_length=200, default='')     
+    update = models.TextField()
+    date_updated = models.DateTimeField()
+    videoQ = models.BooleanField(default=False)
+    video = models.CharField(max_length=500, default='', blank=True) 
+    STF_Hub= models.ForeignKey(
+        'STF_Hub',
+        on_delete=models.PROTECT)
+    node_dir = models.ForeignKey(
+        'Node_Dir',
+        on_delete=models.PROTECT,)
+
+    slug = models.SlugField(max_length=200, default=' ') 
+
+    def __str__(self):
+        return "{}/{}".format(self.headline, self.STF_Hub)
+
 class Journalist(models.Model):
     name = models.CharField(max_length=200, default='')
     contact = models.CharField(max_length=200, default='')

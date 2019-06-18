@@ -14,6 +14,15 @@ def get_item(dictionary, key):
 
 
 
+def phoebe(request):
+	nodes = Node.objects.all().order_by('-date_posted')[0:5]
+	blogs= Blog.objects.all().order_by('-date_posted')[0:5]	
+	breaking_links = Breaking_Link.objects.all()[0:15]
+	stfs= STF.objests.all().order_by('-date_updated') [0:5]
+	
+
+	return render(request, 'nodanews/index.html', {'nodes': nodes, 'breaking_links': breaking_links, 'stfs': stfs })
+
 def hera(request):
 	headlines = Node.objects.all()[0:1]
 	nodes = Node.objects.all().order_by('-date_posted')[1:5]
@@ -85,7 +94,19 @@ def nodeslug(request, slug, node_id):
 	}
     return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 
-    
+def stf_hub(request, slug, stf_hub_id):
+	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
+	stfs = STF.objects.filter( STF_Hub__id = stf_hub_id)
+	stf_links = {
+		p: STF_Link.objects.filter(STF__id = p.id) for p in stfs
+	}	
+	return render(request, 'nodanews/hub.html', {'stf_hub': stf_hub, 'stfs': stfs, 'stf_links': stf_links})
+
+def stf(request, slug, stf_id):
+	stf = get_object_or_404(STF, pk=stf_id)
+	stf_links = STF_Links.objects.filter( STF__id = stf_id)
+	return render(request, 'nodnaews.com/story.html', {'stf': stf, 'stf_links': stf_links})
+	
 def analysis(request, slug, analysis_id):
     analysis = get_object_or_404(Analysis, pk=analysis_id)
     perspectives = AnalPerspective.objects.filter( article__id = analysis_id )

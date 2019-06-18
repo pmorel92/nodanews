@@ -16,7 +16,7 @@
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <meta property='og:image' content='https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}'/>
-<link href="{% static 'css_style_sheets/node.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/stf.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/athenanav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -49,45 +49,30 @@
 		</div>
   </header>
 <div id="central-column">
-<div id="section_1">
-	<div id="heading">
-	<a href="http://www.nodanews.com/node-dir/{{node.node_direc.id}}/{{node.node_direc.slug}}" style="text-decoration: none; color: black"><h4  id="related_node_direc">{{node.node_direc}}</h4></a>
-	<hr>
-	<h4 id="posted">Updated: {{node.date_posted}}</h4>
-	</div>
-	<h1 id="headline">{{node.headline}}</h1>
-
-<p id="lead">{{node.lead}}</p>
-<img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" id="image_1" alt=""/>
-		<p class="photo_credit">{{node.credit1}}</p>
-</div>
-<div id="section_2">
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed1}}" frameborder="0" allowfullscreen></iframe>
-	<p id="my_take">{{node.my_take|linebreaksbr}}</p>
-		<img src="https://nodastorage.s3.amazonaws.com/media/{{node.foot_image}}" id="image_2" alt=""/>
-		<p class="photo_credit">{{node.credit2}}</p>
-</div>
-<div id="section_3">
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed2}}" frameborder="0" allowfullscreen></iframe>
-		<h1 id="opinion">Opinion from NodaNews</h1>
-	<p id="my_take2">{{node.my_take2|linebreaksbr}}</p>	
-</div>
-<div id="section_4">
-	<iframe class="video_embed" width="420" height="236" src="{{node.video_embed3}}" frameborder="0" allowfullscreen></iframe>
-	{% for perspective, links in perspectives.items %}
-	<div class="perspective">
-		<h2 class="heading">{{perspective.name}}</h2>
-			<ul class="link_list">	
-				{% for link in links %}
-					<li class="link"><a href="{{link.url}}" style="text-decoration: none;color: black" target="_blank"><h3 class="link">{{link.title}}</a><a href="http://www.nodanews.com/media_dir/{{link.media.id}}/{{link.media.slug}}" style="text-decoration: none;color: orange" target="_blank"> -- {{link.media.name}}</h3></a></li>
-				{% endfor %}
-			</ul>
+	<h1 class="headline">{{stf.headline}}</h1>
+	
+	<img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" id="image_1" alt=""/>
+	<p class="photo_credit">{{stf.credit}}</p>
+	<a href="http://www.nodanews.com/hub/{{stf.STF_Hub.id}}/{{stf.STF_Hub.slug}}">
+		<h2 class="hub">Click Here for More Information on {{stf.STF_Hub.name}}</h2>
+	</a>
+	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node.dir.slug}}"><h2 class="node_dir">{{stf.node_dir.name}}</h2>
+	</a>
+	<p class="description">{{stf.update|linebreaksbr}}</p>
+	{% if videoQ %}
+	<iframe class="video_embed" width="420" height="236" src="{{stf.video}}" frameborder="0" allowfullscreen></iframe>
+	{% endif %}
+	<ul class="link_list">	
+	{% for stf_link in stf_links %}
+		<li class="link">
+			<a href="{{stf_link.url}}" style="text-decoration: none;color: black" target="_blank">
+				<h3 class="link">{{stf_link.title}}</a>
+				<a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
+					 -- {{stf_link.media.name}}</h3>
+				</a>
+		</li>
 		{% endfor %}
-	<hr>
-	</div>
-</div>
-<div id="section_5">
-
+	</ul>	
 <script id="dsq-count-scr" src="//nodanews.disqus.com/count.js" async></script>
 
 <div id="disqus_thread"></div>
@@ -102,21 +87,6 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-<div id="assnodes">
-	<ul id="assnode_list">
-		{% for assnode in assnodes|slice:":1" %}
-			<p id="assnode_title">More Nodes on {{assnode.node_direc.name}}</p>
-		{% endfor %}
-		{% for assnode in assnodes %}
-			<a href="http://www.nodanews.com/node/{{assnode.id}}" style="text-decoration: none;color: black"><li>{{assnode.headline}} 
-			<br>Posted: {{assnode.date_posted}}
-			</li></a>
-			<hr>
-		{% endfor %}
-	</ul>
-</div>
-
-</div>    
 </body>
 </html>
 
