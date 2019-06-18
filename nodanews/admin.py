@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue
+from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue, STF, STF_Hub, STF_Link
 
 
 class Media_OrgAdmin(admin.ModelAdmin):
@@ -50,6 +50,15 @@ class PoliticalBiasNewsAdmin(admin.ModelAdmin):
 class BlogAdmin(admin.ModelAdmin):
     list_display = ['headline', 'date_posted']
 
+class STF_HubAdmin(admin.ModelAdmin):
+    list_display = ['name', 'node_dir', 'date_updated']
+
+class STFAdmin(admin.ModelAdmin):
+    list_display = ['headline', 'STF_Hub', 'date_updated']
+
+class STF_LinkAdmin(admin.ModelAdmin):
+    list_display = ['title', 'media']
+
 admin.site.register(Node, NodeAdmin)
 admin.site.register(Node_Dir, Node_DirAdmin)
 admin.site.register(Region, RegionAdmin)
@@ -69,3 +78,6 @@ admin.site.register(AnalLink, AnalLinkAdmin)
 admin.site.register(AnalPerspective)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(PoliticalIssue)
+admin.site.register(STF, STFAdmin)
+admin.site.register(STF_Link, STF_LinkAdmin)
+admin.site.register(STF_Hub, STF_HubAdmin)
