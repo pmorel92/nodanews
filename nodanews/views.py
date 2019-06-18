@@ -95,7 +95,7 @@ def nodeslug(request, slug, node_id):
     return render(request, 'nodanews/node.html', {'node': node, 'perspectives': perspective_links, 'node_dirs': node_dirs, 'assnodes': assnodes})
 
 def stf_hub(request, slug, stf_hub_id):
-	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
+	stf_hub = get_object_or_404(STF_Hub)
 	stfs = STF.objects.filter( STF_Hub__id = stf_hub_id)
 	stf_links = {
 		p: STF_Link.objects.filter(STF__id = p.id) for p in stfs
