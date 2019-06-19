@@ -53,10 +53,10 @@
 	
 	<img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" id="image_1" alt=""/>
 	<p class="photo_credit">{{stf.credit}}</p>
-	<a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="hub" target="_blank">
+	<a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="hub" style="color: black" target="_blank">
 		<h2>Click Here for More Information on {{stf.hub.name}}</h2>
 	</a>
-	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node_dir.slug}}" class="node_dir" target="_blank"><h2>{{stf.node_dir.name}}</h2>
+	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node_dir.slug}}" class="node_dir" style="color: black" target="_blank"><h2>{{stf.node_dir.name}}</h2>
 	</a>
 	{% if stf.videoQ %}
 	<iframe class="video_embed" width="420" height="236" src="{{stf.video}}" frameborder="0" allowfullscreen></iframe>
@@ -66,7 +66,7 @@
 	{% for stf_link in stf_links %}
 		<li class="link">
 			<a href="{{stf_link.url}}" style="text-decoration: none;color: black" target="_blank">
-				<h3 class="link">{{stf_link.title}}</a>
+				<h3 class="link">{{stf_link.title}}</a><br>
 				<a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
 					 -- {{stf_link.media.name}}</h3>
 				</a>
