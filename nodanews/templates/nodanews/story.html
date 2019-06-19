@@ -59,7 +59,7 @@
 	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node.dir.slug}}"><h2 class="node_dir">{{stf.node_dir.name}}</h2>
 	</a>
 	<p class="description">{{stf.update|linebreaksbr}}</p>
-	{% if videoQ %}
+	{% if stf.videoQ %}
 	<iframe class="video_embed" width="420" height="236" src="{{stf.video}}" frameborder="0" allowfullscreen></iframe>
 	{% endif %}
 	<ul class="link_list">	
