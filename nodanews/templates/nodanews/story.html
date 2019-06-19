@@ -53,7 +53,7 @@
 	
 	<img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" id="image_1" alt=""/>
 	<p class="photo_credit">{{stf.credit}}</p>
-	<p class="updated">Updated: {{stf.post_updated}}</p>
+	<p class="updated">Updated: {{stf.date_updated}}</p>
 	<a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="hub" target="_blank">
 		<h2>Click Here for More Information on {{stf.hub.name}}</h2>
 	</a>
@@ -67,9 +67,9 @@
 	{% for stf_link in stf_links %}
 		<li class="link">
 			<a href="{{stf_link.url}}" style="text-decoration: none;color: black" target="_blank">
-				<h3 class="link">{{stf_link.title}}</a><br>
+				<h3 class="link">{{stf_link.title}}</a></h3><br>
 				<a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
-					 -- {{stf_link.media.name}}</h3>
+					 <h3 class="link">-- {{stf_link.media.name}}</h3>
 				</a>
 		</li>
 		{% endfor %}
