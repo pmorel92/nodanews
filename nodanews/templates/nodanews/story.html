@@ -53,10 +53,10 @@
 	
 	<img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" id="image_1" alt=""/>
 	<p class="photo_credit">{{stf.credit}}</p>
-	<a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}">
+	<a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" style="text-decoration: none;color: black" target="_blank">
 		<h2 class="hub">Click Here for More Information on {{stf.hub.name}}</h2>
 	</a>
-	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node.dir.slug}}"><h2 class="node_dir">{{stf.node_dir.name}}</h2>
+	<a href="http://www.noadnews.com/{{stf.node_dir.id}}/{{stf.node.dir.slug}}" style="text-decoration: none;color: black" target="_blank"><h2 class="node_dir">{{stf.node_dir.name}}</h2>
 	</a>
 	<p class="description">{{stf.update|linebreaksbr}}</p>
 	{% if stf.videoQ %}
