@@ -95,11 +95,19 @@ def nodeslug(request, slug, node_id):
 
 def stf_hub(request, slug, stf_hub_id):
 	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
-	stfs = STF.objects.filter( hub__id = stf_hub_id)
+	stfs = STF.objects.filter( hub__id = stf_hub_id)[0:7]
 	stf_links = {
 		p: STF_Link.objects.filter(story__id = p.id) for p in stfs
 	}	
 	return render(request, 'nodanews/hub.html', {'stf_hub': stf_hub, 'stfs': stf_links})
+
+def stf_hubx(request, slug, stf_hub_id):
+	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
+	stfs = STF.objects.filter( hub__id = stf_hub_id)
+	stf_links = {
+		p: STF_Link.objects.filter(story__id = p.id) for p in stfs
+	}	
+	return render(request, 'nodanews/hubx.html', {'stf_hub': stf_hub, 'stfs': stf_links})	
 
 def stf(request, slug, stf_id):
 	stf = get_object_or_404(STF, pk=stf_id)
