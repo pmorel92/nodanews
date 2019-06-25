@@ -57,14 +57,6 @@
 <div id="main">
   <div id="node_list">
           <ul id="main_list">
-            {% for headline in headlines %}
-            <li id="headline">
-                  <a href="https://www.nodanews.com/node/{{headline.id}}/{{headline.slug}}"  target="_blank" class="recent_headline"><p>{{headline.headline}}</p>
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{headline.head_image}}" id="headline_image">
-                  <p class="blog_posted">{{headline.date_posted}}</p>
-                  </a>
-            </li>              
-            {% endfor %}
           <li class="section_title">Recent News</li>
           {% for node in nodes %}
               <li>  
@@ -77,20 +69,17 @@
       </ul>
     
   </div>
-  <div id="breaking_links">
+  <div id="stf_list">
       <ul>
-      <li class="section_title">In Other News</li>
-        {% for breaking_link in breaking_links %}
+      <li class="section_title">Stories to Follow<br>Click for More Information</li>
+        {% for stf in stfs %}
             <li>
-               <a href="{{breaking_link.url}}" class="link" target="_blank">
-                 <p>{{breaking_link.title}}</a><br>
-                 <a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}/{{breaking_link.media.slug}}" class="breaking_media" target="_blank">{{breaking_link.media.name}}</a><br>
-                 <a href="http://www.nodanews.com/journalist/{{breaking_link.journalist.id}}/{{breaking_link.journalist.slug}}" class="jouranlist" target="_blank">{{breaking_link.journalist.name}}</a></p> 
-                  {% if breaking_link.imageQ %}
-                  <a href="{{breaking_link.url}}" target="_blank">
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
+               <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="stf_link" target="_blank">
+                 <p>{{stf.headline}}<br>Updated: {{stf.date_updated}}</p>
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="stf_image">
+                  <p class="stf_update">{{stf.update|linebreaksbr}}</p>
                   </a>
-              {% endif %}   
+   
            </li>
         {% endfor %}
       </ul>
@@ -101,42 +90,20 @@
     <div id="political_list">
         <div class="link_list">
           <ul>
-          {% for libtard in libtards|slice:"0:1" %}            
-            <li class="section_title">{{libtard.region.name}}</li>
-            {% endfor %}
-          {% for libtard in libtards %}
+            <li class="section_title">In Other News</li>
+          {% for breaking_link in breaking_links %}
             <li>
-               <a href="{{libtard.url}}" class="link" target="_blank">
-                 <p>{{libtard.title}}</a><br>
-                 <a href="http://www.nodanews.com/media_dir/{{libtard.media.id}}/{{libtard.media.slug}}" class="breaking_media" target="_blank">{{libtard.media.name}}</a><br>
-                 <a href="http://www.nodanews.com/journalist/{{libtard.journalist.id}}/{{libtard.journalist.slug}}" class="jouranlist" target="_blank">{{libtard.journalist.name}}</a></p>                  
-                  {% if libtard.imageQ %}
-                  <a href="{{libtard.url}}" target="_blank">
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{libtard.image}}" class="breaking_image">
+               <a href="{{breaking_link.url}}" class="link" target="_blank">
+                 <p>{{breaking_link.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}/{{breaking_link.media.slug}}" class="breaking_media" target="_blank">{{breaking_link.media.name}}</a><br>
+                 <a href="http://www.nodanews.com/journalist/{{breaking_link.journalist.id}}/{{breaking_link.journalist.slug}}" class="jouranlist" target="_blank">{{breaking_link.journalist.name}}</a></p>                  
+                  {% if breaking_link.imageQ %}
+                  <a href="{{breaking_link.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
                   </a>
               {% endif %}   
            </li>          
           {% endfor %}
-          </ul>
-        </div>
-        <div class="link_list">
-          <ul>
-          {% for conservaturd in conservaturds|slice:"0:1" %}            
-            <li class="section_title">{{conservaturd.region.name}}</li>
-          {% endfor %}  
-          {% for conservaturd in conservaturds %}
-            <li>
-               <a href="{{conservaturd.url}}" class="link" target="_blank">
-                 <p>{{conservaturd.title}}</a><br>
-                 <a href="http://www.nodanews.com/media_dir/{{conservaturd.media.id}}/{{conservaturd.media.slug}}" class="breaking_media" target="_blank"> -- {{conservaturd.media.name}}</a><br>
-                 <a href="http://www.nodanews.com/journalist/{{conservaturd.journalist.id}}/{{conservaturd.journalist.slug}}" class="jouranlist" target="_blank">{{conservaturd.journalist.name}}</a></p>             
-                  {% if conservaturd.imageQ %}
-                  <a href="{{conservaturd.url}}" target="_blank">
-                  <img src="https://nodastorage.s3.amazonaws.com/media/{{conservaturd.image}}" class="breaking_image">
-                  </a>
-              {% endif %}   
-           </li>          
-          {% endfor %}        
           </ul>
         </div>
     </div>
