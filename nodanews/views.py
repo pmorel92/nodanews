@@ -54,7 +54,7 @@ def node_dir(request):
 def node_dir_part(request, node_dir_id , slug):
     node_dir = get_object_or_404(Node_Dir, pk=node_dir_id)
     nodes = Node.objects.filter(node_direc__id = node_dir_id)
-	stfs = STF.objects.filter(node_dir__id = node_dir_id)
+    stfs = STF.objects.filter(node_dir__id = node_dir_id)
     return render(request, 'nodanews/node-dir_part.html', {'nodes': nodes, 'node_dir': node_dir, 'stfs': stfs})	
 
 def media_dir_athena(request):
