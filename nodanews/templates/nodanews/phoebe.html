@@ -71,14 +71,15 @@
   </div>
   <div id="stf_list">
       <ul>
-      <li class="section_title">Stories to Follow<br>Click for More Information</li>
+      <li class="section_title">Stories to Follow</li>
         {% for stf in stfs %}
             <li>
                <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="stf_link" target="_blank">
-                 <p>{{stf.headline}}<br>Updated: {{stf.date_updated}}</p>
+                 <p class="stf_headline">{{stf.headline}}<br>Updated: {{stf.date_updated}}</p>
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="stf_image">
+               </a>
                   <p class="stf_update">{{stf.update|linebreaksbr}}</p>
-                  </a>
+
    
            </li>
         {% endfor %}
