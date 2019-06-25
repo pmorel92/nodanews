@@ -19,9 +19,8 @@ def phoebe(request):
 	blogs= Blog.objects.all().order_by('-date_posted')[0:5]	
 	breaking_links = Breaking_Link.objects.all()
 	stfs= STF.objects.all().order_by('-date_updated') [0:5]
-	
 
-	return render(request, 'nodanews/index.html', {'nodes': nodes, 'blogs': blogs, 'breaking_links': breaking_links, 'stfs': stfs })
+	return render(request, 'nodanews/phoebe.html', {'nodes': nodes, 'blogs': blogs, 'breaking_links': breaking_links, 'stfs': stfs })
 
 def hera(request):
 	headlines = Node.objects.all()[0:1]
