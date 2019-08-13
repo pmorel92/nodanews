@@ -16,7 +16,7 @@
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/indepth.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css_style_sheets/athenanav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/nav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -38,20 +38,14 @@
 		</form>
     <nav>
       <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
-      <a href="http://www.nodanews.com/media-org-directory">Media Org. Directory</a>
-      <a href="http://www.nodanews.com/archives">Archives</a>      
-      <a href="http://www.nodanews.com/about">About Noda News</a>
-  	</nav>
-  	<div id="bg_white"></div>
-  	<img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
-		<a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="mobile_logo"></a>
+          <img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+        <ul id='nav-list'>
+          <li class='nav-list-item'> <a href="http://www.nodanews.com/media-org-directory">Media Org. Directory</a></li>
+          <li class='nav-list-item'><a href="http://www.nodanews.com/archives">Archives</a></li> 
+          <li class='nav-list-item'><a href="http://www.nodanews.com/about">About Noda News</a></li>
+        </ul>
 
-		<div id="mobile_menu">
-      <a href="http://www.nodanews.com/media-org-directory">Media Org. Directory</a>
-      <a href="http://www.nodanews.com/archives">Archives</a>      
-      <a href="http://www.nodanews.com/about">About Noda News</a>
-  		
-		</div>
+  	</nav>
   </header>
 
 <div id="central-column">
