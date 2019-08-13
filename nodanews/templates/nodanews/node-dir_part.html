@@ -15,7 +15,7 @@
 <title>Noda News</title>
 {% load static from staticfiles %}
 <link href="{% static 'css_style_sheets/nav.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css_style_sheets/node_dir1.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/node_dir.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -68,7 +68,6 @@
                  <p class="stf_updated">Updated: {{stf.date_updated}}</p>
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="stf_image">
                   <p class="credit">Photo Credit: {{stf.credit}}</p>
-                  <a href="http://www.nodanews.com/node_dir/{{stf.node_dir.id}}/{{stf.node_dir.slug}}" class="stf_link"><p class="node_dir">{{stf.node_dir}}</p></a>
                </a>
                   <p class="stf_update">{{stf.update|linebreaksbr}}</p>
 
