@@ -48,7 +48,7 @@
   <ul id="node_list">
   	<li class="section_title">Noda News Content</li>
 	{% for node in nodes %}
-			<li>
+			<li class='node-li'>
 			<a href="http://www.nodanews.com/node/{{node.id}}/{{node.slug}}" style="text-decoration: none;color: black">
 				<p class="link">{{node.headline}}</p>
 				<p class="date_posted_1">Posted: {{node.date_posted}}</p>
@@ -58,12 +58,11 @@
 	{% endfor %}
 	</ul>
 
-	</div>
-  <div id="stf_list">
-      <ul>
+  
+      <ul id="stf_list">
       <li class="section_title">Stories to Follow</li>
         {% for stf in stfs %}
-            <li>
+            <li class='stf-li'>
                <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="stf_link" target="_blank">
                  <p class="stf_headline">{{stf.headline}}</p>
                  <p class="stf_updated">Updated: {{stf.date_updated}}</p>
