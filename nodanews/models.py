@@ -19,7 +19,7 @@ class Region(models.Model):
 class Node_Dir(models.Model):
     name = models.CharField(max_length=100, default='')
     active = models.BooleanField(default=False)
-    date_updated = models.DateTimeField(default=datetime.now, blank=True)
+    date_updated = models.DateTimeField(auto_now=True, blank=True)
     description = models.TextField(default=' ')
     region = models.ForeignKey(
         'Region',
@@ -43,7 +43,7 @@ class STF_Hub(models.Model):
     name = models.CharField(max_length=100, default='')
     banner = models.ImageField(upload_to='media/nodes')
     credit = models.CharField(max_length=200, default='')     
-    date_updated = models.DateTimeField(default=datetime.now, blank=True)
+    date_updated = models.DateTimeField(auto_now=True, blank=True)
     description = models.TextField(default='', blank=True)
     node_dir = models.ForeignKey(
         'Node_Dir',
@@ -56,7 +56,7 @@ class STF_Hub(models.Model):
 class Node(models.Model):
     headline = models.CharField(max_length=200, default='')
     country = models.CharField(max_length=100, default='')
-    date_posted = models.DateField()
+    date_posted = models.DateField(auto_now_add=True)
     lead = models.TextField(default='')
     head_image = models.ImageField(upload_to='media/nodes', default='')
     credit1 = models.CharField(max_length=200, default='')        
@@ -107,7 +107,7 @@ class Media_Character(models.Model):
 
 class Media_Org(models.Model):
     name = models.CharField(max_length=100, default='')
-    date_posted = models.DateTimeField()
+    date_posted = models.DateTimeField(auto_now_add=True)
     home_page = models.CharField(max_length=200, default='')
     country = models.CharField(max_length=100, default='')
     region = models.ForeignKey('Region',
@@ -141,7 +141,7 @@ class STF(models.Model):
     image = models.ImageField(upload_to='media/nodes', default='')
     credit = models.CharField(max_length=200, default='')     
     update = models.TextField()
-    date_updated = models.DateTimeField()
+    date_updated = models.DateTimeField(auto_now_add=True)
     videoQ = models.BooleanField(default=False)
     video = models.CharField(max_length=500, default='', blank=True) 
     hub= models.ForeignKey(
@@ -252,7 +252,7 @@ class About(models.Model):
 
 class Blog(models.Model):
     headline = models.CharField(max_length=200, default='')
-    date_posted = models.DateField()
+    date_posted = models.DateField(auto_now_add=True)
     head_image = models.ImageField(upload_to='media/nodes', default='')
     text = models.TextField()
     slug = models.SlugField(max_length=200, default=' ')    
