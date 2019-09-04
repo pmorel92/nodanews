@@ -155,6 +155,8 @@ class STF(models.Model):
 
     def __str__(self):
         return "{}/{}".format(self.headline, self.hub)
+    class Meta:
+        ordering = ('-date_updated',)        
 
 class Journalist(models.Model):
     name = models.CharField(max_length=200, default='')
