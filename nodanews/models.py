@@ -225,7 +225,7 @@ class Breaking_Link(models.Model):
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
-    posted = models.DateTimeField(default=datetime.now, blank=True)
+    posted = models.DateTimeField(auto_now=True, blank=True)
     region = models.ForeignKey(
         'Region',
         default=8,
