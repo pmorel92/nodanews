@@ -1,11 +1,133 @@
+<!doctype html>
 <html>
-{% load static from staticfiles %}
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<style>
-  #UC {
-    margin: auto;
+  gtag('config', 'UA-109012884-1');
+</script>
+	
+<meta charset="utf-8">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/phoebe.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/nav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <header>
+  	    		<form method="get" action="https://www.google.com/search">
+			<input type="hidden" name="sitesearch" value="www.nodanews.com" />
+			<input type="text" size="15" name="q" placeholder="Search" />
+			<button type="submit"></button>
+		</form>
+    <nav>
+      <a href="http://www.nodanews.com"><img src="{% static 'images/elements/nn_logo_horizontal.svg' %}" alt="" id="logo"></a>
+          <img src="{% static 'images/elements/Hamburger_icon.svg.png' %}" alt="" id="burger">
+        <ul id='nav-list'>
+          <li class='nav-list-item'> <a href="http://www.nodanews.com/media-org-directory">Media Org. Directory</a></li>
+          <li class='nav-list-item'><a href="http://www.nodanews.com/archives">Archives</a></li> 
+          <li class='nav-list-item'><a href="http://www.nodanews.com/about">About Noda News</a></li>
+        </ul>
+
+  	</nav> 		
+  </header>
+<div id="main">
+  <div id="node_list">
+          <ul id="main_list">
+          <li class="section_title">Recent News</li>
+          {% for node in nodes %}
+              <li>  
+                  <a href="https://www.nodanews.com/node/{{node.id}}/{{node.slug}}"  target="_blank" class="node_headline"><p>{{node.headline}}</p>
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{node.head_image}}" class="node_image">
+                  <p class="blog_posted">{{node.date_posted}}</p>
+                  </a>
+                  <a href="http://www.nodanews.com/node-dir/{{node.node_dir.id}}/{{node.node_dir.slug}}" class="stf_link"><p class="node_dir">{{node.node_direc}}</p></a>                  
+            </li>
+          {% endfor %}
+      </ul>
+    
+  </div>
+  <div id="stf_list">
+      <ul>
+      <li class="section_title">Stories to Follow</li>
+        {% for stf in stfs %}
+            <li>
+               <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="stf_link" target="_blank">
+                 <p class="stf_headline">{{stf.headline}}</p>
+                 <p class="stf_updated">Updated: {{stf.date_updated}}</p>
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="stf_image">
+                  <p class="credit">Photo Credit: {{stf.credit}}</p>
+                  <a href="http://www.nodanews.com/node-dir/{{stf.node_dir.id}}/{{stf.node_dir.slug}}" class="stf_link"><p class="node_dir">{{stf.node_dir}}</p></a>
+               </a>
+                  <p class="stf_update">{{stf.update|linebreaksbr}}</p>
+
+   
+           </li>
+        {% endfor %}
+      </ul>
+  </div>
+
+  <div id="right_side">
+
+    <div id="political_list">
+        <div class="link_list">
+          <ul>
+            <li class="section_title">In Other News</li>
+          {% for breaking_link in breaking_links %}
+            <li>
+               <a href="{{breaking_link.url}}" class="link" target="_blank">
+                 <p>{{breaking_link.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{breaking_link.media.id}}/{{breaking_link.media.slug}}" class="breaking_media" target="_blank">{{breaking_link.media.name}}</a><br>
+                 <a href="http://www.nodanews.com/journalist/{{breaking_link.journalist.id}}/{{breaking_link.journalist.slug}}" class="jouranlist" target="_blank">{{breaking_link.journalist.name}}</a></p>                  
+                  {% if breaking_link.imageQ %}
+                  <a href="{{breaking_link.url}}" target="_blank">
+                  <img src="https://nodastorage.s3.amazonaws.com/media/{{breaking_link.image}}" class="breaking_image">
+                  </a>
+              {% endif %}   
+           </li>          
+          {% endfor %}
+          </ul>
+        </div>
+    </div>
+    <div id="blog_list">
+    <ul>
+        <li class="section_title">Blog from the Editor</li>
+    {% for blog in blogs %}
+          <a href="http://www.nodanews.com/blog/{{blog.id}}/{{blog.slug}}">  
+            <li><span class="blog_headline">{{blog.headline}}</span><br><span class="blog_posted">{{blog.date_posted}}</span></li>
+          </a>  
+          <hr>          
+        {% endfor %}
+       </ul>    
+    </div>    
+  </div>
+<footer>Email: contact@nodanews.com</footer>
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("mobile_menu");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
-</style>
-  <img src="{% static 'images/elements/Under Construction.png' %}" alt="" id="UC" >
-      
+}
+</script>
+</body>
 </html>
