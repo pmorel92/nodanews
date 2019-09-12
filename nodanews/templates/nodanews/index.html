@@ -65,10 +65,10 @@
   </div>
   <div id="stf_list">
       <ul>
-      <li class="section_title">Stories to Follow</li>
+      <li class="section_title">Stories We are Following</li>
         {% for stf in stfs %}
             <li>
-               <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}" class="stf_link" target="_blank">
+               <a href="http://www.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}#recent" class="stf_link" target="_blank">
                  <p class="stf_headline">{{stf.headline}}</p>
                  <p class="stf_updated">Updated: {{stf.date_updated}}</p>
                   <img src="https://nodastorage.s3.amazonaws.com/media/{{stf.image}}" class="stf_image">
