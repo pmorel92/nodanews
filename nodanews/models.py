@@ -141,7 +141,7 @@ class STF(models.Model):
     image = models.ImageField(upload_to='media/nodes', default='')
     credit = models.CharField(max_length=200, default='')     
     update = models.TextField()
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
     videoQ = models.BooleanField(default=False)
     video = models.CharField(max_length=500, default='', blank=True) 
     hub= models.ForeignKey(
