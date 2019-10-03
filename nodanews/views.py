@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F, Q
-from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue, STF, STF_Hub, STF_Link
+from .models import Node, Media_Org, Perspective, Link, Node_Dir, Region, Journalist, Breaking_Link, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue, STF, STF_Hub, STF_Link, Feature, Feature_Link
 
 
 @register.filter
@@ -18,9 +18,10 @@ def phoebe(request):
 	nodes = Node.objects.all().order_by('-date_posted')[0:5]
 	blogs= Blog.objects.all().order_by('-date_posted')[0:5]	
 	breaking_links = Breaking_Link.objects.all()
+	features = Feature_Link.objects.all()
 	stfs= STF.objects.all().order_by('-date_updated') [0:5]
 
-	return render(request, 'nodanews/index.html', {'nodes': nodes, 'blogs': blogs, 'breaking_links': breaking_links, 'stfs': stfs })
+	return render(request, 'nodanews/index.html', {'nodes': nodes, 'blogs': blogs, 'breaking_links': breaking_links, 'stfs': stfs, 'features': features,})
 
 def hera(request):
 	headlines = Node.objects.all()[0:1]

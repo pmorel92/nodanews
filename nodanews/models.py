@@ -29,13 +29,19 @@ class Node_Dir(models.Model):
     banner = models.ImageField(upload_to='media/nodes', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')    
    
+    def __str__(self):
+        return self.name
 
+    class Meta:
+        ordering = ('name',)
 
+class Feature(models.Model):
+    name = models.CharField(max_length=100, default='')
+    image = models.ImageField(upload_to='media/temp', default='', blank=True)    
 
     def __str__(self):
         return self.name
 
-    
     class Meta:
         ordering = ('name',)
 
@@ -113,7 +119,7 @@ class Media_Org(models.Model):
     region = models.ForeignKey('Region',
     default=1,
     null=True,
-    on_delete=models.PROTECT,)
+    on_delete=models.CASCADE,)
     date_founded = models.DateField(default='1956-02-27')
     logo = models.ImageField(upload_to='media/logos')
     description = models.TextField()
@@ -184,6 +190,23 @@ class Link(models.Model):
     
     def __str__(self):
         return "{}/{}".format(self.id, self.perspective)
+        
+class Feature_Link(models.Model):
+    url = models.CharField(max_length=300, default='', blank=True)
+    title = models.CharField(max_length=150, default='', blank=True)
+    posted = models.DateTimeField(auto_now=True, blank=True)
+    media = models.ForeignKey(
+        'Media_Org',
+        on_delete=models.CASCADE,)
+    feature = models.ForeignKey(
+        'Feature',
+        on_delete=models.CASCADE,)
+    
+    def __str__(self):
+        return "{}/{}".format(self.id, self.feature)        
+
+    class Meta:
+        ordering = ('-posted',)
 
 class STF_Link(models.Model):
     url = models.CharField(max_length=300, default='', blank=True)
@@ -205,7 +228,7 @@ class Topic_Link(models.Model):
         'Region',
         default=8,
         null=True,
-        on_delete=models.PROTECT,)
+        on_delete=models.CASCADE,)
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
@@ -228,11 +251,6 @@ class Breaking_Link(models.Model):
         'Media_Org',
         on_delete=models.CASCADE,)
     posted = models.DateTimeField(auto_now=True, blank=True)
-    region = models.ForeignKey(
-        'Region',
-        default=8,
-        null=True,
-        on_delete=models.PROTECT,)
     journalist = models.ForeignKey('Journalist',
     null=True,
     blank=True,

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue, STF, STF_Hub, STF_Link
+from .models import Node, Media_Org, Link, Perspective, Node_Dir, Region, Journalist, Breaking_Link, Political_Lean, Media_Character, About, Topic_Link, Headline, PoliticalBiasNews, Blog, Analysis, AnalLink, AnalPerspective, PoliticalIssue, STF, STF_Hub, STF_Link, Feature, Feature_Link
 
 
 class Media_OrgAdmin(admin.ModelAdmin):
@@ -36,7 +36,7 @@ class AnalysisAdmin(admin.ModelAdmin):
     list_display = ['headline', 'date_posted', 'node_direc']
 
 class Breaking_LinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'media', 'region', 'posted', 'imageQ']
+    list_display = ['title', 'media', 'posted', 'imageQ']
     date_hierarchy = 'posted'
 
 class Topic_LinkAdmin(admin.ModelAdmin):
@@ -58,6 +58,13 @@ class STFAdmin(admin.ModelAdmin):
 
 class STF_LinkAdmin(admin.ModelAdmin):
     list_display = ['title', 'media', 'story']
+
+class FeatureAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+class Feature_LinkAdmin(admin.ModelAdmin):
+    list_display = ['title', 'media', 'posted', 'feature']
+    
 
 admin.site.register(Node, NodeAdmin)
 admin.site.register(Node_Dir, Node_DirAdmin)
@@ -81,3 +88,5 @@ admin.site.register(PoliticalIssue)
 admin.site.register(STF, STFAdmin)
 admin.site.register(STF_Link, STF_LinkAdmin)
 admin.site.register(STF_Hub, STF_HubAdmin)
+admin.site.register(Feature, FeatureAdmin)
+admin.site.register(Feature_Link, Feature_LinkAdmin)

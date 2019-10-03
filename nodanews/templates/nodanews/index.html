@@ -88,6 +88,21 @@
     <div id="political_list">
         <div class="link_list">
           <ul>
+            {% for feature in features|slice:"0:1" %}            
+            <li class="section_title">
+              <p>{{feature.feature.name}}</p>
+              <img src="https://nodastorage.s3.amazonaws.com/media/{{feature.feature.image}}" class="feature_image">
+              </li>
+            {% endfor %}
+            {% for feature in features %}
+            <li>
+               <a href="{{feature.url}}" class="link" target="_blank">
+                 <p>{{feature.title}}</a><br>
+                 <a href="http://www.nodanews.com/media_dir/{{feature.media.id}}/{{feature.media.slug}}" class="breaking_media" target="_blank">{{feature.media.name}}</a><br>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul>
             <li class="section_title">In Other News</li>
           {% for breaking_link in breaking_links %}
             <li>
