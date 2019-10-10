@@ -60,10 +60,8 @@
 	<ul class="link_list">	
 	{% for stf_link in stf_links %}
 		<li class="link">
-			<a href="{{stf_link.url}}" style="text-decoration: none;color: black" target="_blank">
-				<h3 class="link">{{stf_link.title}}</a></h3>
-				<a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">
-					 <h3 class="link">-- {{stf_link.media.name}}</h3>
+			<a href="{{stf_link.url}}" style="text-decoration: none;color: black" class="link" target="_blank">
+				<h3 class="link">{{stf_link.title}}</a><a href="http://www.nodanews.com/media_dir/{{stf_link.media.id}}/{{stf_link.media.slug}}" style="text-decoration: none;color: orange" target="_blank">-- {{stf_link.media.name}}</h3>
 				</a>
 		</li>
 		{% endfor %}
