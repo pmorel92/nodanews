@@ -16,6 +16,6 @@ python-dateutil==2.6.0
 requests>=2.20.0
 s3transfer==0.1.10
 six==1.10.0
-waitress==1.0.1
+waitress==1.4.1
 whitenoise==3.2.3
 django-tinymce==1.5.2
